@@ -2,15 +2,15 @@ import numpy as np
 import scipy.interpolate as si
 import random
 # import matplotlib.pyplot as plt
-number_for_random = [1,2,3,4,5,6,7,8]
+number_for_random = [4,5,6,7,8,9,10]
 
 def pointer(first_x, first_y, last_coord):
     cv = np.array([[ first_x,  first_y],
-#    [ 59.,  12.],
+#    [ random.randrange(200,400), random.randrange(200,400) ],
 #    [ 50.,  10.],
 #    [ 57.,   2.],
 #    [ 40.,   4.],
-   [ last_coord['x'] + random.choice(number_for_random) , last_coord['y'] + random.choice(number_for_random)]]) # Создание массива из известных точек, узлов
+   [ last_coord['x'] + random.choice(number_for_random), last_coord['y'] + random.choice(number_for_random)]]) # Создание массива из известных точек, узлов
     return scipy_bspline(cv, n=100, degree=3, periodic=False)
 
 
