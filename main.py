@@ -249,7 +249,7 @@ class Facebook(threading.Thread):
         }
         logging.info('Удаление профиля')
         self.lock.release()
-        time.sleep(1)
+        time.sleep(3)
         response = requests.request("POST", url, headers=headers, json=payload)
         print(response.text)
 
