@@ -1,5 +1,6 @@
 import requests
 import time
+import pickle
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 import curve
@@ -23,3 +24,7 @@ print(clickable.tag_name)
 print(clickable.text)
 print(driver.get_cookies())
 driver.find_element
+print(driver.get_cookies())
+pickle.dump
+driver.execute_script("return navigator.userAgent")
+driver.quit()

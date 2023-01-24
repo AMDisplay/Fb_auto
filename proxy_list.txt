@@ -1,1 +1,4 @@
-51.83.245.208:10281:melnikov3718:1397d2
+66.23.203.4@10795@melnikov3718@1397d2@http://node-us-60.astroproxy.com:10795/api/changeIP?apiToken=9f796d93469124de
+216.52.25.27@10523@melnikov3718@1397d2@http://node-us-57.astroproxy.com:10523/api/changeIP?apiToken=9f796d93469124de
+216.52.25.43@10355@melnikov3718@1397d2@http://node-us-56.astroproxy.com:10355/api/changeIP?apiToken=9f796d93469124de
+172.96.166.126@10103@melnikov3718@1397d2@http://node-us-72.astroproxy.com:10103/api/changeIP?apiToken=9f796d93469124de
