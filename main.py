@@ -1,130 +1,148 @@
-import requests
-import time
-import sys
-import os
-import logging
-import re
 import csv
+import logging
 import random
-import subprocess
+import sys
 import threading
-import pickle
+import time
 from pathlib import Path
-from api_sms import api_5sim
-from api_sms import sms_activate
+import json
+
+import requests
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver import ActionChains
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.actions.action_builder import ActionBuilder
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support.select import Select
-from fake_useragent import UserAgent
-from get_proxy import get_proxy
-import list_of_settings
+from selenium.common.exceptions import WebDriverException
+
 import curve
-import tkinter as tk
-import numpy as np
+import list_of_settings
+from api_sms import api_5sim, sms_activate
+from get_proxy import get_proxy
 
-
-
-UserAgent = UserAgent()
 
 
 API_KEY = "302949221d20300738e52ce0046a2b48"
-URL = "http://local.adspower.com:50725"
+URL = "http://local.adspower.com:50360"
 USER_ID = "h98ot4"
 GROUP_ID = "1836292"
 
+sms_list = ['activate', '5sim']
+
+therad_list = []
 
 
 
 class Facebook(threading.Thread):
 
-    def __init__(self, country, number_proxy, file_name, count_run) -> None:
+    def __init__(self, country, number_proxy, file_name, sms, count_run = None) -> None:
         threading.Thread.__init__(self)
         self.country = country
         self.number_proxy = number_proxy
         self.file_name = file_name
         self.lock = threading.RLock()
         self.count_run = count_run
-
-
+        self.event = threading.Event()
+        self.sms = sms
 
     def run(self):
         """Основная логика работы"""
-        n = int(0)
-        while n < self.count_run:
-            logging.info(f'Попытка номер {n}')
-            try:
-                status_api = self.get_status_api(URL)
-                if status_api['code'] != 0:
-                    print(status_api["msg"])
-            except Exception:
-                print("Проблема подключения к апи")
-                sys.exit()
-            current_proxy = get_proxy(self.number_proxy)
-            new_profile = self.create_profile(URL,current_proxy)
-            driver = self.start_profile(URL,new_profile["response"])
-            data = self.click_on_registraion(driver)
-            self.add_fields_in_reg_and_buy_number(data, new_profile["response"], payload=new_profile['payload'])
-            
-            n+=1
+        try:
+            status_api = self.get_status_api(URL)
+            if status_api['code'] != 0:
+                print(status_api["msg"])
+        except Exception:
+            print("Проблема подключения к апи")
+            sys.exit()
+        current_proxy = get_proxy(self.number_proxy)
+        new_profile = self.create_profile(current_proxy)
+        driver = self.start_profile(URL, new_profile["response"], current_proxy)
+        data = self.click_on_registraion(driver)
+        self.add_fields_in_reg_and_buy_number(data, new_profile["response"], payload=new_profile['payload'])
 
-
-
-    def move_coordinate_calculation(self ,points, action):
-        coord = points.tolist() # Преобразование многомерного (N массива np) в список питон
+    def move_coordinate_calculation(self, points, action):
+        coord = points.tolist()  # Преобразование многомерного (N массива np) в список питон
         for point in coord:
             point_x = point[0]
             point_y = point[1]
-            action.pointer_action.move_to_location(point_x,point_y)
+            action.pointer_action.move_to_location(point_x, point_y)
             action.perform()
         action.pointer_action.click()
         action.perform()
-        time.sleep(5)
+        self.event.wait(timeout=5)
         return coord[-1]
 
-
-    def wrote_csv(self, file_name, password = None, phone = None, status = None, id_account = None, cookies = None, payload = None,country_number = None, operator_number = None, driver = None, manager_id = None, eeab_token = None):
+    def wrote_csv(
+        self,
+        file_name,
+        password=None,
+        phone=None,
+        status=None,
+        id_account=None,
+        cookies=None,
+        payload=None,
+        country_number=None,
+        operator_number=None,
+        driver=None,
+        manager_id=None,
+        eeab_token=None
+    ):
         path = Path('csv', file_name)
-        if cookies is None: # По странам с говном
+        if cookies is None:  # По странам с говном
             ua = driver.execute_script("return navigator.userAgent")
             with open(str(path), "a", newline="") as file:
                 colums = ['phone','password', 'id_account', "cookies", 'status', 'ua']
                 account = {
-                        'phone' : phone,
-                        'password' : password,
+                        'phone': phone,
+                        'password': password,
                         'id_account': id_account,
                         'cookies': cookies,
-                        'status' : status,
+                        'status': status,
                         'ua': ua
                     }
-                writer = csv.DictWriter(file, fieldnames=colums, extrasaction='ignore', delimiter = ';')
+                writer = csv.DictWriter(
+                    file,
+                    fieldnames=colums, 
+                    extrasaction='ignore',
+                    delimiter=';')
                 if not file_name:
                     writer.writeheader()
                 writer.writerow(account)
-        if cookies is not None: # Только успешные со всей инфой
+        if cookies is not None:  # Только успешные со всей инфой
             with open("csv\For_myself.csv", "a", newline="") as file:
-                colums = ['phone','password', 'id_account', "cookies", 'payload', "country_number", "operator_number"]
+                colums = [
+                    'phone',
+                    'password',
+                    'id_account',
+                    "cookies", 'payload', "country_number", "operator_number"]
                 account = {
-                        'phone' : phone,
-                        'password' : password,
+                        'phone': phone,
+                        'password': password,
                         'id_account': id_account,
                         'cookies': cookies,
                         'payload': payload,
-                        "country_number" : country_number,
-                        "operator_number" : operator_number
+                        "country_number": country_number,
+                        "operator_number": operator_number
                     }
-                writer = csv.DictWriter(file, fieldnames=colums, extrasaction='ignore', delimiter = ';')
+                writer = csv.DictWriter(
+                    file,
+                    fieldnames=colums,
+                    extrasaction='ignore',
+                    delimiter=';')
                 if not file_name:
                     writer.writeheader()
                 writer.writerow(account)
-        if cookies is not None: # Только успешные на продажу
+        if cookies is not None:  # Только успешные на продажу
             payload = payload['fingerprint_config']['ua']
             with open("csv\All_S.csv", "a", newline="") as file:
-                colums = ['phone','password', 'manager_id', 'eeab_token',  "cookies",  'payload']
+                colums = [
+                    'phone',
+                    'password',
+                    'manager_id',
+                    'eeab_token',
+                    "cookies",
+                    'payload']
                 account = {
                         'phone' : phone,
                         'password' : password,
@@ -133,13 +151,10 @@ class Facebook(threading.Thread):
                         'cookies': cookies,
                         'payload': payload,
                     }
-                writer = csv.DictWriter(file, fieldnames=colums, extrasaction='ignore', delimiter = ';')
+                writer = csv.DictWriter(file, fieldnames=colums, extrasaction='ignore', delimiter = '\t')
                 if not file_name:
                     writer.writeheader()
                 writer.writerow(account)
-        
-
-
 
     def write_text_input(self, action, text):
         text = str(text) 
@@ -148,40 +163,39 @@ class Facebook(threading.Thread):
             action.perform()
             time.sleep(random.uniform(0.2,0.4))
 
-
-    def get_status_api(self,url):
+    def get_status_api(self, url):
         """Проверка АПИ на статус"""
         return requests.get(url + "/status").json()
-
 
     def generaited_password(self):
         chars = 'abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
         n = 0
         password =''
-        while n != 8:
+        while n != 10:
             password += random.choice(chars)
             n+=1
         return password
 
-
     def chech_checkpoint(self,data, id_number,password,phone, new_profile):
         profile_id = new_profile['data']['id']
         driver = data['driver']
-        sms_activate.close_status(id_number,status=8 )
+        if self.sms == 'activate':
+            response_code_sms = sms_activate.close_status(id_number,status=8 )
+        else:
+            response_code_sms = api_5sim.ban_phone_number(id_number)
         logging.info('Аккаунт на чеке')
         self.lock.acquire()
         self.wrote_csv(password=password,phone=phone,status="Check", file_name=self.file_name, id_account=profile_id, driver=driver)
         self.lock.release()
-        self.delete_account(new_profile=new_profile, driver=driver)
+        self.delete_account(new_profile=new_profile)
 
-
-    def create_profile(self,url,proxy):
+    def create_profile(self,proxy):
         """Создает профиль"""
         self.lock.acquire()
         logging.info('Создание профиля')
-        url = url + "/api/v1/user/create"
+        url = URL + "/api/v1/user/create"
         payload = { #№
-            "name": "mobile",
+            "name": "Fb",
             "group_id": "1836292",
             "domain_name": "google.com",
             "repeat_config": [
@@ -217,27 +231,47 @@ class Facebook(threading.Thread):
             'Content-Type': 'application/json'
             }
         # self.wrote_browser_settings(settings=payload)
+        self.lock.acquire()
+        self.event.wait(timeout=2)
         ip = requests.get(f"{proxy[4]}")
+        self.lock.release()
         logging.info(f'Настройки браузера {payload}')
         logging.info(f'ip = {ip.text}')
-        time.sleep(1)
-        response = requests.request("POST", url, headers=headers, json=payload)
-        self.lock.release()
-        logging.info(f'{response.json()}')
+        response = requests.request("POST", url, headers=headers, json=payload).json()
+        n = 0
+        while response['code'] == -1 and  n < 5:
+            try:
+                logging.info(response["msg"])
+                self.event.wait(2)
+                response = requests.request("POST", url, headers=headers, json=payload).json()
+                n+=1
+            except:
+                logging.info('Ошибка создания профиля после 5 попыток')
+        logging.info(f'{response}')
         data = {
-            'response' :response.json(),
+            'response' :response,
             'payload' : payload
         }
+        self.lock.release()
         return data
 
-
-    def delete_account(self,new_profile, driver = None):
+    def delete_account(self,new_profile):
         self.lock.acquire()
         url = URL + "/api/v1/user/delete"
         profile_id = new_profile['data']['id']
         logging.info('Закрытие профиля')
-        time.sleep(1)
-        requests.get(URL + '/api/v1/browser/stop?user_id=' + profile_id).json()
+        response = requests.get(URL + '/api/v1/browser/stop?user_id=' + profile_id).json()
+        n = 0
+        while response['msg'] == "Too many request per second, please check" and  n < 5:
+            try:
+                logging.info(f' Статус закрытия профиля {response["msg"]}')
+                self.event.wait(3)
+                response = requests.get(URL + '/api/v1/browser/stop?user_id=' + profile_id).json()
+                n+=1
+            except:
+                logging.info('Ошибка закрытия профиля после 5 попыток')
+        self.event.wait(timeout=5)
+        self.lock.release()
         payload = {
         "user_ids": [
             f"{profile_id}"
@@ -248,83 +282,86 @@ class Facebook(threading.Thread):
         'Content-Type': 'application/json'
         }
         logging.info('Удаление профиля')
-        self.lock.release()
-        time.sleep(3)
-        response = requests.request("POST", url, headers=headers, json=payload)
-        print(response.text)
-
-
-    def change_profile_name(self,profile_id,driver):
-        logging.info('Успешная регистрация')
-        logging.info('Закрытие профиля')
         self.lock.acquire()
-        requests.get(URL + '/api/v1/browser/stop?user_id=' + profile_id).json()
-        logging.info('Меняю имя профиля')
-        url = URL + "/api/v1/user/update"
-
-        payload = {
-        "user_id": f"{profile_id}",
-        "name": "Success",
-        }
-
-        headers = {
-            'Content-Type': 'application/json'
-        }
-        response = requests.request("POST", url, headers=headers, json=payload)
-        time.sleep(1)
+        #  [Thread-5]: 02:38:24: [j4wclp4] is being used by [DIsplay1997@yandex.ru] mailbox users and cannot be deleted
+        # Профиль удален {'data': {}, 'msg': 'wrong user_id or wrong user_ids', 'code': 9108}
+        response = requests.request("POST", url, headers=headers, json=payload).json()
+        n=0
+        while response['msg'] == "Too many request per second, please check"  and n < 5:
+            try:
+                logging.info(f' Статус удаления профиля {response["msg"]}')
+                self.event.wait(3)
+                response = requests.request("POST", url, headers=headers, json=payload).json()
+                n+=1
+            except:
+                logging.info('Ошибка удаления профиля после 5 попыток')
         self.lock.release()
-        print(response.text)
+        logging.info("Профиль удален %s", response)
 
+    # def change_profile_name(self,profile_id,driver):
+        # logging.info('Успешная регистрация')
+        # logging.info('Закрытие профиля')
+        # self.lock.acquire()
+        # requests.get(URL + '/api/v1/browser/stop?user_id=' + profile_id).json()
+        # self.event.wait(timeout=1)
+        
 
-    def start_profile(self,url, new_profile):
+        # logging.info('Меняю имя профиля')
+        # url = URL + "/api/v1/user/update"
+
+        # payload = {
+        # "user_id": f"{profile_id}",
+        # "name": "Success",
+        # }
+
+        # headers = {
+        #     'Content-Type': 'application/json'
+        # }
+        # response = requests.request("POST", url, headers=headers, json=payload)
+        # self.lock.release()
+        # print(response.text)
+
+    def start_profile(self,url, new_profile, current_proxy = None):
         """Запускает только что созданный профиль"""
         logging.info('Запуск профиля')
         self.lock.acquire()
+        self.event.wait(3)
         profile_id = new_profile['data']['id'] #№
         logging.info(f'ID профиля {profile_id}')
         open_profile = requests.get(url + '/api/v1/browser/start?user_id=' + profile_id).json()
-        time.sleep(1)
         driver = open_profile['data']['webdriver']
-        options = Options() # Класс опций в браузере
-        options.add_experimental_option("debuggerAddress", open_profile["data"]["ws"]["selenium"]) # Создание кастомной опций
-        # options.add_argument('')
-        driver = webdriver.Chrome(service=Service(driver), options=options) # Добавление кастомной опций 1 - путь до юзерагента, 2 = передаваемые кастомные настройки браузер
+        options = Options()
+        options.page_load_strategy = 'eager' # тетс
+        options.add_experimental_option("debuggerAddress", open_profile["data"]["ws"]["selenium"])
+        driver = webdriver.Chrome(service=Service(driver), options=options)
         list_win = driver.window_handles
         driver.switch_to.window(list_win[1])
         driver.switch_to.window(list_win[0])
         driver.close()
         driver.switch_to.window(list_win[1])
-        time.sleep(10)
         logging.info('Открываю фейсбук')
         driver.get("https://m.facebook.com/")
-            # self.wrote_browser_settings(settings=profile_id)
-        # time.sleep(2)
-        # driver.quit()
-        # requests.get(url + '/api/v1/browser/stop?user_id=' + id_profile).json()
         self.lock.release()
         return driver
-
-            
+     
     def click_on_registraion(self, driver):
         logging.info('Нажимаю на регистрацию')
         action =  ActionBuilder(driver, duration=1)
         clickable = driver.find_element(By.XPATH, "//a[@id='signup-button']")
         size_window = driver.get_window_size() # Размер окна #№
         logging.info(f'Размер окна {size_window}')
-        loc = clickable.location # Координаты элемента  
+        loc = clickable.location
         height_window = size_window['height']/2
         width_window = size_window['width']/2
         points = curve.pointer(first_x = width_window, first_y = height_window, last_coord=loc) # координаты движения курсора
         last_coord = self.move_coordinate_calculation(points, action)
-        time.sleep(0.2)
+        self.event.wait(timeout=0.2)
         data = {
             "driver": driver,
             "action": action,
             "last_coord": last_coord
         }
-        # self.wrote_browser_settings(settings=size_window)
         return data
-
 
     def add_fields_in_reg_and_buy_number(self, data, new_profile, payload):
         name = random.choice(list_of_settings.name) 
@@ -348,104 +385,167 @@ class Facebook(threading.Thread):
 
 
         logging.info('Имя')
-        elem_name = wait.until(lambda x: x.find_element(By.XPATH, "//input[@name='firstname']"))
-        loc_elem_name = elem_name.location # коорды
-        points = curve.pointer(first_x = data['last_coord'][0], first_y = data['last_coord'][1], last_coord=loc_elem_name) # расчет передвижения
-        last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
-        self.write_text_input(action, name)
+        try:
+            elem_name = wait.until(lambda x: x.find_element(By.XPATH, "//input[@name='firstname']"))
+        except:
+            self.delete_account(new_profile=new_profile)
+        else:
+            loc_elem_name = elem_name.location # коорды
+            points = curve.pointer(first_x = data['last_coord'][0], first_y = data['last_coord'][1], last_coord=loc_elem_name) # расчет передвижения
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            self.write_text_input(action, name)
 
         logging.info('Фамилия')
-        elem_second_name = wait.until(lambda x: x.find_element(By.XPATH, "//input[@name='lastname']"))
-        loc_second_name = elem_second_name.location
-        points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_second_name) # расчет передвижения
-        last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
-        self.write_text_input(action, surename)
+        try:
+            elem_second_name = wait.until(lambda x: x.find_element(By.XPATH, "//input[@name='lastname']"))
+        except:
+            self.delete_account(new_profile=new_profile)
+        else:
+            loc_second_name = elem_second_name.location
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_second_name) # расчет передвижения
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            self.write_text_input(action, surename)
 
         logging.info('Подтверждаю ФИО')
-        but = wait.until(lambda x: x.find_element(By.XPATH, "//button[@type='submit']"))
-        loc_but = but.location # коорды
-        points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # расчет передвижения
-        last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+        try:
+            but = wait.until(lambda x: x.find_element(By.XPATH, "//button[@type='submit']"))
+        except:
+            self.delete_account(new_profile=new_profile)
+        else:
+            loc_but = but.location # коорды
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # расчет передвижения
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
 
         logging.info('Месяц рожденья')
-        select_elem_birthday_month = wait.until(lambda x: x.find_element(By.XPATH, "//select[@name='birthday_month']"))
-        loc_elem_birthday_month = select_elem_birthday_month.location
-        points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_birthday_month) # расчет передвижения
-        last_coord = self.move_coordinate_calculation(points, data["action"])
-        self.write_text_input(action, text=random.choice(list_of_month))
+        try:
+            select_elem_birthday_month = wait.until(lambda x: x.find_element(By.XPATH, "//select[@name='birthday_month']"))
+        except:
+            self.delete_account(new_profile=new_profile)
+        else:
+            loc_elem_birthday_month = select_elem_birthday_month.location
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_birthday_month) # расчет передвижения
+            last_coord = self.move_coordinate_calculation(points, data["action"])
+            self.write_text_input(action, text=random.choice(list_of_month))
 
         logging.info('День рожденья')
-        select_elem_birthday_day = wait.until(lambda x: x.find_element(By.XPATH, "//select[@name='birthday_day']"))
-        loc_elem_birthday_day = select_elem_birthday_day.location
-        points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_birthday_day) # расчет передвижения
-        last_coord = self.move_coordinate_calculation(points, data["action"])
-        self.write_text_input(action, text=random.randrange(0, 26))
+        try: 
+            select_elem_birthday_day = wait.until(lambda x: x.find_element(By.XPATH, "//select[@name='birthday_day']"))
+        except:
+            self.delete_account(new_profile=new_profile)
+        else:
+            loc_elem_birthday_day = select_elem_birthday_day.location
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_birthday_day) # расчет передвижения
+            last_coord = self.move_coordinate_calculation(points, data["action"])
+            self.write_text_input(action, text=random.randrange(0, 26))
 
         logging.info('Год рожденья')
-        select_elem_birthday_year = wait.until(lambda x: x.find_element(By.XPATH, "//select[@name='birthday_year']"))
-        loc_select_elem_birthday_year = select_elem_birthday_year.location
-        points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_select_elem_birthday_year) # расчет передвижения
-        last_coord = self.move_coordinate_calculation(points, data["action"])
-        self.write_text_input(action, text=random.randrange(1990, 2002))
+        try:
+            select_elem_birthday_year = wait.until(lambda x: x.find_element(By.XPATH, "//select[@name='birthday_year']"))
+        except:
+            self.delete_account(new_profile=new_profile)
+        else:
+            loc_select_elem_birthday_year = select_elem_birthday_year.location
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_select_elem_birthday_year) # расчет передвижения
+            last_coord = self.move_coordinate_calculation(points, data["action"])
+            self.write_text_input(action, text=random.randrange(1990, 2002))
 
         logging.info('Подтверждаю рождение')
-        but = wait.until(lambda x: x.find_element(By.XPATH, "//button[@type='submit']"))
-        loc_but = but.location # коорды
-        points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # расчет передвижения
-        last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+        try:
+            but = wait.until(lambda x: x.find_element(By.XPATH, "//button[@type='submit']"))
+        except:
+            self.delete_account(new_profile=new_profile)
+        else:
+            loc_but = but.location # коорды
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # расчет передвижения
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
 
         logging.info('Вбиваю телефон')
-        elem_mail = wait.until(lambda x: x.find_element(By.XPATH, "//input[@name='reg_email__']"))
-        loc_elem_mail = elem_mail.location # коорды
-        points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_mail) # расчет передвижения
-        last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+        try:
+            elem_mail = wait.until(lambda x: x.find_element(By.XPATH, "//input[@name='reg_email__']"))
+        except:
+            self.delete_account(new_profile=new_profile)
+        else:
+            loc_elem_mail = elem_mail.location # коорды
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_mail) # расчет передвижения
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
 
-        logging.info('Жду телефон')
-        response = sms_activate.get_number(country=self.country) #№
-        logging.info(f'Ответ номера {response}')
-        country_number = response['countryCode']
-        operator_number = response['countryCode']
-        # self.wrote_browser_settings(settings=response)
-        id_number = response.get('activationId')
-        phone = response['phoneNumber']
-        self.write_text_input(action, text=phone)
+        if self.sms == 'activate':
+            logging.info('Жду телефон sms_activate')
+            response = sms_activate.get_number(country=self.country) #№
+            logging.info(f'Ответ номера {response}')
+            country_number = response['countryCode']
+            operator_number = response['countryCode']
+            id_number = response.get('activationId')
+            phone = response['phoneNumber']
+            logging.info('Вбиваю телефон')
+            self.write_text_input(action, text=phone)
+        else:
+            logging.info('Жду телефон 5sim')
+            response = api_5sim.buy_number(country=self.country) #№ 
+            country_number = response['country']
+            operator_number = response['operator']
+            id_number = response.get('id')
+            phone = response['phone']
+            logging.info('Вбиваю телефон')
+            self.write_text_input(action, text=phone)
+
 
         logging.info('Подтверждаю телефон')
-        but = wait.until(lambda x: x.find_element(By.XPATH, "//button[@type='submit']"))
-        loc_but = but.location # коорды
-        points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # расчет передвижения
-        last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
-        time.sleep(random.randrange(2,3))
+        try:
+            but = wait.until(lambda x: x.find_element(By.XPATH, "//button[@type='submit']"))
+        except:
+            self.delete_account(new_profile=new_profile)
+        else:
+            loc_but = but.location # коорды
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # расчет передвижения
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            time.sleep(random.randrange(2,3))
 
         logging.info('Указываю пол')
-        select_elem_sex_woman = wait.until(lambda x: x.find_element(By.XPATH, "//input[@name='sex'][@value='1']"))
-        loc_select_elem_sex_woman = select_elem_sex_woman.location # коорды
-        points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_select_elem_sex_woman) # расчет передвижения
-        last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+        try:
+            select_elem_sex_woman = wait.until(lambda x: x.find_element(By.XPATH, "//input[@name='sex'][@value='1']"))
+        except:
+            self.delete_account(new_profile=new_profile)
+        else:
+            loc_select_elem_sex_woman = select_elem_sex_woman.location # коорды
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_select_elem_sex_woman) # расчет передвижения
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
 
         logging.info('Подтвержадаю пол')
-        but = wait.until(lambda x: x.find_element(By.XPATH, "//button[@type='submit']"))
-        loc_but = but.location # коорды
-        points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # расчет передвижения
-        last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
-        time.sleep(random.randrange(2,3))
+        try:
+            but = wait.until(lambda x: x.find_element(By.XPATH, "//button[@type='submit']"))
+        except:
+            self.delete_account(new_profile=new_profile)
+        else:
+            loc_but = but.location # коорды
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # расчет передвижения
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            time.sleep(random.randrange(2,3))
 
         logging.info('Генерирую пароль')
-        elem_password = wait.until(lambda x: x.find_element(By.XPATH, "//input[@name='reg_passwd__']"))
-        loc_elem_password = elem_password.location # коорды
-        points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_password) # расчет передвижения
-        last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
-        password = self.generaited_password()
-        time.sleep(1)
-        self.write_text_input(action, text=password)
+        try:
+            elem_password = wait.until(lambda x: x.find_element(By.XPATH, "//input[@name='reg_passwd__']"))
+        except:
+            self.delete_account(new_profile=new_profile)
+        else:
+            loc_elem_password = elem_password.location # коорды
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_password) # расчет передвижения
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            password = self.generaited_password()
+            self.event.wait(timeout=1)
+            self.write_text_input(action, text=password)
 
         logging.info('Подтверждаю пароль на странице')
-        but = wait.until(lambda x: x.find_element(By.XPATH, "//button[@type='submit'][@name='submit']"))
-        loc_elem_confirm = but.location # коорды
-        points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_confirm) # расчет передвижения
-        last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+        try:
+            but = wait.until(lambda x: x.find_element(By.XPATH, "//button[@type='submit'][@name='submit']"))
+        except:
+            self.delete_account(new_profile=new_profile)
+        else:
+            loc_elem_confirm = but.location # коорды
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_confirm) # расчет передвижения
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
             
-        time.sleep(40)
+        self.event.wait(timeout=35)
 
         if data['driver'].current_url.find("action_dialog") > 0:
             logging.info('Аккаунт существует')
@@ -453,6 +553,14 @@ class Facebook(threading.Thread):
             loc_but = but.location # коорды
             points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # расчет передвижения
             last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            while len(data['driver'].find_elements(By.XPATH, "//div[@class='icon icon-generic']")) > 0:
+                logging.info('Ошибка подключения после action-dialog')
+                data['driver'].back()
+                but = wait.until(lambda x: x.find_element(By.XPATH, "//button[@value='Create New Account']"))
+                loc_but = but.location # коорды
+                points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # расчет передвижения
+                last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+                self.event.wait(10)
             try:
                 logging.info('Ищу поле для пароля из смс')
                 wait.until(lambda x: x.find_element(By.XPATH, "//input[@type='number']"))
@@ -461,7 +569,7 @@ class Facebook(threading.Thread):
                 self.chech_checkpoint(data, id_number, password,phone, new_profile)
             else:
                 logging.info('Рега прошла, подверждение смс внутри action-dialog')
-                self.accept_number_code(data, id_number, name=name, surename=surename, password=password, phone=phone, new_profile=new_profile)
+                self.accept_number_code(data, id_number, name=name, surename=surename, password=password, phone=phone, new_profile=new_profile, sms=self.sms)
         elif data['driver'].current_url.find("error") > 0:
             logging.info('error загрузка')
             self.chech_checkpoint(data, id_number, password,phone, new_profile)
@@ -471,18 +579,16 @@ class Facebook(threading.Thread):
         else:
             try:
                 logging.info('Ищу Not now')
-                wait.until(lambda x: x.find_element(By.PARTIAL_LINK_TEXT, "Not now"))
+                elem_confirm = wait.until(lambda x: x.find_element(By.PARTIAL_LINK_TEXT, "Not now"))
             except:
                 logging.info('Не нашел правильной кнопки =  какая-то неведомая хуйня')
                 self.chech_checkpoint(data, id_number, password,phone, new_profile)
             else:
                 logging.info('Рега прошла, подверждение смс')
-                elem_confirm = wait.until(lambda x: x.find_element(By.PARTIAL_LINK_TEXT, "Not now"))
                 loc_elem_confirm = elem_confirm.location # коорды
                 points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_confirm) # расчет передвижения
-                last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+                last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижени
                 self.accept_number_code(data, id_number, password=password, phone=phone, new_profile=new_profile, payload=payload, last_coord = last_coord, country_number = country_number,operator_number = operator_number)
-
 
     def accept_number_code(
         self,
@@ -494,105 +600,172 @@ class Facebook(threading.Thread):
         last_coord = None,
         country_number = None,
         operator_number = None, 
-        payload = None
+        payload = None,
         ):
         profile_id = new_profile['data']['id']
         driver = data['driver']
         wait = WebDriverWait(driver, 15)
-        code_sms = sms_activate.get_activate(id_number) # код из смс
-        if len(code_sms) > 8:
-            logging.info('смс не пришла')
-            self.chech_checkpoint(data, id_number, password,phone, new_profile)
-        # info_sms = api_5sim.get_sms_status(driver_and_id_num['id_number']) # Значение ид номера заказа
-        # info_sms = info_sms.json()
+        if self.sms == 'activate':
+            code_sms = sms_activate.get_activate(id_number)
+            if code_sms == "STATUS_WAIT_CODE":
+                logging.info(f'Смс не пришла, возвращаемое значениие активаций: {code_sms}')
+                self.chech_checkpoint(data, id_number, password,phone, new_profile)
+                raise ValueError('Смс не пришла, чекпоинт')
+        else:
+            code_sms = api_5sim.get_sms_status(id_number)
+            if len(code_sms) == 0:
+                self.chech_checkpoint(data, id_number, password,phone, new_profile)
+                raise ValueError('Смс не пришла, чекпоинт')
 
-        # try:
-        #     driver.find_element(By.XPATH, "//div[@id='reg_error_inner']")
-        # except Exception:
-        #     print('Телефон уже использован')
-        #     ban_phone_number(info_sms=info_sms)
-        #     driver.quit()
-        #     raise
-        # try:
-        #     code_sms = info_sms['sms'][0]['code']
-        # except Exception as sms_not_confirm:
-        #     print(f'Отсутствует код в смс')
-        #     api_5sim.ban_phone_number(info_sms=info_sms)
-        #     raise
-        code_form = wait.until(lambda x: x.find_element(By.XPATH, "//input[@type='number']"))
-        loc_code_form = code_form.location # коорды
-        points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_code_form) # расчет передвижения
-        last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
-        self.write_text_input(action=data['action'], text=code_sms)
 
-        time.sleep(1)
-        code_confirm_button = wait.until(lambda x: x.find_element(By.PARTIAL_LINK_TEXT, "Confirm"))
-        loc_code_confirm_button = code_confirm_button.location # коорды
-        points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_code_confirm_button) # расчет передвижения
-        last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижениt
+        logging.info('Проверка на подключение')
+        while len(driver.find_elements(By.XPATH, "//div[@class='icon icon-generic']")) > 0:
+            driver.refresh()
+            self.event.wait(10)
+        logging.info('Вбиваю смс')
+        try:
+            code_form = wait.until(lambda x: x.find_element(By.XPATH, "//input[@type='number']"))
+        except:
+            self.delete_account(new_profile=new_profile)
+        else:
+            loc_code_form = code_form.location # коорды
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_code_form) # расчет передвижения
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            self.write_text_input(action=data['action'], text=code_sms)
 
-        cookies = driver.get_cookies()
+        self.event.wait(3)
+        logging.info('Проверка на валидность смс')
+        if len(driver.find_elements(By.PARTIAL_LINK_TEXT, ('Check your SMS for a message with your code and try again.'))) != 0:
+            logging.info('Смс не валидна, повторный запрос смс')
+            try:
+                elem_didnt_code = driver.find_element(By.PARTIAL_LINK_TEXT, ("I didn't get the code"))
+            except:
+                self.delete_account(new_profile=new_profile)
+            else:
+                loc_elem_didnt_code = elem_didnt_code.location # коорды
+                points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_didnt_code) # расчет передвижения
+                last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            try:
+                elem_send_sms_code_again = driver.find_element(By.PARTIAL_LINK_TEXT, ("Send Code Again"))
+            except:
+                self.delete_account(new_profile=new_profile)
+            else:
+                loc_elem_send_sms_code_again = elem_send_sms_code_again.location # коорды
+                points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_send_sms_code_again) # расчет передвижения
+                last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+                logging.info('Повторное получение смс')
+                if self.sms == 'activate':
+                    code_sms = sms_activate.set_status(id=id_number)
+                    logging.info(f'Повторное значение смс sms_activate {code_sms}')
+                else:
+                    code_sms = api_5sim.get_sms_status(id_number)
+                    logging.info(f'Повторное значение смс 5sim {code_sms}')
+                logging.info('Вбиваю смс повторно')
+                if len(driver.find_elements(By.PARTIAL_LINK_TEXT, ('Check your SMS for a message with your code and try again.'))) != 0:
+                    self.delete_account(new_profile=new_profile)
+                self.write_text_input(action=data['action'], text=code_sms)
+                self.event.wait(3)
+
+
+
+
+        logging.info('Смс валидна, подтверждаю')
+        try:
+            code_confirm_button = wait.until(lambda x: x.find_element(By.PARTIAL_LINK_TEXT, "Confirm"))
+        except:
+            self.delete_account(new_profile=new_profile)
+        else:
+            loc_code_confirm_button = code_confirm_button.location # коорды
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_code_confirm_button) # расчет передвижения
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижениt
+
 
         manager_id = self.find_account_manager_id(driver=driver)
         eeab_token = self.find_eeab_token(driver=driver)
+        cookies = json.dumps(driver.get_cookies())
         self.wrote_csv(file_name=self.file_name, id_account=profile_id ,password=password,phone=phone,status="Success", cookies=cookies, payload=payload, country_number=country_number, operator_number=operator_number, manager_id=manager_id,eeab_token=eeab_token)
-        sms_activate.close_status(id_number, status=6)
-        self.change_profile_name(profile_id=profile_id, driver=driver)
-
+        if self.sms == 'activate':
+            sms_activate.close_status(id_number, status=6)
+        else:
+            api_5sim.finish_orfer(id=id_number)
+        logging.info("Успешная регистрация")
+        self.delete_account(new_profile=new_profile)
 
     def find_account_manager_id(self, driver):
         logging.info('Получаю manager_id')
-        driver.get('https://www.facebook.com/adsmanager/manage/')
-        time.sleep(5)
-        if driver.current_url.find("nav_source") > 0:
-            current_url = driver.current_url
-            idx_1 = current_url.find('act')+4
-            idx_2 = current_url.find('&', idx_1)
-            manager_id = current_url[idx_1:idx_2]
-            logging.info(f'manager_id = {manager_id}')
-            return manager_id
-        else: 
-            current_url = driver.current_url
-            idx_1 = current_url.find('act')+4
-            manager_id = current_url[idx_1:]
-            logging.info(f'manager_id = {manager_id}')
-            return manager_id
+        try:
+            driver.get('https://www.facebook.com/adsmanager/manage/')
+            self.event.wait(3)
+        except WebDriverException:
+            logging.exception('Проблема драйвера')
+            self.find_account_manager_id(driver)
+        else:
+            while driver.current_url.find('act') < 0:
+                logging.info('Обновление страницы с manager_id')
+                driver.refresh()
 
+            if driver.current_url.find("nav_source") > 0:
+                current_url = driver.current_url
+                idx_1 = current_url.find('act')+4
+                idx_2 = current_url.find('&', idx_1)
+                manager_id = current_url[idx_1:idx_2]
+                logging.info(f'manager_id = {manager_id}')
+                return manager_id
+            else:
+                current_url = driver.current_url
+                idx_1 = current_url.find('act')+4
+                manager_id = current_url[idx_1:]
+                logging.info(f'manager_id = {manager_id}')
+                return manager_id
 
     def find_eeab_token(self, driver):
         logging.info('Получаю Eaab_Token')
         html_doc=driver.page_source
         idx = html_doc.find('EAAB')
-        idx_2 = html_doc.find('"', idx)-1
+        idx_2 = html_doc.find('"', idx)
         eeab_token = html_doc[idx:idx_2]
         logging.info(f'Eaab_Token = {eeab_token}')
         return eeab_token
-        
-
-        
 
 
+
+def add_new_thread(country, number_proxy, sms, file_name):
+    therad_list.append({'thread': None, 'country': country, 'number_proxy': number_proxy, 'sms': sms, 'file_name': file_name})
+	
+
+def start_thread():
+    logging.info("Старт потоков")
+    for thread in therad_list:
+        if thread['thread'] is None:
+            thread['thread'] = Facebook(country=thread['country'], number_proxy=thread['number_proxy'], sms=thread['sms'],  file_name=thread['file_name'])
+            thread['thread'].start()
+            time.sleep(10)
+        else:
+            if thread['thread'].is_alive() is False:
+                thread['thread'] = Facebook(country=thread['country'], number_proxy=thread['number_proxy'], sms=thread['sms'], file_name=thread['file_name'])
+                thread['thread'].start()
+                time.sleep(10)	
+                
 
 if __name__ == '__main__':
+
     file_log = logging.FileHandler('py_log.log')
     console_out = logging.StreamHandler()
     format = " [%(threadName)s]: %(asctime)s: %(message)s"
     logging.basicConfig(handlers=(file_log, console_out),format=format, level=logging.INFO,
                         datefmt="%H:%M:%S", )
 
-    # Facebook.get_status_api
-
-    fb1 = Facebook(country=0, number_proxy=0, file_name="Nider.csv",count_run=50)
-    fb1.start()
-    time.sleep(10)
-    fb2 = Facebook(country=1, number_proxy=1, file_name="Estonia.csv", count_run=50) # max 9
-    fb2.start()
-    time.sleep(10)
-    fb3 = Facebook(country=2, number_proxy=2, file_name="England.csv", count_run=50)
-    fb3.start()
-    time.sleep(10)
-    fb4 = Facebook(country=3, number_proxy=3, file_name="Canada.csv", count_run=50)
-    fb4.start()
-
-    # Eingrun4uf вбивать рандомный пароль руками - копировать
-#  Тайланд, Австрия(ИНСТА) Дания (инста)
+    logging.info("Инициализация потоков")
+    add_new_thread(country=0, number_proxy=0, sms=sms_list[1], file_name="Nider.csv")
+    add_new_thread(country=1, number_proxy=1, sms=sms_list[1], file_name="England.csv") # Ахуенная прокси
+    add_new_thread(country=2, number_proxy=2, sms=sms_list[1], file_name="Canada.csv")
+    add_new_thread(country=3, number_proxy=3, sms=sms_list[1], file_name="Brazil.csv") # Ахуенная прокси
+    add_new_thread(country=4, number_proxy=4, sms=sms_list[1], file_name="Mex.csv")
+    start_thread()
+    n = 10
+    while n != 0:
+        time.sleep(180)
+        if threading.active_count() < len(therad_list):
+            logging.info('Активных потоков: %s', threading.active_count())
+            start_thread()
+            n-=1

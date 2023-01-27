@@ -1,6 +1,8 @@
+import random
+
 import numpy as np
 import scipy.interpolate as si
-import random
+
 # import matplotlib.pyplot as plt
 number_for_random = [4,5,6,7,8,9,10]
 

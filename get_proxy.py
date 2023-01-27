@@ -1,4 +1,4 @@
-import re
+
 
 
 def get_proxy(num_proxy):
