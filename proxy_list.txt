@@ -1,5 +1,5 @@
-216.52.25.43@10005@melnikov3718@1397d2@http://node-us-56.astroproxy.com:10005/api/changeIP?apiToken=9f796d93469124de
+173.234.27.13@10333@melnikov1133@f5e6ce@http://node-us-37.astroproxy.com:10333/api/changeIP?apiToken=9f796d93469124de
 216.52.25.27@10523@melnikov3718@1397d2@http://node-us-57.astroproxy.com:10523/api/changeIP?apiToken=9f796d93469124de
-173.234.27.13@10155@melnikov3718@1397d2@http://node-us-37.astroproxy.com:10155/api/changeIP?apiToken=9f796d93469124de
+66.23.206.158@10729@melnikov1133@f5e6ce@http://node-us-1.astroproxy.com:10729/api/changeIP?apiToken=9f796d93469124de
 172.96.166.126@10103@melnikov3718@1397d2@http://node-us-72.astroproxy.com:10103/api/changeIP?apiToken=9f796d93469124de
-66.23.203.52@10869@melnikov3718@1397d2@http://node-us-46.astroproxy.com:10869/api/changeIP?apiToken=9f796d93469124de
+64.74.163.147@10893@melnikov1133@f5e6ce@http://node-us-19.astroproxy.com:10893/api/changeIP?apiToken=9f796d93469124de

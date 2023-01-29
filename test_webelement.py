@@ -9,7 +9,6 @@ from selenium.webdriver.common.actions.wheel_input import ScrollOrigin
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.select import Select
-from selenium.webdriver.chrome
 import curve
 
 """Запускает только что созданный профиль"""
@@ -30,3 +29,4 @@ pickle.dump
 driver.execute_script("return navigator.userAgent")
 driver.quit()
 driver.get()
+driver.implicitly_wait()
