@@ -18,20 +18,20 @@ DOMAIN = "5sim.net"
 # {'country': 'england', 'operator': 'virtual34', 'cost': 9, 'count': 1248} Оценка - 5/5 4 5 1 3 2 
 # {'country': 'england', 'operator': 'virtual4', 'cost': 8, 'count': 8014} 4/5 5 1 3 2 4
 # {'country': 'haiti', 'operator': 'virtual4', 'cost': 8.7, 'count': 601} 4/5 2 3 5 1 4 
-# {'country': 'india', 'operator': 'virtual21', 'cost': 4, 'count': 25}  3 2 1 4 @ 5 (не записан)
-# {'country': 'mauritius', 'operator': 'virtual21', 'cost': 3, 'count': 2}  1 4 2 3 @ 
-# {'country': 'mongolia', 'operator': 'virtual7', 'cost': 7, 'count': 1000} 1/2 4 тест 9 (4/9) - Отлично за свою цену И смс все принимает, сажать на топ прокси 2 5 3 1 @ 4 (не записан)
-# {'country': 'nicaragua', 'operator': 'virtual23', 'cost': 3.8, 'count': 1000} 3/5. смс пришли 5/14 3 1 4 2 @ 
-# {'country': 'senegal', 'operator': 'virtual4', 'cost': 9.4, 'count': 807} 2/5 4 2 5 3 @ 1 (не записан)
-# {'country': 'tanzania', 'operator': 'virtual21', 'cost': 9, 'count': 2} 5 3 1 @  2 (не записан)
+# {'country': 'india', 'operator': 'virtual21', 'cost': 4, 'count': 25}  3 2 1 4 5 
+# {'country': 'mauritius', 'operator': 'virtual21', 'cost': 3, 'count': 2}  1 4 2 35 @ 
+# {'country': 'mongolia', 'operator': 'virtual7', 'cost': 7, 'count': 1000} 1/2 4 тест 9 (4/9) - Отлично за свою цену И смс все принимает, сажать на топ прокси 2 5 3 1 4
+# {'country': 'nicaragua', 'operator': 'virtual23', 'cost': 3.8, 'count': 1000} 3/5. смс пришли 5/14 3 1 4 2 5
+# {'country': 'senegal', 'operator': 'virtual4', 'cost': 9.4, 'count': 807} 2/5 4 2 5 3 1 
+# {'country': 'tanzania', 'operator': 'virtual21', 'cost': 9, 'count': 2} 5 3 1 2 4
 
 
 country_dict =[
-{'country': 'tanzania', 'operator': 'virtual21'},
-{'country': 'nicaragua', 'operator': 'virtual23'},
 {'country': 'senegal', 'operator': 'virtual4'},
-{'country': 'england', 'operator': 'virtual4'},
-{'country': 'denmark', 'operator': 'virtual35'},
+{'country': 'tanzania', 'operator': 'virtual21'},
+{'country': 'senegal', 'operator': 'virtual4'},
+{'country': 'tanzania', 'operator': 'virtual21'},
+{'country': 'egypt', 'operator': 'virtual21'},
     ]
 
 def buy_number(country=None):

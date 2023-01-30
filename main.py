@@ -95,27 +95,28 @@ class Facebook(threading.Thread):
         manager_id=None,
         eeab_token=None
     ):
+        filename = 'csv\For_analysis.json'
         time = datetime.datetime.now().strftime('%d-%m-%Y %H:%M')
-        file_exists = os.path.exists('csv\For_analysis.csv')
-        with open("csv\For_analysis.csv", "a", newline="") as file: # Статистика для анализа
-            colums = ['time','status', 'phone', "cookies", 'payload', "country_number", "operator_number"]
-            account = {
-                    'time': time,
-                    'status': status,
-                    'phone': phone,
-                    'cookies': cookies,
-                    'payload': payload,
-                    "country_number": country_number,
-                    "operator_number": operator_number
-                }
-            writer = csv.DictWriter(
-                file,
-                fieldnames=colums,
-                extrasaction='ignore',
-                delimiter=';')
-            if not file_exists:
-                writer.writeheader()
-            writer.writerow(account)
+        data = {
+            'time':time,
+            'status': status,
+            'payload': payload,
+            'country_number' : country_number,
+            'operator_number': operator_number
+        }
+
+        if os.stat(filename).st_size == 0:
+            with open(filename, "w") as file:
+                json.dump([data], file, indent=4)
+        else:
+            with open(filename) as fp:
+                listObj = json.loads(fp.read())
+                listObj.append(data)
+            with open(filename, 'w') as json_file:
+                json.dump(listObj, json_file, 
+                                    indent=4,  
+                                    separators=(',',': '))
+            
         if cookies is not None:  # Только успешные на продажу, все норм
             payload = payload['fingerprint_config']['ua']
             with open('csv\For_sale.txt', "a") as file:
@@ -534,14 +535,27 @@ class Facebook(threading.Thread):
                 last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
                 self.event.wait(10)
             try:
-                logging.info('Ищу поле для пароля из смс')
-                wait.until(lambda x: x.find_element(By.XPATH, "//input[@type='number']"))
+                logging.info('Ищу Not now внутри чека')
+                elem_confirm = wait.until(lambda x: x.find_element(By.PARTIAL_LINK_TEXT, "Not now"))
+                try:
+                    logging.info('Ищу поле для пароля из смс внутри чека ')
+                    wait.until(lambda x: x.find_element(By.XPATH, "//input[@type='number']"))
+                except:
+                    logging.info('Чекпоинт загрузи внутри action-dialog')
+                    self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='Чекпоинт загрузи внутри action-dialog', payload=payload , country_number=country_number, operator_number=operator_number)
+                else:
+                    logging.info('Рега прошла, подверждение смс внутри action-dialog')
+                    self.accept_number_code(data, id_number, password, phone, new_profile, last_coord, country_number, operator_number, payload)
             except:
-                logging.info('Чекпоинт загрузи внутри action-dialog')
-                self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='Чекпоинт загрузи внутри action-dialog', payload=payload , country_number=country_number, operator_number=operator_number)
+                logging.info('Не нашел правильной кнопки =  какая-то неведомая хуйня')
+                self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='Ошибка в Now now', payload=payload , country_number=country_number, operator_number=operator_number)
             else:
-                logging.info('Рега прошла, подверждение смс внутри action-dialog')
-                self.accept_number_code(data, id_number, password, phone, new_profile, last_coord, country_number, operator_number, payload)
+                logging.info('Рега прошла внутри чека, подверждение смс')
+                loc_elem_confirm = elem_confirm.location # коорды
+                points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_confirm) # расчет передвижения
+                last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижени
+                self.accept_number_code(data, id_number, password, phone, new_profile, payload, last_coord, country_number,operator_number)
+
         elif data['driver'].current_url.find("error") > 0:
             logging.info('error загрузка')
             self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='error загрузка', payload=payload , country_number=country_number, operator_number=operator_number)
@@ -664,34 +678,27 @@ class Facebook(threading.Thread):
 
     def find_account_manager_id(self, driver):
         logging.info('Получаю manager_id')
-        try:
+        while driver.current_url.find('adsmanager') < 0:
             driver.get('https://www.facebook.com/adsmanager/manage/')
+            logging.info('Повторная попытка загрузить adsmanager')
             self.event.wait(5)
-        except WebDriverException:
-            logging.exception('Проблема драйвера')
-            self.find_account_manager_id(driver)
+        while driver.current_url.find('act') < 0:
+            logging.info('Обновление страницы с manager_id')
+            driver.refresh()
+            self.event.wait(30) # Оптимально 30
+        if driver.current_url.find("nav_source") > 0:
+            current_url = driver.current_url
+            idx_1 = current_url.find('act')+4
+            idx_2 = current_url.find('&', idx_1)
+            manager_id = current_url[idx_1:idx_2]
+            logging.info(f'manager_id = {manager_id}')
+            return manager_id
         else:
-            while driver.current_url.find('adsmanager') < 0:
-                logging.info('Повторная попытка загрузить adsmanager')
-                driver.get('https://www.facebook.com/adsmanager/manage/')
-                self.event.wait(5)
-            while driver.current_url.find('act') < 0:
-                logging.info('Обновление страницы с manager_id')
-                driver.refresh()
-                self.event.wait(30) # Оптимально 30
-            if driver.current_url.find("nav_source") > 0:
-                current_url = driver.current_url
-                idx_1 = current_url.find('act')+4
-                idx_2 = current_url.find('&', idx_1)
-                manager_id = current_url[idx_1:idx_2]
-                logging.info(f'manager_id = {manager_id}')
-                return manager_id
-            else:
-                current_url = driver.current_url
-                idx_1 = current_url.find('act')+4
-                manager_id = current_url[idx_1:]
-                logging.info(f'manager_id = {manager_id}')
-                return manager_id
+            current_url = driver.current_url
+            idx_1 = current_url.find('act')+4
+            manager_id = current_url[idx_1:]
+            logging.info(f'manager_id = {manager_id}')
+            return manager_id
 
     def find_eeab_token(self, driver):
         logging.info('Получаю Eaab_Token')
@@ -747,16 +754,15 @@ if __name__ == '__main__':
                         datefmt="%H:%M:%S", )
 
     logging.info("Инициализация потоков")
-    add_new_thread(country=0, number_proxy=0, sms=sms_list[1], options=Options())
-    add_new_thread(country=1, number_proxy=1, sms=sms_list[1], options=Options()) # Ахуенная прокси
-    add_new_thread(country=2, number_proxy=2, sms=sms_list[1], options=Options())
-    add_new_thread(country=3, number_proxy=3, sms=sms_list[1],  options=Options()) # Ахуенная прокси
+    # add_new_thread(country=0, number_proxy=0, sms=sms_list[1], options=Options())
+    # add_new_thread(country=1, number_proxy=1, sms=sms_list[1], options=Options()) # Ахуенная прокси
+    # add_new_thread(country=2, number_proxy=2, sms=sms_list[1], options=Options())
+    # add_new_thread(country=3, number_proxy=3, sms=sms_list[1],  options=Options()) # Ахуенная прокси
     add_new_thread(country=4, number_proxy=4, sms=sms_list[1],  options=Options())
     start_thread()
-    n = 4
+    n = 1
     while n != 0:
         time.sleep(450) # 420 для одной успешной реги если 5 потоков то за каждый поток надо добавлять по 10 сек (5 потоков это 40 прибавочных сек т.к. 1 не учитывается)
-        if threading.active_count() < len(therad_list):
-            logging.info('Активных потоков: %s', threading.active_count())
+        if threading.active_count() - 1 < len(therad_list):
             start_thread()
             n-=1

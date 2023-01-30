@@ -1,44 +1,31 @@
 import csv
+import json
+import os
 
-with open("csv\For_analysis.csv", encoding="windows-1251") as r_file:
-    file_reader = r_file.read().splitlines()
-    for row in file_reader:
-        row = row.split('\t')
-        if row[1] == "Success":
-            country = row[-2]
-            operator = row[-1]
-            first = row[6].split(",")
-            second = first[12]
-            ip = second[16:]
-            with open('csv\Ready_analysis.csv',  'a', newline='') as ready_analysis:
-                colums = ['status', 'ip', "country_number", "operator_number"]
-                account = {
-                        'status': row[1],
-                        'ip': ip,
-                        "country_number": country,
-                        "operator_number": operator
-                    }
-                writer = csv.DictWriter(
-                    ready_analysis,
-                    fieldnames=colums,
-                    delimiter=';')
-                writer.writerow(account)
-        elif row[1] == "Sms ne prishla":
-            country = row[-2]
-            operator = row[-1]
-            first = row[6].split(",")
-            second = first[12]
-            ip = second[16:]
-            with open('csv\Ready_analysis.csv',  'a', newline='') as ready_analysis:
-                colums = ['status', 'ip', "country_number", "operator_number"]
-                account = {
-                        'status': row[1],
-                        'ip': ip,
-                        "country_number": country,
-                        "operator_number": operator
-                    }
-                writer = csv.DictWriter(
-                    ready_analysis,
-                    fieldnames=colums,
-                    delimiter=';')
-                writer.writerow(account)
+filename = 'csv\Ready_analysis.jaon'
+
+
+with open("csv\For_analysis.json", encoding="windows-1251") as r_file:
+    file_reader = json.loads(r_file.read())
+    for acc in file_reader:
+        if acc['status'] == "Success" or acc['status'] == "Sms ne prishla":
+            country = acc['country_number']
+            operator = acc['operator_number']
+            ip = acc['payload']['user_proxy_config']['proxy_host']
+            data = {
+                    'status' : acc['status'],
+                    'ip': ip,
+                    "country_number": country,
+                    "operator_number": operator
+                        }
+            if os.stat(filename).st_size == 0:
+                with open(filename, "w") as file:
+                    json.dump([data], file, indent=4)
+            else:
+                with open(filename) as fp:
+                    listObj = json.loads(fp.read())
+                    listObj.append(data)
+                with open(filename, 'w') as json_file:
+                    json.dump(listObj, json_file, 
+                                        indent=4,  
+                                        separators=(',',': '))

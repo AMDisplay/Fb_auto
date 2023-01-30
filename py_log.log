@@ -23831,3 +23831,1801 @@ Backtrace:
  [Thread-23]: 04:20:02: Удаление профиля
  [Thread-23]: 04:20:05: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
  [Thread-23]: 04:20:05: Поток Thread-23 завершил работу
+ [MainThread]: 19:42:41: Инициализация потоков
+ [MainThread]: 19:42:41: Старт потоков
+ [Thread-1]: 19:42:41: Старт потока Thread-1
+ [Thread-1]: 19:42:41: Создание профиля
+ [Thread-1]: 19:42:44: ip = {
+  "IP": "4.4.228.134"
+}
+ [Thread-1]: 19:42:45: {'data': {'id': 'j4x6wsn', 'serial_number': '3744'}, 'code': 0, 'msg': 'Success'}
+ [Thread-1]: 19:42:45: Запуск профиля
+ [Thread-2]: 19:42:46: Старт потока Thread-2
+ [Thread-2]: 19:42:46: Создание профиля
+ [Thread-1]: 19:42:48: ID профиля j4x6wsn
+ [Thread-2]: 19:42:49: ip = {
+  "IP": "67.85.132.102"
+}
+ [Thread-2]: 19:42:50: {'data': {'id': 'j4x6wsx', 'serial_number': '3745'}, 'code': 0, 'msg': 'Success'}
+ [Thread-2]: 19:42:50: Запуск профиля
+ [Thread-3]: 19:42:51: Старт потока Thread-3
+ [Thread-3]: 19:42:51: Создание профиля
+ [Thread-2]: 19:42:53: ID профиля j4x6wsx
+ [Thread-3]: 19:42:54: ip = {
+  "IP": "193.160.83.222"
+}
+ [Thread-3]: 19:42:55: {'data': {'id': 'j4x6wtb', 'serial_number': '3746'}, 'code': 0, 'msg': 'Success'}
+ [Thread-3]: 19:42:55: Запуск профиля
+ [Thread-4]: 19:42:56: Старт потока Thread-4
+ [Thread-4]: 19:42:56: Создание профиля
+ [Thread-3]: 19:42:58: ID профиля j4x6wtb
+ [Thread-4]: 19:42:59: ip = {
+  "IP": "71.178.215.31"
+}
+ [Thread-4]: 19:43:00: {'data': {'id': 'j4x6wtk', 'serial_number': '3747'}, 'code': 0, 'msg': 'Success'}
+ [Thread-4]: 19:43:00: Запуск профиля
+ [Thread-1]: 19:43:00: Открываю фейсбук
+ [Thread-4]: 19:43:03: ID профиля j4x6wtk
+ [Thread-2]: 19:43:04: Открываю фейсбук
+ [Thread-3]: 19:43:11: Открываю фейсбук
+ [Thread-4]: 19:43:15: Открываю фейсбук
+ [Thread-1]: 19:43:19: Нажимаю на регистрацию
+ [Thread-2]: 19:43:20: Нажимаю на регистрацию
+ [Thread-1]: 19:43:24: Размер окна {'width': 1367, 'height': 1080}
+ [Thread-2]: 19:43:25: Размер окна {'width': 1024, 'height': 768}
+ [Thread-4]: 19:43:31: Лог из веба {'response': {'data': {'id': 'j4x6wtk', 'serial_number': '3747'}, 'code': 0, 'msg': 'Success'}, 'payload': {'name': 'Fb', 'group_id': '1836292', 'domain_name': 'google.com', 'repeat_config': ['0'], 'country': 'us', 'fingerprint_config': {'language': ['uk-UA', 'uk', 'en-US', 'en'], 'ua': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36', 'flash': 'block', 'scan_port_type': '1', 'screen_resolution': '1024_600', 'fonts': ['all'], 'longitude': '180', 'latitude': '90', 'webrtc': 'proxy', 'do_not_track': 'true'}, 'user_proxy_config': {'proxy_soft': 'other', 'proxy_type': 'http', 'proxy_host': '64.74.163.147', 'proxy_port': '10893', 'proxy_user': 'melnikov1133', 'proxy_password': 'f5e6ce'}}}
+ [Thread-3]: 19:43:31: Лог из веба {'response': {'data': {'id': 'j4x6wtb', 'serial_number': '3746'}, 'code': 0, 'msg': 'Success'}, 'payload': {'name': 'Fb', 'group_id': '1836292', 'domain_name': 'google.com', 'repeat_config': ['0'], 'country': 'us', 'fingerprint_config': {'language': ['uk-UA', 'uk', 'en-US', 'en'], 'ua': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', 'flash': 'block', 'scan_port_type': '1', 'screen_resolution': '1280_720', 'fonts': ['all'], 'longitude': '180', 'latitude': '90', 'webrtc': 'proxy', 'do_not_track': 'true'}, 'user_proxy_config': {'proxy_soft': 'other', 'proxy_type': 'http', 'proxy_host': '172.96.166.126', 'proxy_port': '10103', 'proxy_user': 'melnikov3718', 'proxy_password': '1397d2'}}}
+ [Thread-2]: 19:43:40: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F447D2DF40>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/4a04f5caab47cc883a3e07da0f1858b1/url
+ [Thread-1]: 19:43:40: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F447D42CD0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/9b40d55f765500e527bba2183895eb63/url
+ [Thread-2]: 19:43:44: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F447D42790>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/4a04f5caab47cc883a3e07da0f1858b1/url
+ [Thread-1]: 19:43:44: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F447D42B80>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/9b40d55f765500e527bba2183895eb63/url
+ [Thread-2]: 19:43:48: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F447D42F40>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/4a04f5caab47cc883a3e07da0f1858b1/url
+ [Thread-1]: 19:43:48: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F447D36DC0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/9b40d55f765500e527bba2183895eb63/url
+ [MainThread]: 02:14:42: Инициализация потоков
+ [MainThread]: 02:14:42: Старт потоков
+ [Thread-1]: 02:14:42: Старт потока Thread-1
+ [Thread-1]: 02:14:42: Создание профиля
+ [Thread-1]: 02:14:44: ip = {
+  "IP": "173.224.201.132"
+}
+ [Thread-1]: 02:14:45: {'data': {'id': 'j4x8i12', 'serial_number': '3751'}, 'code': 0, 'msg': 'Success'}
+ [Thread-1]: 02:14:45: Запуск профиля
+ [Thread-2]: 02:14:47: Старт потока Thread-2
+ [Thread-2]: 02:14:47: Создание профиля
+ [Thread-1]: 02:14:48: ID профиля j4x8i12
+ [Thread-2]: 02:14:49: ip = {
+  "IP": "68.41.1.152"
+}
+ [Thread-2]: 02:14:50: {'data': {'id': 'j4x8i1a', 'serial_number': '3752'}, 'code': 0, 'msg': 'Success'}
+ [Thread-2]: 02:14:50: Запуск профиля
+ [Thread-3]: 02:14:52: Старт потока Thread-3
+ [Thread-3]: 02:14:52: Создание профиля
+ [Thread-2]: 02:14:53: ID профиля j4x8i1a
+ [Thread-3]: 02:14:54: ip = {
+  "IP": "67.60.196.181"
+}
+ [Thread-3]: 02:14:55: {'data': {'id': 'j4x8i1c', 'serial_number': '3753'}, 'code': 0, 'msg': 'Success'}
+ [Thread-3]: 02:14:55: Запуск профиля
+ [Thread-1]: 02:14:55: Открываю фейсбук
+ [Thread-4]: 02:14:57: Старт потока Thread-4
+ [Thread-4]: 02:14:57: Создание профиля
+ [Thread-3]: 02:14:58: ID профиля j4x8i1c
+ [Thread-4]: 02:14:59: ip = {
+  "IP": "207.44.59.55"
+}
+ [Thread-4]: 02:15:00: {'data': {'id': 'j4x8i1k', 'serial_number': '3754'}, 'code': 0, 'msg': 'Success'}
+ [Thread-4]: 02:15:00: Запуск профиля
+ [Thread-2]: 02:15:00: Открываю фейсбук
+ [Thread-4]: 02:15:03: ID профиля j4x8i1k
+ [Thread-3]: 02:15:06: Открываю фейсбук
+ [Thread-1]: 02:15:08: Нажимаю на регистрацию
+ [Thread-4]: 02:15:10: Открываю фейсбук
+ [Thread-1]: 02:15:13: Размер окна {'width': 1024, 'height': 768}
+ [Thread-2]: 02:15:16: Нажимаю на регистрацию
+ [Thread-2]: 02:15:22: Размер окна {'width': 1024, 'height': 768}
+ [Thread-1]: 02:15:23: Имя
+ [Thread-3]: 02:15:24: Нажимаю на регистрацию
+ [Thread-3]: 02:15:29: Размер окна {'width': 1367, 'height': 1080}
+ [Thread-4]: 02:15:29: Нажимаю на регистрацию
+ [Thread-1]: 02:15:32: Фамилия
+ [Thread-2]: 02:15:33: Имя
+ [Thread-4]: 02:15:34: Размер окна {'width': 1024, 'height': 600}
+ [Thread-3]: 02:15:40: Имя
+ [Thread-1]: 02:15:41: Подтверждаю ФИО
+ [Thread-2]: 02:15:43: Фамилия
+ [Thread-4]: 02:15:45: Имя
+ [Thread-1]: 02:15:48: Месяц рожденья
+ [Thread-3]: 02:15:50: Фамилия
+ [Thread-2]: 02:15:51: Подтверждаю ФИО
+ [Thread-4]: 02:15:53: Фамилия
+ [Thread-1]: 02:15:55: День рожденья
+ [Thread-2]: 02:15:58: Месяц рожденья
+ [Thread-3]: 02:15:59: Подтверждаю ФИО
+ [Thread-4]: 02:16:02: Подтверждаю ФИО
+ [Thread-1]: 02:16:03: Год рожденья
+ [Thread-2]: 02:16:05: День рожденья
+ [Thread-3]: 02:16:06: Месяц рожденья
+ [Thread-4]: 02:16:09: Месяц рожденья
+ [Thread-3]: 02:16:10: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000014BC433A4F0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/950dbece0176e7d0e9e1123046a0fc0c/element
+ [Thread-4]: 02:16:13: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000014BC436E100>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/e64bec4f1ad61edcf98cfdabdbdf1052/element
+ [Thread-1]: 02:16:14: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000014BC4344F40>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/c472e8e544b3c5652c534e07d9a09f4e/actions
+ [Thread-3]: 02:16:14: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000014BC41C8940>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/950dbece0176e7d0e9e1123046a0fc0c/element
+ [Thread-4]: 02:16:17: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000014BC41C8A90>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/e64bec4f1ad61edcf98cfdabdbdf1052/element
+ [Thread-1]: 02:16:18: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000014BC41C8BE0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/c472e8e544b3c5652c534e07d9a09f4e/actions
+ [Thread-3]: 02:16:18: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000014BC41C8D30>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/950dbece0176e7d0e9e1123046a0fc0c/element
+ [Thread-4]: 02:16:21: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000014BC41C8E80>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/e64bec4f1ad61edcf98cfdabdbdf1052/element
+ [Thread-1]: 02:16:22: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000014BC41C8FD0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/c472e8e544b3c5652c534e07d9a09f4e/actions
+ [Thread-3]: 02:16:22: Закрытие профиля
+ [Thread-4]: 02:16:25: Закрытие профиля
+ [Thread-3]: 02:16:26:  Статус закрытия профиля Too many request per second, please check
+ [Thread-4]: 02:16:26: Удаление профиля
+ [Thread-4]: 02:16:27: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-4]: 02:16:27: Поток Thread-4 завершил работу
+ [Thread-4]: 02:16:27: День рожденья
+ [Thread-3]: 02:16:30: Удаление профиля
+ [Thread-3]: 02:16:31: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-3]: 02:16:31: Поток Thread-3 завершил работу
+ [Thread-3]: 02:16:31: День рожденья
+ [Thread-4]: 02:16:32: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000014BC436E190>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/e64bec4f1ad61edcf98cfdabdbdf1052/element
+ [Thread-3]: 02:16:35: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000014BC41C8670>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/950dbece0176e7d0e9e1123046a0fc0c/element
+ [Thread-4]: 02:16:36: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000014BC433A940>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/e64bec4f1ad61edcf98cfdabdbdf1052/element
+ [Thread-3]: 02:16:39: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000014BC433A610>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/950dbece0176e7d0e9e1123046a0fc0c/element
+ [Thread-4]: 02:16:40: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000014BC433AE80>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/e64bec4f1ad61edcf98cfdabdbdf1052/element
+ [Thread-3]: 02:16:43: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000014BC433AF10>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/950dbece0176e7d0e9e1123046a0fc0c/element
+ [Thread-4]: 02:16:44: Закрытие профиля
+ [Thread-4]: 02:16:45: Удаление профиля
+ [Thread-3]: 02:16:47: Закрытие профиля
+ [Thread-3]: 02:16:48: Удаление профиля
+ [MainThread]: 02:17:10: Инициализация потоков
+ [MainThread]: 02:17:10: Старт потоков
+ [Thread-1]: 02:17:10: Старт потока Thread-1
+ [Thread-1]: 02:17:10: Создание профиля
+ [Thread-1]: 02:17:13: ip = {
+  "IP": "173.218.230.78"
+}
+ [Thread-1]: 02:17:13: {'data': {'id': 'j4x8i5k', 'serial_number': '3755'}, 'code': 0, 'msg': 'Success'}
+ [Thread-1]: 02:17:13: Запуск профиля
+ [Thread-2]: 02:17:15: Старт потока Thread-2
+ [Thread-2]: 02:17:15: Создание профиля
+ [Thread-1]: 02:17:16: ID профиля j4x8i5k
+ [Thread-2]: 02:17:18: ip = {
+  "IP": "24.21.48.254"
+}
+ [Thread-2]: 02:17:18: {'data': {'id': 'j4x8i5u', 'serial_number': '3756'}, 'code': 0, 'msg': 'Success'}
+ [Thread-2]: 02:17:18: Запуск профиля
+ [Thread-3]: 02:17:20: Старт потока Thread-3
+ [Thread-3]: 02:17:20: Создание профиля
+ [Thread-2]: 02:17:21: ID профиля j4x8i5u
+ [Thread-3]: 02:17:23: ip = {
+  "IP": "73.134.167.89"
+}
+ [Thread-1]: 02:17:23: Открываю фейсбук
+ [Thread-3]: 02:17:23: {'data': {'id': 'j4x8i60', 'serial_number': '3757'}, 'code': 0, 'msg': 'Success'}
+ [Thread-3]: 02:17:23: Запуск профиля
+ [Thread-4]: 02:17:25: Старт потока Thread-4
+ [Thread-4]: 02:17:25: Создание профиля
+ [Thread-3]: 02:17:26: ID профиля j4x8i60
+ [Thread-4]: 02:17:28: ip = {
+  "IP": "76.106.181.24"
+}
+ [Thread-4]: 02:17:28: {'data': {'id': 'j4x8i66', 'serial_number': '3758'}, 'code': 0, 'msg': 'Success'}
+ [Thread-4]: 02:17:28: Запуск профиля
+ [Thread-2]: 02:17:29: Открываю фейсбук
+ [Thread-4]: 02:17:31: ID профиля j4x8i66
+ [Thread-3]: 02:17:34: Открываю фейсбук
+ [Thread-1]: 02:17:36: Нажимаю на регистрацию
+ [Thread-4]: 02:17:40: Открываю фейсбук
+ [Thread-1]: 02:17:41: Размер окна {'width': 1367, 'height': 1080}
+ [Thread-2]: 02:17:46: Нажимаю на регистрацию
+ [Thread-2]: 02:17:51: Размер окна {'width': 1367, 'height': 1080}
+ [Thread-3]: 02:17:52: Нажимаю на регистрацию
+ [Thread-1]: 02:17:52: Имя
+ [Thread-3]: 02:17:57: Размер окна {'width': 1024, 'height': 768}
+ [Thread-1]: 02:18:00: Фамилия
+ [Thread-2]: 02:18:02: Имя
+ [Thread-3]: 02:18:07: Имя
+ [Thread-4]: 02:18:09: Нажимаю на регистрацию
+ [Thread-1]: 02:18:09: Подтверждаю ФИО
+ [Thread-2]: 02:18:11: Фамилия
+ [Thread-4]: 02:18:14: Размер окна {'width': 960, 'height': 680}
+ [Thread-3]: 02:18:15: Фамилия
+ [Thread-1]: 02:18:16: Месяц рожденья
+ [Thread-2]: 02:18:19: Подтверждаю ФИО
+ [Thread-3]: 02:18:24: Подтверждаю ФИО
+ [Thread-1]: 02:18:25: День рожденья
+ [Thread-2]: 02:18:26: Месяц рожденья
+ [Thread-4]: 02:18:28: Имя
+ [Thread-3]: 02:18:31: Месяц рожденья
+ [Thread-1]: 02:18:33: Год рожденья
+ [Thread-2]: 02:18:34: День рожденья
+ [Thread-4]: 02:18:37: Фамилия
+ [Thread-3]: 02:18:39: День рожденья
+ [Thread-1]: 02:18:41: Подтверждаю рождение
+ [Thread-2]: 02:18:41: Год рожденья
+ [Thread-4]: 02:18:46: Подтверждаю ФИО
+ [Thread-3]: 02:18:46: Год рожденья
+ [Thread-1]: 02:18:47: Вбиваю телефон
+ [Thread-2]: 02:18:49: Подтверждаю рождение
+ [Thread-4]: 02:18:52: Месяц рожденья
+ [Thread-1]: 02:18:54: Жду телефон 5sim
+ [Thread-3]: 02:18:54: Подтверждаю рождение
+ [Thread-2]: 02:18:56: Вбиваю телефон
+ [Thread-1]: 02:18:58: Ответ покупки номера 5sim {'id': 410246443, 'phone': '+221778510962', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:33:59.331244253Z', 'sms': None, 'created_at': '2023-01-29T23:18:59.331244253Z', 'country': 'senegal'}
+ [Thread-1]: 02:18:58: Вбиваю телефон
+ [Thread-4]: 02:19:00: День рожденья
+ [Thread-3]: 02:19:01: Вбиваю телефон
+ [Thread-2]: 02:19:02: Жду телефон 5sim
+ [Thread-2]: 02:19:03: Нет доступных номеров no free phones
+ [Thread-1]: 02:19:03: Подтверждаю телефон
+ [Thread-2]: 02:19:04: Ответ покупки номера 5sim {'id': 410246452, 'phone': '+221783543168', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:34:05.353649924Z', 'sms': None, 'created_at': '2023-01-29T23:19:05.353649924Z', 'country': 'senegal'}
+ [Thread-2]: 02:19:04: Вбиваю телефон
+ [Thread-4]: 02:19:07: Год рожденья
+ [Thread-3]: 02:19:08: Жду телефон 5sim
+ [Thread-2]: 02:19:08: Подтверждаю телефон
+ [Thread-3]: 02:19:09: Ответ покупки номера 5sim {'id': 410246464, 'phone': '+97690525119', 'operator': 'virtual7', 'product': 'facebook', 'price': 7, 'status': 'RECEIVED', 'expires': '2023-01-29T23:39:09.46241658Z', 'sms': None, 'created_at': '2023-01-29T23:19:09.46241658Z', 'country': 'mongolia', 'reuse': True, 'reuse_price': 7}
+ [Thread-3]: 02:19:09: Вбиваю телефон
+ [Thread-1]: 02:19:11: Указываю пол
+ [Thread-3]: 02:19:12: Подтверждаю телефон
+ [Thread-4]: 02:19:15: Подтверждаю рождение
+ [Thread-2]: 02:19:17: Указываю пол
+ [Thread-1]: 02:19:18: Подтвержадаю пол
+ [Thread-3]: 02:19:21: Указываю пол
+ [Thread-4]: 02:19:21: Вбиваю телефон
+ [Thread-2]: 02:19:24: Подтвержадаю пол
+ [Thread-1]: 02:19:27: Генерирую пароль
+ [Thread-3]: 02:19:28: Подтвержадаю пол
+ [Thread-4]: 02:19:29: Жду телефон 5sim
+ [Thread-4]: 02:19:29: Нет доступных номеров no free phones
+ [Thread-4]: 02:19:31: Ответ покупки номера 5sim {'id': 410246520, 'phone': '+221781119729', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:34:31.694520351Z', 'sms': None, 'created_at': '2023-01-29T23:19:31.694520351Z', 'country': 'senegal'}
+ [Thread-4]: 02:19:31: Вбиваю телефон
+ [Thread-2]: 02:19:33: Генерирую пароль
+ [Thread-4]: 02:19:35: Подтверждаю телефон
+ [Thread-3]: 02:19:37: Генерирую пароль
+ [Thread-1]: 02:19:38: Подтверждаю пароль на странице
+ [Thread-2]: 02:19:44: Подтверждаю пароль на странице
+ [Thread-4]: 02:19:44: Указываю пол
+ [Thread-3]: 02:19:48: Подтверждаю пароль на странице
+ [Thread-4]: 02:19:51: Подтвержадаю пол
+ [Thread-4]: 02:19:59: Генерирую пароль
+ [Thread-4]: 02:20:10: Подтверждаю пароль на странице
+ [Thread-1]: 02:20:19: checkpoint
+ [Thread-1]: 02:20:20: Статус бана смс заявки: <Response [200]>
+ [Thread-1]: 02:20:20: Аккаунт на чеке
+ [Thread-2]: 02:20:25: error загрузка
+ [Thread-2]: 02:20:26: Статус бана смс заявки: <Response [200]>
+ [Thread-2]: 02:20:26: Аккаунт на чеке
+ [Thread-3]: 02:20:30: error загрузка
+ [Thread-3]: 02:20:30: Статус бана смс заявки: <Response [200]>
+ [Thread-3]: 02:20:30: Аккаунт на чеке
+ [Thread-4]: 02:20:56: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016E3ECB9490>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/0481e5bdd8adaf91c7e9d82765386b82/url
+ [Thread-4]: 02:21:00: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016E3EC99130>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/0481e5bdd8adaf91c7e9d82765386b82/url
+ [Thread-4]: 02:21:04: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016E3EC997C0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/0481e5bdd8adaf91c7e9d82765386b82/url
+ [MainThread]: 02:21:18: Инициализация потоков
+ [MainThread]: 02:21:18: Старт потоков
+ [Thread-1]: 02:21:18: Старт потока Thread-1
+ [Thread-1]: 02:21:18: Создание профиля
+ [Thread-1]: 02:21:21: ip = {
+  "IP": "142.202.76.130"
+}
+ [Thread-1]: 02:21:21: {'data': {'id': 'j4x8ifv', 'serial_number': '3759'}, 'code': 0, 'msg': 'Success'}
+ [Thread-1]: 02:21:21: Запуск профиля
+ [Thread-2]: 02:21:23: Старт потока Thread-2
+ [Thread-2]: 02:21:23: Создание профиля
+ [Thread-1]: 02:21:24: ID профиля j4x8ifv
+ [Thread-2]: 02:21:26: ip = {
+  "IP": "104.187.190.34"
+}
+ [Thread-2]: 02:21:26: {'data': {'id': 'j4x8ig0', 'serial_number': '3760'}, 'code': 0, 'msg': 'Success'}
+ [Thread-2]: 02:21:26: Запуск профиля
+ [Thread-3]: 02:21:28: Старт потока Thread-3
+ [Thread-3]: 02:21:28: Создание профиля
+ [Thread-2]: 02:21:29: ID профиля j4x8ig0
+ [Thread-3]: 02:21:30: ip = {
+  "IP": "100.15.64.30"
+}
+ [Thread-1]: 02:21:31: Открываю фейсбук
+ [Thread-3]: 02:21:31: {'data': {'id': 'j4x8ig4', 'serial_number': '3761'}, 'code': 0, 'msg': 'Success'}
+ [Thread-3]: 02:21:31: Запуск профиля
+ [Thread-4]: 02:21:33: Старт потока Thread-4
+ [Thread-4]: 02:21:33: Создание профиля
+ [Thread-3]: 02:21:34: ID профиля j4x8ig4
+ [Thread-4]: 02:21:35: ip = {
+  "IP": "100.11.244.229"
+}
+ [Thread-4]: 02:21:36: {'data': {'id': 'j4x8ig8', 'serial_number': '3762'}, 'code': 0, 'msg': 'Success'}
+ [Thread-4]: 02:21:36: Запуск профиля
+ [Thread-2]: 02:21:36: Открываю фейсбук
+ [Thread-4]: 02:21:39: ID профиля j4x8ig8
+ [Thread-3]: 02:21:40: Открываю фейсбук
+ [Thread-1]: 02:21:45: Нажимаю на регистрацию
+ [Thread-4]: 02:21:46: Открываю фейсбук
+ [Thread-1]: 02:21:50: Размер окна {'width': 1367, 'height': 1080}
+ [Thread-3]: 02:21:52: Нажимаю на регистрацию
+ [Thread-3]: 02:21:57: Размер окна {'width': 1367, 'height': 1080}
+ [Thread-2]: 02:21:58: Нажимаю на регистрацию
+ [Thread-4]: 02:21:58: Нажимаю на регистрацию
+ [Thread-1]: 02:22:01: Имя
+ [Thread-2]: 02:22:03: Размер окна {'width': 960, 'height': 680}
+ [Thread-4]: 02:22:03: Размер окна {'width': 1280, 'height': 720}
+ [Thread-3]: 02:22:07: Имя
+ [Thread-1]: 02:22:10: Фамилия
+ [Thread-4]: 02:22:12: Имя
+ [Thread-2]: 02:22:13: Имя
+ [Thread-3]: 02:22:15: Фамилия
+ [Thread-1]: 02:22:18: Подтверждаю ФИО
+ [Thread-2]: 02:22:21: Фамилия
+ [Thread-4]: 02:22:22: Фамилия
+ [Thread-3]: 02:22:23: Подтверждаю ФИО
+ [Thread-1]: 02:22:25: Месяц рожденья
+ [Thread-4]: 02:22:30: Подтверждаю ФИО
+ [Thread-3]: 02:22:30: Месяц рожденья
+ [Thread-2]: 02:22:30: Подтверждаю ФИО
+ [Thread-1]: 02:22:32: День рожденья
+ [Thread-4]: 02:22:37: Месяц рожденья
+ [Thread-2]: 02:22:37: Месяц рожденья
+ [Thread-3]: 02:22:38: День рожденья
+ [Thread-1]: 02:22:40: Год рожденья
+ [Thread-4]: 02:22:44: День рожденья
+ [Thread-3]: 02:22:45: Год рожденья
+ [Thread-2]: 02:22:45: День рожденья
+ [Thread-1]: 02:22:48: Подтверждаю рождение
+ [Thread-4]: 02:22:51: Год рожденья
+ [Thread-2]: 02:22:52: Год рожденья
+ [Thread-3]: 02:22:53: Подтверждаю рождение
+ [Thread-1]: 02:22:55: Вбиваю телефон
+ [Thread-4]: 02:22:59: Подтверждаю рождение
+ [Thread-3]: 02:23:00: Вбиваю телефон
+ [Thread-2]: 02:23:00: Подтверждаю рождение
+ [Thread-1]: 02:23:02: Жду телефон 5sim
+ [Thread-1]: 02:23:03: Ответ покупки номера 5sim {'id': 410246987, 'phone': '+221767979806', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:03.375427229Z', 'sms': None, 'created_at': '2023-01-29T23:23:03.375427229Z', 'country': 'senegal'}
+ [Thread-1]: 02:23:03: Вбиваю телефон
+ [Thread-4]: 02:23:06: Вбиваю телефон
+ [Thread-3]: 02:23:07: Жду телефон 5sim
+ [Thread-2]: 02:23:07: Вбиваю телефон
+ [Thread-1]: 02:23:07: Подтверждаю телефон
+ [Thread-3]: 02:23:07: Ответ покупки номера 5sim {'id': 410246996, 'phone': '+97691160596', 'operator': 'virtual7', 'product': 'facebook', 'price': 7, 'status': 'RECEIVED', 'expires': '2023-01-29T23:43:08.182994335Z', 'sms': None, 'created_at': '2023-01-29T23:23:08.182994335Z', 'country': 'mongolia', 'reuse': True, 'reuse_price': 7}
+ [Thread-3]: 02:23:07: Вбиваю телефон
+ [Thread-3]: 02:23:11: Подтверждаю телефон
+ [Thread-4]: 02:23:13: Жду телефон 5sim
+ [Thread-4]: 02:23:13: Нет доступных номеров no free phones
+ [Thread-2]: 02:23:13: Жду телефон 5sim
+ [Thread-2]: 02:23:14: Нет доступных номеров no free phones
+ [Thread-4]: 02:23:14: Ответ покупки номера 5sim {'id': 410247010, 'phone': '+221773203906', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:14.706772163Z', 'sms': None, 'created_at': '2023-01-29T23:23:14.706772163Z', 'country': 'senegal'}
+ [Thread-4]: 02:23:14: Вбиваю телефон
+ [Thread-2]: 02:23:14: Ответ покупки номера 5sim {'id': 410247012, 'phone': '+221777844261', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:15.270131339Z', 'sms': None, 'created_at': '2023-01-29T23:23:15.270131339Z', 'country': 'senegal'}
+ [Thread-2]: 02:23:14: Вбиваю телефон
+ [Thread-1]: 02:23:16: Указываю пол
+ [Thread-4]: 02:23:18: Подтверждаю телефон
+ [Thread-2]: 02:23:18: Подтверждаю телефон
+ [Thread-3]: 02:23:20: Указываю пол
+ [Thread-1]: 02:23:22: Подтвержадаю пол
+ [Thread-3]: 02:23:27: Подтвержадаю пол
+ [Thread-4]: 02:23:27: Указываю пол
+ [Thread-2]: 02:23:27: Указываю пол
+ [Thread-1]: 02:23:31: Генерирую пароль
+ [Thread-4]: 02:23:34: Подтвержадаю пол
+ [Thread-2]: 02:23:34: Подтвержадаю пол
+ [Thread-3]: 02:23:35: Генерирую пароль
+ [Thread-1]: 02:23:42: Подтверждаю пароль на странице
+ [Thread-4]: 02:23:43: Генерирую пароль
+ [Thread-2]: 02:23:43: Генерирую пароль
+ [Thread-3]: 02:23:46: Подтверждаю пароль на странице
+ [Thread-2]: 02:23:54: Подтверждаю пароль на странице
+ [Thread-4]: 02:23:54: Подтверждаю пароль на странице
+ [Thread-1]: 02:24:24: checkpoint
+ [Thread-1]: 02:24:26: Статус бана смс заявки: <Response [200]>
+ [Thread-1]: 02:24:26: Аккаунт на чеке
+ [Thread-1]: 02:24:26: Закрытие профиля
+ [Thread-1]: 02:24:27: Удаление профиля
+ [Thread-1]: 02:24:28: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-1]: 02:24:28: Поток Thread-1 завершил работу
+ [Thread-3]: 02:24:28: Ищу Not now
+ [Thread-3]: 02:24:28: Рега прошла, подверждение смс
+ [Thread-2]: 02:24:35: Ищу Not now
+ [Thread-2]: 02:24:35: Рега прошла, подверждение смс
+ [Thread-4]: 02:24:35: Ищу Not now
+ [Thread-4]: 02:24:35: Рега прошла, подверждение смс
+ [Thread-3]: 02:24:37: Смс: {'id': 410246996, 'phone': '+97691160596', 'operator': 'virtual7', 'product': 'facebook', 'price': 7, 'status': 'RECEIVED', 'expires': '2023-01-29T23:43:08.182994Z', 'sms': [{'created_at': '2023-01-29T23:24:18.778996Z', 'date': '2023-01-29T23:24:18.774028Z', 'sender': '', 'text': 'FB-35217 is your Facebook confirmation code', 'code': '35217'}], 'created_at': '2023-01-29T23:23:08.182994Z', 'country': 'mongolia', 'reuse': True, 'reuse_price': 7}
+ [Thread-3]: 02:24:37: Проверка на подключение
+ [Thread-3]: 02:24:37: Вбиваю смс
+ [Thread-2]: 02:24:47: Смс: {'id': 410247012, 'phone': '+221777844261', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:15.270131Z', 'sms': [{'created_at': '2023-01-29T23:24:42.418227Z', 'date': '2023-01-29T23:24:42.414894Z', 'sender': '*', 'text': '11712', 'code': '11712'}], 'created_at': '2023-01-29T23:23:15.270131Z', 'country': 'senegal'}
+ [Thread-2]: 02:24:47: Проверка на подключение
+ [Thread-2]: 02:24:47: Вбиваю смс
+ [Thread-3]: 02:24:49: Проверка на валидность смс
+ [Thread-3]: 02:24:49: Смс валидна, подтверждаю
+ [Thread-4]: 02:24:54: Статус повторной активаций: {'id': 410247010, 'phone': '+221773203906', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:14.706772Z', 'sms': [], 'created_at': '2023-01-29T23:23:14.706772Z', 'country': 'senegal'}
+ [Thread-3]: 02:24:55: Получаю manager_id
+ [Thread-2]: 02:24:58: Проверка на валидность смс
+ [Thread-2]: 02:24:58: Смс валидна, подтверждаю
+ [Thread-4]: 02:25:05: Статус повторной активаций: {'id': 410247010, 'phone': '+221773203906', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:14.706772Z', 'sms': [], 'created_at': '2023-01-29T23:23:14.706772Z', 'country': 'senegal'}
+ [Thread-2]: 02:25:05: Получаю manager_id
+ [Thread-3]: 02:25:09: Обновление страницы с manager_id
+ [Thread-2]: 02:25:14: Обновление страницы с manager_id
+ [Thread-4]: 02:25:15: Статус повторной активаций: {'id': 410247010, 'phone': '+221773203906', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:14.706772Z', 'sms': [], 'created_at': '2023-01-29T23:23:14.706772Z', 'country': 'senegal'}
+ [Thread-4]: 02:25:25: Статус повторной активаций: {'id': 410247010, 'phone': '+221773203906', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:14.706772Z', 'sms': [], 'created_at': '2023-01-29T23:23:14.706772Z', 'country': 'senegal'}
+ [Thread-4]: 02:25:35: Статус повторной активаций: {'id': 410247010, 'phone': '+221773203906', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:14.706772Z', 'sms': [], 'created_at': '2023-01-29T23:23:14.706772Z', 'country': 'senegal'}
+ [Thread-3]: 02:25:40: Обновление страницы с manager_id
+ [Thread-4]: 02:25:45: Статус повторной активаций: {'id': 410247010, 'phone': '+221773203906', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:14.706772Z', 'sms': [], 'created_at': '2023-01-29T23:23:14.706772Z', 'country': 'senegal'}
+ [Thread-4]: 02:25:55: Статус повторной активаций: {'id': 410247010, 'phone': '+221773203906', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:14.706772Z', 'sms': [], 'created_at': '2023-01-29T23:23:14.706772Z', 'country': 'senegal'}
+ [Thread-2]: 02:25:59: Обновление страницы с manager_id
+ [Thread-4]: 02:26:06: Статус повторной активаций: {'id': 410247010, 'phone': '+221773203906', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:14.706772Z', 'sms': [], 'created_at': '2023-01-29T23:23:14.706772Z', 'country': 'senegal'}
+ [Thread-3]: 02:26:10: manager_id = 703111421309752
+ [Thread-3]: 02:26:10: Получаю Eaab_Token
+ [Thread-3]: 02:26:10: Eaab_Token = EAABsbCS1iHgBADGZA6yZBqtlqN9XGIoT7DUAxjeZAx5dfBoL8efVhfc1xCcRh5ZBMUt9OR8C8fQhmbL5EQHWdhY9PGyoyeyyuH58pMZC2BOqdi1bdnWO54FN7dDTOrTC3osLxryZASMZCHqv5ru5VZBxoGMTTgUIOyZCKaudU3ylOHSK5CckmEgWXksQoX5FGcp8ZD
+ [Thread-3]: 02:26:10: Статус закрытия смс заявки: <Response [200]>
+ [Thread-3]: 02:26:10: Успешная регистрация
+ [Thread-3]: 02:26:10: Закрытие профиля
+ [Thread-3]: 02:26:11: Удаление профиля
+ [Thread-3]: 02:26:12: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-3]: 02:26:12: Поток Thread-3 завершил работу
+ [Thread-4]: 02:26:16: Статус повторной активаций: {'id': 410247010, 'phone': '+221773203906', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:14.706772Z', 'sms': [], 'created_at': '2023-01-29T23:23:14.706772Z', 'country': 'senegal'}
+ [Thread-4]: 02:26:26: Статус повторной активаций: {'id': 410247010, 'phone': '+221773203906', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:14.706772Z', 'sms': [], 'created_at': '2023-01-29T23:23:14.706772Z', 'country': 'senegal'}
+ [Thread-2]: 02:26:29: Обновление страницы с manager_id
+ [Thread-4]: 02:26:36: Статус повторной активаций: {'id': 410247010, 'phone': '+221773203906', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:14.706772Z', 'sms': [], 'created_at': '2023-01-29T23:23:14.706772Z', 'country': 'senegal'}
+ [Thread-4]: 02:26:46: Статус повторной активаций: {'id': 410247010, 'phone': '+221773203906', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:14.706772Z', 'sms': [], 'created_at': '2023-01-29T23:23:14.706772Z', 'country': 'senegal'}
+ [Thread-4]: 02:26:56: Статус повторной активаций: {'id': 410247010, 'phone': '+221773203906', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:14.706772Z', 'sms': [], 'created_at': '2023-01-29T23:23:14.706772Z', 'country': 'senegal'}
+ [Thread-2]: 02:26:59: Обновление страницы с manager_id
+ [Thread-4]: 02:27:07: Статус повторной активаций: {'id': 410247010, 'phone': '+221773203906', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:14.706772Z', 'sms': [], 'created_at': '2023-01-29T23:23:14.706772Z', 'country': 'senegal'}
+ [Thread-4]: 02:27:17: Статус повторной активаций: {'id': 410247010, 'phone': '+221773203906', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:14.706772Z', 'sms': [], 'created_at': '2023-01-29T23:23:14.706772Z', 'country': 'senegal'}
+ [Thread-4]: 02:27:17: Смс не пришла, статус активаций: {'id': 410247010, 'phone': '+221773203906', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:38:14.706772Z', 'sms': [], 'created_at': '2023-01-29T23:23:14.706772Z', 'country': 'senegal'}
+ [Thread-4]: 02:27:17: Статус бана смс заявки: <Response [200]>
+ [Thread-4]: 02:27:17: Аккаунт на чеке
+ [Thread-4]: 02:27:17: Закрытие профиля
+ [Thread-4]: 02:27:18: Удаление профиля
+ [Thread-4]: 02:27:19: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-4]: 02:27:19: Поток Thread-4 завершил работу
+ [Thread-4]: 02:27:19: Проверка на подключение
+ [Thread-4]: 02:27:23: Лог из веба {'response': {'data': {'id': 'j4x8ig8', 'serial_number': '3762'}, 'code': 0, 'msg': 'Success'}, 'payload': {'name': 'Fb', 'group_id': '1836292', 'domain_name': 'google.com', 'repeat_config': ['0'], 'country': 'us', 'fingerprint_config': {'language': ['uk-UA', 'uk', 'en-US', 'en'], 'ua': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', 'flash': 'block', 'scan_port_type': '1', 'screen_resolution': '1280_720', 'fonts': ['all'], 'longitude': '180', 'latitude': '90', 'webrtc': 'proxy', 'do_not_track': 'true'}, 'user_proxy_config': {'proxy_soft': 'other', 'proxy_type': 'http', 'proxy_host': '64.74.163.147', 'proxy_port': '10893', 'proxy_user': 'melnikov1133', 'proxy_password': 'f5e6ce'}}}
+ [Thread-2]: 02:27:29: Обновление страницы с manager_id
+ [Thread-2]: 02:27:59: Обновление страницы с manager_id
+ [Thread-2]: 02:28:30: manager_id = 1311635569412697
+ [Thread-2]: 02:28:30: Получаю Eaab_Token
+ [Thread-2]: 02:28:30: Eaab_Token = EAABsbCS1iHgBAJqZCuuCxvQpaGGnf8spHtFk4Qbac1US1HApZASw6ZBIus5qJAenZCrhn4X7qBQEIKCv2c7A1Ur3xOcQpb11RPOAB6FnZAJZAsZAmz4D1KYuZC6a04uRWTBZAtM829a2HkgaYx1DyyJHZAb2xJSwZAz7vSdeV14jbSs5RraGXkMuOlAZBMnzQGWYKbUZD
+ [Thread-2]: 02:28:32: Статус закрытия смс заявки: <Response [200]>
+ [Thread-2]: 02:28:32: Успешная регистрация
+ [Thread-2]: 02:28:32: Закрытие профиля
+ [Thread-2]: 02:28:33: Удаление профиля
+ [Thread-2]: 02:28:33: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-2]: 02:28:33: Поток Thread-2 завершил работу
+ [MainThread]: 02:29:08: Активных потоков: 1
+ [MainThread]: 02:29:08: Старт потоков
+ [Thread-5]: 02:29:08: Старт потока Thread-5
+ [Thread-5]: 02:29:08: Создание профиля
+ [Thread-5]: 02:29:10: ip = {
+  "IP": "68.129.125.179"
+}
+ [Thread-5]: 02:29:11: {'data': {'id': 'j4x8j16', 'serial_number': '3763'}, 'code': 0, 'msg': 'Success'}
+ [Thread-5]: 02:29:11: Запуск профиля
+ [Thread-6]: 02:29:13: Старт потока Thread-6
+ [Thread-6]: 02:29:13: Создание профиля
+ [Thread-5]: 02:29:14: ID профиля j4x8j16
+ [Thread-6]: 02:29:16: ip = {
+  "IP": "108.28.95.128"
+}
+ [Thread-6]: 02:29:16: {'data': {'id': 'j4x8j19', 'serial_number': '3764'}, 'code': 0, 'msg': 'Success'}
+ [Thread-6]: 02:29:16: Запуск профиля
+ [Thread-7]: 02:29:18: Старт потока Thread-7
+ [Thread-7]: 02:29:18: Создание профиля
+ [Thread-6]: 02:29:19: ID профиля j4x8j19
+ [Thread-5]: 02:29:20: Открываю фейсбук
+ [Thread-7]: 02:29:20: ip = {
+  "IP": "205.149.52.40"
+}
+ [Thread-7]: 02:29:21: {'data': {'id': 'j4x8j1f', 'serial_number': '3765'}, 'code': 0, 'msg': 'Success'}
+ [Thread-7]: 02:29:21: Запуск профиля
+ [Thread-8]: 02:29:23: Старт потока Thread-8
+ [Thread-8]: 02:29:23: Создание профиля
+ [Thread-7]: 02:29:24: ID профиля j4x8j1f
+ [Thread-6]: 02:29:25: Открываю фейсбук
+ [Thread-8]: 02:29:26: ip = {
+  "IP": "159.118.141.242"
+}
+ [Thread-8]: 02:29:26: {'data': {'id': 'j4x8j1m', 'serial_number': '3766'}, 'code': 0, 'msg': 'Success'}
+ [Thread-8]: 02:29:26: Запуск профиля
+ [Thread-8]: 02:29:29: ID профиля j4x8j1m
+ [Thread-7]: 02:29:31: Открываю фейсбук
+ [Thread-5]: 02:29:32: Нажимаю на регистрацию
+ [Thread-6]: 02:29:33: Нажимаю на регистрацию
+ [Thread-8]: 02:29:36: Открываю фейсбук
+ [Thread-5]: 02:29:37: Размер окна {'width': 1280, 'height': 720}
+ [Thread-6]: 02:29:38: Размер окна {'width': 1024, 'height': 600}
+ [Thread-7]: 02:29:41: Нажимаю на регистрацию
+ [Thread-7]: 02:29:46: Размер окна {'width': 960, 'height': 680}
+ [Thread-6]: 02:29:48: Имя
+ [Thread-5]: 02:29:49: Имя
+ [Thread-8]: 02:29:53: Нажимаю на регистрацию
+ [Thread-7]: 02:29:55: Имя
+ [Thread-6]: 02:29:56: Фамилия
+ [Thread-5]: 02:29:58: Фамилия
+ [Thread-8]: 02:29:58: Размер окна {'width': 1024, 'height': 600}
+ [Thread-7]: 02:30:03: Фамилия
+ [Thread-6]: 02:30:06: Подтверждаю ФИО
+ [Thread-5]: 02:30:06: Подтверждаю ФИО
+ [Thread-8]: 02:30:10: Имя
+ [Thread-7]: 02:30:12: Подтверждаю ФИО
+ [Thread-6]: 02:30:12: Месяц рожденья
+ [Thread-5]: 02:30:13: Месяц рожденья
+ [Thread-8]: 02:30:19: Фамилия
+ [Thread-7]: 02:30:19: Месяц рожденья
+ [Thread-6]: 02:30:20: День рожденья
+ [Thread-5]: 02:30:21: День рожденья
+ [Thread-7]: 02:30:27: День рожденья
+ [Thread-6]: 02:30:27: Год рожденья
+ [Thread-8]: 02:30:28: Подтверждаю ФИО
+ [Thread-5]: 02:30:28: Год рожденья
+ [Thread-7]: 02:30:34: Год рожденья
+ [Thread-8]: 02:30:35: Месяц рожденья
+ [Thread-6]: 02:30:36: Подтверждаю рождение
+ [Thread-5]: 02:30:37: Подтверждаю рождение
+ [Thread-7]: 02:30:42: Подтверждаю рождение
+ [Thread-6]: 02:30:42: Вбиваю телефон
+ [Thread-8]: 02:30:43: День рожденья
+ [Thread-5]: 02:30:44: Вбиваю телефон
+ [Thread-7]: 02:30:49: Вбиваю телефон
+ [Thread-6]: 02:30:49: Жду телефон 5sim
+ [Thread-6]: 02:30:49: Нет доступных номеров no free phones
+ [Thread-8]: 02:30:50: Год рожденья
+ [Thread-5]: 02:30:50: Жду телефон 5sim
+ [Thread-5]: 02:30:51: Ответ покупки номера 5sim {'id': 410247986, 'phone': '+221785555012', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:45:51.771809117Z', 'sms': None, 'created_at': '2023-01-29T23:30:51.771809117Z', 'country': 'senegal'}
+ [Thread-5]: 02:30:51: Вбиваю телефон
+ [Thread-5]: 02:30:55: Подтверждаю телефон
+ [Thread-6]: 02:30:55: Ответ покупки номера 5sim {'id': 410247993, 'phone': '+221766550470', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:45:55.800028755Z', 'sms': None, 'created_at': '2023-01-29T23:30:55.800028755Z', 'country': 'senegal'}
+ [Thread-6]: 02:30:55: Вбиваю телефон
+ [Thread-7]: 02:30:55: Жду телефон 5sim
+ [Thread-7]: 02:30:56: Ответ покупки номера 5sim {'id': 410247996, 'phone': '+97696224216', 'operator': 'virtual7', 'product': 'facebook', 'price': 7, 'status': 'RECEIVED', 'expires': '2023-01-29T23:50:57.09579917Z', 'sms': None, 'created_at': '2023-01-29T23:30:57.09579917Z', 'country': 'mongolia', 'reuse': True, 'reuse_price': 7}
+ [Thread-7]: 02:30:56: Вбиваю телефон
+ [Thread-8]: 02:30:58: Подтверждаю рождение
+ [Thread-6]: 02:30:59: Подтверждаю телефон
+ [Thread-7]: 02:31:00: Подтверждаю телефон
+ [Thread-5]: 02:31:04: Указываю пол
+ [Thread-8]: 02:31:05: Вбиваю телефон
+ [Thread-6]: 02:31:08: Указываю пол
+ [Thread-7]: 02:31:09: Указываю пол
+ [Thread-5]: 02:31:11: Подтвержадаю пол
+ [Thread-8]: 02:31:12: Жду телефон 5sim
+ [Thread-8]: 02:31:12: Нет доступных номеров no free phones
+ [Thread-8]: 02:31:13: Ответ покупки номера 5sim {'id': 410248040, 'phone': '+221785632439', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:46:13.442942596Z', 'sms': None, 'created_at': '2023-01-29T23:31:13.442942596Z', 'country': 'senegal'}
+ [Thread-8]: 02:31:13: Вбиваю телефон
+ [Thread-6]: 02:31:15: Подтвержадаю пол
+ [Thread-7]: 02:31:16: Подтвержадаю пол
+ [Thread-8]: 02:31:17: Подтверждаю телефон
+ [Thread-5]: 02:31:19: Генерирую пароль
+ [Thread-6]: 02:31:24: Генерирую пароль
+ [Thread-7]: 02:31:24: Генерирую пароль
+ [Thread-8]: 02:31:26: Указываю пол
+ [Thread-5]: 02:31:30: Подтверждаю пароль на странице
+ [Thread-8]: 02:31:32: Подтвержадаю пол
+ [Thread-6]: 02:31:35: Подтверждаю пароль на странице
+ [Thread-7]: 02:31:35: Подтверждаю пароль на странице
+ [Thread-8]: 02:31:41: Генерирую пароль
+ [Thread-8]: 02:31:52: Подтверждаю пароль на странице
+ [Thread-5]: 02:32:12: Ищу Not now
+ [Thread-5]: 02:32:12: Рега прошла, подверждение смс
+ [Thread-6]: 02:32:16: Ищу Not now
+ [Thread-6]: 02:32:16: Рега прошла, подверждение смс
+ [Thread-7]: 02:32:17: Ищу Not now
+ [Thread-7]: 02:32:17: Рега прошла, подверждение смс
+ [Thread-6]: 02:32:25: Смс: {'id': 410247993, 'phone': '+221766550470', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:45:55.800029Z', 'sms': [{'created_at': '2023-01-29T23:32:22.62622Z', 'date': '2023-01-29T23:32:22.62393Z', 'sender': '*', 'text': '66430', 'code': '66430'}], 'created_at': '2023-01-29T23:30:55.800029Z', 'country': 'senegal'}
+ [Thread-6]: 02:32:25: Проверка на подключение
+ [Thread-6]: 02:32:25: Вбиваю смс
+ [Thread-7]: 02:32:26: Смс: {'id': 410247996, 'phone': '+97696224216', 'operator': 'virtual7', 'product': 'facebook', 'price': 7, 'status': 'RECEIVED', 'expires': '2023-01-29T23:50:57.095799Z', 'sms': [{'created_at': '2023-01-29T23:32:12.608497Z', 'date': '2023-01-29T23:32:12.603577Z', 'sender': '', 'text': 'FB-50939 is your Facebook confirmation code', 'code': '50939'}], 'created_at': '2023-01-29T23:30:57.095799Z', 'country': 'mongolia', 'reuse': True, 'reuse_price': 7}
+ [Thread-7]: 02:32:26: Проверка на подключение
+ [Thread-7]: 02:32:26: Вбиваю смс
+ [Thread-5]: 02:32:31: Статус повторной активаций: {'id': 410247986, 'phone': '+221785555012', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:45:51.771809Z', 'sms': [{'created_at': '2023-01-29T23:32:23.57019Z', 'date': '2023-01-29T23:32:23.567376Z', 'sender': '*', 'text': '86460', 'code': '86460'}], 'created_at': '2023-01-29T23:30:51.771809Z', 'country': 'senegal'}
+ [Thread-5]: 02:32:31: Смс: {'id': 410247986, 'phone': '+221785555012', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:45:51.771809Z', 'sms': [{'created_at': '2023-01-29T23:32:23.57019Z', 'date': '2023-01-29T23:32:23.567376Z', 'sender': '*', 'text': '86460', 'code': '86460'}], 'created_at': '2023-01-29T23:30:51.771809Z', 'country': 'senegal'}
+ [Thread-5]: 02:32:31: Проверка на подключение
+ [Thread-5]: 02:32:31: Вбиваю смс
+ [Thread-8]: 02:32:34: checkpoint
+ [Thread-8]: 02:32:35: Статус бана смс заявки: <Response [200]>
+ [Thread-8]: 02:32:35: Аккаунт на чеке
+ [Thread-8]: 02:32:35: Закрытие профиля
+ [Thread-8]: 02:32:36: Удаление профиля
+ [Thread-8]: 02:32:37: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-8]: 02:32:37: Поток Thread-8 завершил работу
+ [Thread-6]: 02:32:37: Проверка на валидность смс
+ [Thread-6]: 02:32:37: Смс валидна, подтверждаю
+ [Thread-7]: 02:32:38: Проверка на валидность смс
+ [Thread-7]: 02:32:38: Смс валидна, подтверждаю
+ [Thread-5]: 02:32:42: Проверка на валидность смс
+ [Thread-5]: 02:32:42: Смс валидна, подтверждаю
+ [Thread-6]: 02:32:44: Получаю manager_id
+ [Thread-7]: 02:32:45: Получаю manager_id
+ [Thread-5]: 02:32:49: Получаю manager_id
+ [Thread-7]: 02:32:53: Обновление страницы с manager_id
+ [Thread-6]: 02:33:02: Обновление страницы с manager_id
+ [Thread-5]: 02:33:18: Обновление страницы с manager_id
+ [Thread-7]: 02:33:23: Обновление страницы с manager_id
+ [Thread-6]: 02:33:32: Обновление страницы с manager_id
+ [Thread-5]: 02:33:49: Обновление страницы с manager_id
+ [Thread-7]: 02:33:53: manager_id = 675508100930801
+ [Thread-7]: 02:33:53: Получаю Eaab_Token
+ [Thread-7]: 02:33:54: Eaab_Token = EAABsbCS1iHgBAKOLeZCnSg9fBSNG5BiBo28620rjSORLKGdyfZA8pldShG0uq0kpxLOp0qmn1fe9FZCibJ8NvG31kDs1tEtv21LRW2hxklw6ZB2gDLSpJGGxfE6GSkli79rl2MkDZC2iExE16VOSLwvkQwX7Tlsnzi0kXrYtJKYgK8edC9Ln3OPjdFAhyzosZD
+ [Thread-7]: 02:33:59: Статус закрытия смс заявки: <Response [200]>
+ [Thread-7]: 02:33:59: Успешная регистрация
+ [Thread-7]: 02:33:59: Закрытие профиля
+ [Thread-7]: 02:34:00: Удаление профиля
+ [Thread-7]: 02:34:00: Повторное удаление профиля
+ [Thread-7]: 02:34:00: Закрытие профиля
+ [Thread-7]: 02:34:01: Удаление профиля
+ [Thread-6]: 02:34:02: manager_id = 1146283282717180
+ [Thread-6]: 02:34:02: Получаю Eaab_Token
+ [Thread-6]: 02:34:02: Eaab_Token = EAABsbCS1iHgBALjy7U4uFw8T8L5ZClqy77zISV6Rgs2euxwz5Lk9SzIH15WHhrCCLfrdimuvyNIpJ6frKEnkNhy36LqA9i7jI0mmFNYrY7PNT0K3un8bxZAEuQWSpV1DfvMrKsCz4pvk85JIc83zw30RkRcNSRVsqqV7htYZAqdakFk5n9ryo4U48i67TIZD
+ [Thread-7]: 02:34:03: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-7]: 02:34:03: Поток Thread-7 завершил работу
+ [Thread-6]: 02:34:03: Статус закрытия смс заявки: <Response [200]>
+ [Thread-6]: 02:34:03: Успешная регистрация
+ [Thread-6]: 02:34:03: Закрытие профиля
+ [Thread-6]: 02:34:04: Удаление профиля
+ [Thread-6]: 02:34:04: Повторное удаление профиля
+ [Thread-6]: 02:34:04: Закрытие профиля
+ [Thread-6]: 02:34:05: Удаление профиля
+ [Thread-6]: 02:34:06: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-6]: 02:34:06: Поток Thread-6 завершил работу
+ [Thread-5]: 02:34:20: manager_id = 890805682347497
+ [Thread-5]: 02:34:20: Получаю Eaab_Token
+ [Thread-5]: 02:34:20: Eaab_Token = EAABsbCS1iHgBABcVAGUJZBOewQmAAwzudNeoa6H5defmnx3ua4PfdcvlUtBcJhkGIzAxyXECQsixbZBR39hFlPaIExtqkuKjMf5wYbUEOJVX8aXbmr6lEesZBPvOmRqYhjjh18eZApRsEGSFenLnqpsXZCx2DgLWYIzsfMJYoQ6yiYvEHC3aHbyDjsYTdet8ZD
+ [Thread-5]: 02:34:22: Статус закрытия смс заявки: <Response [200]>
+ [Thread-5]: 02:34:22: Успешная регистрация
+ [Thread-5]: 02:34:22: Закрытие профиля
+ [Thread-5]: 02:34:23: Удаление профиля
+ [Thread-5]: 02:34:24: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-5]: 02:34:24: Поток Thread-5 завершил работу
+ [MainThread]: 02:36:58: Активных потоков: 1
+ [MainThread]: 02:36:58: Старт потоков
+ [Thread-9]: 02:36:58: Старт потока Thread-9
+ [Thread-9]: 02:36:58: Создание профиля
+ [Thread-9]: 02:37:01: ip = {
+  "IP": "70.94.119.7"
+}
+ [Thread-9]: 02:37:01: {'data': {'id': 'j4x8jkc', 'serial_number': '3767'}, 'code': 0, 'msg': 'Success'}
+ [Thread-9]: 02:37:01: Запуск профиля
+ [Thread-10]: 02:37:03: Старт потока Thread-10
+ [Thread-10]: 02:37:03: Создание профиля
+ [Thread-9]: 02:37:04: ID профиля j4x8jkc
+ [Thread-10]: 02:37:06: ip = {
+  "IP": "47.145.220.227"
+}
+ [Thread-10]: 02:37:06: {'data': {'id': 'j4x8jkg', 'serial_number': '3768'}, 'code': 0, 'msg': 'Success'}
+ [Thread-10]: 02:37:06: Запуск профиля
+ [Thread-11]: 02:37:08: Старт потока Thread-11
+ [Thread-11]: 02:37:08: Создание профиля
+ [Thread-10]: 02:37:09: ID профиля j4x8jkg
+ [Thread-11]: 02:37:11: ip = {
+  "IP": "216.201.9.134"
+}
+ [Thread-11]: 02:37:11: {'data': {'id': 'j4x8jkl', 'serial_number': '3769'}, 'code': 0, 'msg': 'Success'}
+ [Thread-11]: 02:37:11: Запуск профиля
+ [Thread-12]: 02:37:13: Старт потока Thread-12
+ [Thread-12]: 02:37:13: Создание профиля
+ [Thread-9]: 02:37:13: Открываю фейсбук
+ [Thread-11]: 02:37:14: ID профиля j4x8jkl
+ [Thread-12]: 02:37:16: ip = {
+  "IP": "64.33.79.132"
+}
+ [Thread-12]: 02:37:16: {'data': {'id': 'j4x8jkr', 'serial_number': '3770'}, 'code': 0, 'msg': 'Success'}
+ [Thread-12]: 02:37:16: Запуск профиля
+ [Thread-10]: 02:37:17: Открываю фейсбук
+ [Thread-12]: 02:37:19: ID профиля j4x8jkr
+ [Thread-11]: 02:37:22: Открываю фейсбук
+ [Thread-10]: 02:37:28: Нажимаю на регистрацию
+ [Thread-12]: 02:37:29: Открываю фейсбук
+ [Thread-11]: 02:37:33: Нажимаю на регистрацию
+ [Thread-10]: 02:37:34: Размер окна {'width': 1024, 'height': 600}
+ [Thread-9]: 02:37:35: Нажимаю на регистрацию
+ [Thread-11]: 02:37:38: Размер окна {'width': 960, 'height': 680}
+ [Thread-9]: 02:37:40: Размер окна {'width': 1024, 'height': 768}
+ [Thread-10]: 02:37:43: Имя
+ [Thread-12]: 02:37:43: Нажимаю на регистрацию
+ [Thread-11]: 02:37:47: Имя
+ [Thread-12]: 02:37:48: Размер окна {'width': 1280, 'height': 720}
+ [Thread-9]: 02:37:50: Имя
+ [Thread-10]: 02:37:52: Фамилия
+ [Thread-11]: 02:37:55: Фамилия
+ [Thread-12]: 02:37:58: Имя
+ [Thread-9]: 02:37:58: Фамилия
+ [Thread-10]: 02:38:01: Подтверждаю ФИО
+ [Thread-11]: 02:38:03: Подтверждаю ФИО
+ [Thread-12]: 02:38:07: Фамилия
+ [Thread-9]: 02:38:08: Подтверждаю ФИО
+ [Thread-10]: 02:38:08: Месяц рожденья
+ [Thread-11]: 02:38:10: Месяц рожденья
+ [Thread-9]: 02:38:14: Месяц рожденья
+ [Thread-12]: 02:38:15: Подтверждаю ФИО
+ [Thread-10]: 02:38:16: День рожденья
+ [Thread-11]: 02:38:17: День рожденья
+ [Thread-12]: 02:38:22: Месяц рожденья
+ [Thread-9]: 02:38:22: День рожденья
+ [Thread-10]: 02:38:24: Год рожденья
+ [Thread-11]: 02:38:25: Год рожденья
+ [Thread-12]: 02:38:29: День рожденья
+ [Thread-9]: 02:38:29: Год рожденья
+ [Thread-10]: 02:38:32: Подтверждаю рождение
+ [Thread-11]: 02:38:33: Подтверждаю рождение
+ [Thread-12]: 02:38:37: Год рожденья
+ [Thread-9]: 02:38:38: Подтверждаю рождение
+ [Thread-10]: 02:38:39: Вбиваю телефон
+ [Thread-11]: 02:38:40: Вбиваю телефон
+ [Thread-9]: 02:38:45: Вбиваю телефон
+ [Thread-12]: 02:38:45: Подтверждаю рождение
+ [Thread-10]: 02:38:46: Жду телефон 5sim
+ [Thread-10]: 02:38:46: Нет доступных номеров no free phones
+ [Thread-10]: 02:38:46: Ответ покупки номера 5sim {'id': 410248934, 'phone': '+221774373872', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:53:47.288336341Z', 'sms': None, 'created_at': '2023-01-29T23:38:47.288336341Z', 'country': 'senegal'}
+ [Thread-10]: 02:38:46: Вбиваю телефон
+ [Thread-11]: 02:38:47: Жду телефон 5sim
+ [Thread-11]: 02:38:48: Ответ покупки номера 5sim {'id': 410248937, 'phone': '+97696329359', 'operator': 'virtual7', 'product': 'facebook', 'price': 7, 'status': 'RECEIVED', 'expires': '2023-01-29T23:58:48.393821733Z', 'sms': None, 'created_at': '2023-01-29T23:38:48.393821733Z', 'country': 'mongolia', 'reuse': True, 'reuse_price': 7}
+ [Thread-11]: 02:38:48: Вбиваю телефон
+ [Thread-10]: 02:38:51: Подтверждаю телефон
+ [Thread-11]: 02:38:51: Подтверждаю телефон
+ [Thread-9]: 02:38:51: Жду телефон 5sim
+ [Thread-12]: 02:38:52: Вбиваю телефон
+ [Thread-9]: 02:38:53: Ответ покупки номера 5sim {'id': 410248945, 'phone': '+221768285791', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:53:54.00944175Z', 'sms': None, 'created_at': '2023-01-29T23:38:54.00944175Z', 'country': 'senegal'}
+ [Thread-9]: 02:38:53: Вбиваю телефон
+ [Thread-9]: 02:38:58: Подтверждаю телефон
+ [Thread-12]: 02:38:58: Жду телефон 5sim
+ [Thread-12]: 02:38:59: Ответ покупки номера 5sim {'id': 410248954, 'phone': '+918552845172', 'operator': 'virtual21', 'product': 'facebook', 'price': 4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:58:59.809631109Z', 'sms': None, 'created_at': '2023-01-29T23:38:59.809631109Z', 'country': 'india'}
+ [Thread-12]: 02:38:59: Вбиваю телефон
+ [Thread-10]: 02:39:00: Указываю пол
+ [Thread-11]: 02:39:00: Указываю пол
+ [Thread-12]: 02:39:03: Подтверждаю телефон
+ [Thread-10]: 02:39:06: Подтвержадаю пол
+ [Thread-9]: 02:39:06: Указываю пол
+ [Thread-11]: 02:39:07: Подтвержадаю пол
+ [Thread-12]: 02:39:12: Указываю пол
+ [Thread-9]: 02:39:13: Подтвержадаю пол
+ [Thread-10]: 02:39:15: Генерирую пароль
+ [Thread-11]: 02:39:15: Генерирую пароль
+ [Thread-12]: 02:39:19: Подтвержадаю пол
+ [Thread-9]: 02:39:22: Генерирую пароль
+ [Thread-10]: 02:39:26: Подтверждаю пароль на странице
+ [Thread-11]: 02:39:27: Подтверждаю пароль на странице
+ [Thread-12]: 02:39:28: Генерирую пароль
+ [Thread-9]: 02:39:32: Подтверждаю пароль на странице
+ [Thread-12]: 02:39:39: Подтверждаю пароль на странице
+ [Thread-10]: 02:40:08: checkpoint
+ [Thread-11]: 02:40:08: checkpoint
+ [Thread-11]: 02:40:09: Статус бана смс заявки: <Response [200]>
+ [Thread-11]: 02:40:09: Аккаунт на чеке
+ [Thread-11]: 02:40:09: Закрытие профиля
+ [Thread-11]: 02:40:10: Удаление профиля
+ [Thread-11]: 02:40:10: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-11]: 02:40:10: Поток Thread-11 завершил работу
+ [Thread-10]: 02:40:10: Статус бана смс заявки: <Response [200]>
+ [Thread-10]: 02:40:10: Аккаунт на чеке
+ [Thread-10]: 02:40:10: Закрытие профиля
+ [Thread-10]: 02:40:11: Удаление профиля
+ [Thread-10]: 02:40:12: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-10]: 02:40:12: Поток Thread-10 завершил работу
+ [Thread-9]: 02:40:14: Ищу Not now
+ [Thread-9]: 02:40:14: Рега прошла, подверждение смс
+ [Thread-12]: 02:40:20: checkpoint
+ [Thread-12]: 02:40:21: Статус бана смс заявки: <Response [200]>
+ [Thread-12]: 02:40:21: Аккаунт на чеке
+ [Thread-12]: 02:40:21: Закрытие профиля
+ [Thread-12]: 02:40:22: Удаление профиля
+ [Thread-12]: 02:40:22: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-12]: 02:40:22: Поток Thread-12 завершил работу
+ [Thread-9]: 02:40:35: Статус повторной активаций: {'id': 410248945, 'phone': '+221768285791', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:53:54.009442Z', 'sms': [], 'created_at': '2023-01-29T23:38:54.009442Z', 'country': 'senegal'}
+ [Thread-9]: 02:40:45: Статус повторной активаций: {'id': 410248945, 'phone': '+221768285791', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:53:54.009442Z', 'sms': [], 'created_at': '2023-01-29T23:38:54.009442Z', 'country': 'senegal'}
+ [Thread-9]: 02:40:55: Статус повторной активаций: {'id': 410248945, 'phone': '+221768285791', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:53:54.009442Z', 'sms': [], 'created_at': '2023-01-29T23:38:54.009442Z', 'country': 'senegal'}
+ [Thread-9]: 02:41:05: Статус повторной активаций: {'id': 410248945, 'phone': '+221768285791', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:53:54.009442Z', 'sms': [], 'created_at': '2023-01-29T23:38:54.009442Z', 'country': 'senegal'}
+ [Thread-9]: 02:41:15: Статус повторной активаций: {'id': 410248945, 'phone': '+221768285791', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:53:54.009442Z', 'sms': [], 'created_at': '2023-01-29T23:38:54.009442Z', 'country': 'senegal'}
+ [Thread-9]: 02:41:25: Статус повторной активаций: {'id': 410248945, 'phone': '+221768285791', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:53:54.009442Z', 'sms': [], 'created_at': '2023-01-29T23:38:54.009442Z', 'country': 'senegal'}
+ [Thread-9]: 02:41:36: Статус повторной активаций: {'id': 410248945, 'phone': '+221768285791', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:53:54.009442Z', 'sms': [], 'created_at': '2023-01-29T23:38:54.009442Z', 'country': 'senegal'}
+ [Thread-9]: 02:41:46: Статус повторной активаций: {'id': 410248945, 'phone': '+221768285791', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:53:54.009442Z', 'sms': [], 'created_at': '2023-01-29T23:38:54.009442Z', 'country': 'senegal'}
+ [Thread-9]: 02:41:56: Статус повторной активаций: {'id': 410248945, 'phone': '+221768285791', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:53:54.009442Z', 'sms': [], 'created_at': '2023-01-29T23:38:54.009442Z', 'country': 'senegal'}
+ [Thread-9]: 02:42:06: Статус повторной активаций: {'id': 410248945, 'phone': '+221768285791', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:53:54.009442Z', 'sms': [], 'created_at': '2023-01-29T23:38:54.009442Z', 'country': 'senegal'}
+ [Thread-9]: 02:42:16: Статус повторной активаций: {'id': 410248945, 'phone': '+221768285791', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:53:54.009442Z', 'sms': [], 'created_at': '2023-01-29T23:38:54.009442Z', 'country': 'senegal'}
+ [Thread-9]: 02:42:27: Статус повторной активаций: {'id': 410248945, 'phone': '+221768285791', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:53:54.009442Z', 'sms': [], 'created_at': '2023-01-29T23:38:54.009442Z', 'country': 'senegal'}
+ [Thread-9]: 02:42:37: Статус повторной активаций: {'id': 410248945, 'phone': '+221768285791', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:53:54.009442Z', 'sms': [], 'created_at': '2023-01-29T23:38:54.009442Z', 'country': 'senegal'}
+ [Thread-9]: 02:42:47: Статус повторной активаций: {'id': 410248945, 'phone': '+221768285791', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:53:54.009442Z', 'sms': [], 'created_at': '2023-01-29T23:38:54.009442Z', 'country': 'senegal'}
+ [Thread-9]: 02:42:57: Статус повторной активаций: {'id': 410248945, 'phone': '+221768285791', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:53:54.009442Z', 'sms': [], 'created_at': '2023-01-29T23:38:54.009442Z', 'country': 'senegal'}
+ [Thread-9]: 02:42:57: Смс не пришла, статус активаций: {'id': 410248945, 'phone': '+221768285791', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-29T23:53:54.009442Z', 'sms': [], 'created_at': '2023-01-29T23:38:54.009442Z', 'country': 'senegal'}
+ [Thread-9]: 02:43:00: Статус бана смс заявки: <Response [200]>
+ [Thread-9]: 02:43:00: Аккаунт на чеке
+ [Thread-9]: 02:43:00: Закрытие профиля
+ [Thread-9]: 02:43:01: Удаление профиля
+ [Thread-9]: 02:43:01: Повторное удаление профиля
+ [Thread-9]: 02:43:01: Закрытие профиля
+ [Thread-9]: 02:43:02: Удаление профиля
+ [Thread-9]: 02:43:03: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-9]: 02:43:03: Поток Thread-9 завершил работу
+ [Thread-9]: 02:43:03: Проверка на подключение
+ [Thread-9]: 02:43:07: Лог из веба {'response': {'data': {'id': 'j4x8jkc', 'serial_number': '3767'}, 'code': 0, 'msg': 'Success'}, 'payload': {'name': 'Fb', 'group_id': '1836292', 'domain_name': 'google.com', 'repeat_config': ['0'], 'country': 'us', 'fingerprint_config': {'language': ['uk-UA', 'uk', 'en-US', 'en'], 'ua': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36', 'flash': 'block', 'scan_port_type': '1', 'screen_resolution': '1024_768', 'fonts': ['all'], 'longitude': '180', 'latitude': '90', 'webrtc': 'proxy', 'do_not_track': 'true'}, 'user_proxy_config': {'proxy_soft': 'other', 'proxy_type': 'http', 'proxy_host': '173.234.27.13', 'proxy_port': '10333', 'proxy_user': 'melnikov1133', 'proxy_password': 'f5e6ce'}}}
+ [MainThread]: 02:44:48: Активных потоков: 1
+ [MainThread]: 02:44:48: Старт потоков
+ [Thread-13]: 02:44:48: Старт потока Thread-13
+ [Thread-13]: 02:44:48: Создание профиля
+ [Thread-13]: 02:44:52: ip = {
+  "IP": "172.108.155.110"
+}
+ [Thread-13]: 02:44:53: {'data': {'id': 'j4x8k2s', 'serial_number': '3771'}, 'code': 0, 'msg': 'Success'}
+ [Thread-13]: 02:44:53: Запуск профиля
+ [Thread-14]: 02:44:53: Старт потока Thread-14
+ [Thread-14]: 02:44:53: Создание профиля
+ [Thread-13]: 02:44:56: ID профиля j4x8k2s
+ [Thread-14]: 02:44:56: ip = {
+  "IP": "98.121.103.211"
+}
+ [Thread-14]: 02:44:56: {'data': {'id': 'j4x8k2u', 'serial_number': '3772'}, 'code': 0, 'msg': 'Success'}
+ [Thread-14]: 02:44:56: Запуск профиля
+ [Thread-15]: 02:44:58: Старт потока Thread-15
+ [Thread-15]: 02:44:58: Создание профиля
+ [Thread-14]: 02:44:59: ID профиля j4x8k2u
+ [Thread-15]: 02:45:01: ip = {
+  "IP": "67.216.106.127"
+}
+ [Thread-15]: 02:45:01: {'data': {'id': 'j4x8k32', 'serial_number': '3773'}, 'code': 0, 'msg': 'Success'}
+ [Thread-15]: 02:45:01: Запуск профиля
+ [Thread-13]: 02:45:03: Открываю фейсбук
+ [Thread-16]: 02:45:03: Старт потока Thread-16
+ [Thread-16]: 02:45:03: Создание профиля
+ [Thread-15]: 02:45:04: ID профиля j4x8k32
+ [Thread-16]: 02:45:06: ip = {
+  "IP": "76.216.120.122"
+}
+ [Thread-16]: 02:45:06: {'data': {'id': 'j4x8k35', 'serial_number': '3774'}, 'code': 0, 'msg': 'Success'}
+ [Thread-16]: 02:45:06: Запуск профиля
+ [Thread-14]: 02:45:07: Открываю фейсбук
+ [Thread-16]: 02:45:09: ID профиля j4x8k35
+ [Thread-13]: 02:45:09: Нажимаю на регистрацию
+ [Thread-15]: 02:45:11: Открываю фейсбук
+ [Thread-13]: 02:45:14: Размер окна {'width': 1024, 'height': 600}
+ [Thread-16]: 02:45:17: Открываю фейсбук
+ [Thread-14]: 02:45:17: Нажимаю на регистрацию
+ [Thread-14]: 02:45:22: Размер окна {'width': 960, 'height': 680}
+ [Thread-13]: 02:45:23: Имя
+ [Thread-15]: 02:45:25: Нажимаю на регистрацию
+ [Thread-15]: 02:45:30: Размер окна {'width': 1024, 'height': 600}
+ [Thread-14]: 02:45:31: Имя
+ [Thread-16]: 02:45:32: Нажимаю на регистрацию
+ [Thread-13]: 02:45:32: Фамилия
+ [Thread-16]: 02:45:37: Размер окна {'width': 960, 'height': 680}
+ [Thread-15]: 02:45:38: Имя
+ [Thread-14]: 02:45:40: Фамилия
+ [Thread-13]: 02:45:41: Подтверждаю ФИО
+ [Thread-16]: 02:45:47: Имя
+ [Thread-13]: 02:45:47: Месяц рожденья
+ [Thread-15]: 02:45:47: Фамилия
+ [Thread-14]: 02:45:48: Подтверждаю ФИО
+ [Thread-14]: 02:45:55: Месяц рожденья
+ [Thread-13]: 02:45:55: День рожденья
+ [Thread-16]: 02:45:55: Фамилия
+ [Thread-15]: 02:45:56: Подтверждаю ФИО
+ [Thread-15]: 02:46:03: Месяц рожденья
+ [Thread-14]: 02:46:03: День рожденья
+ [Thread-13]: 02:46:03: Год рожденья
+ [Thread-16]: 02:46:05: Подтверждаю ФИО
+ [Thread-14]: 02:46:10: Год рожденья
+ [Thread-15]: 02:46:11: День рожденья
+ [Thread-13]: 02:46:11: Подтверждаю рождение
+ [Thread-16]: 02:46:12: Месяц рожденья
+ [Thread-13]: 02:46:18: Вбиваю телефон
+ [Thread-14]: 02:46:18: Подтверждаю рождение
+ [Thread-15]: 02:46:18: Год рожденья
+ [Thread-16]: 02:46:19: День рожденья
+ [Thread-14]: 02:46:25: Вбиваю телефон
+ [Thread-13]: 02:46:25: Жду телефон 5sim
+ [Thread-13]: 02:46:25: Ответ покупки номера 5sim {'id': 410249809, 'phone': '+221763946769', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:01:26.159796691Z', 'sms': None, 'created_at': '2023-01-29T23:46:26.159796691Z', 'country': 'senegal'}
+ [Thread-13]: 02:46:25: Вбиваю телефон
+ [Thread-15]: 02:46:26: Подтверждаю рождение
+ [Thread-16]: 02:46:27: Год рожденья
+ [Thread-13]: 02:46:29: Подтверждаю телефон
+ [Thread-14]: 02:46:31: Жду телефон 5sim
+ [Thread-14]: 02:46:32: Нет доступных номеров no free phones
+ [Thread-14]: 02:46:32: Ответ покупки номера 5sim {'id': 410249818, 'phone': '+221763708785', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:01:33.058983015Z', 'sms': None, 'created_at': '2023-01-29T23:46:33.058983015Z', 'country': 'senegal'}
+ [Thread-14]: 02:46:32: Вбиваю телефон
+ [Thread-15]: 02:46:33: Вбиваю телефон
+ [Thread-16]: 02:46:35: Подтверждаю рождение
+ [Thread-14]: 02:46:36: Подтверждаю телефон
+ [Thread-13]: 02:46:38: Указываю пол
+ [Thread-15]: 02:46:39: Жду телефон 5sim
+ [Thread-15]: 02:46:40: Ответ покупки номера 5sim {'id': 410249829, 'phone': '+97690682556', 'operator': 'virtual7', 'product': 'facebook', 'price': 7, 'status': 'RECEIVED', 'expires': '2023-01-30T00:06:41.158227296Z', 'sms': None, 'created_at': '2023-01-29T23:46:41.158227296Z', 'country': 'mongolia', 'reuse': True, 'reuse_price': 7}
+ [Thread-15]: 02:46:40: Вбиваю телефон
+ [Thread-16]: 02:46:41: Вбиваю телефон
+ [Thread-15]: 02:46:44: Подтверждаю телефон
+ [Thread-13]: 02:46:45: Подтвержадаю пол
+ [Thread-14]: 02:46:45: Указываю пол
+ [Thread-16]: 02:46:48: Жду телефон 5sim
+ [Thread-16]: 02:46:49: Ответ покупки номера 5sim {'id': 410249849, 'phone': '+918658790771', 'operator': 'virtual21', 'product': 'facebook', 'price': 4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:06:49.3780187Z', 'sms': None, 'created_at': '2023-01-29T23:46:49.3780187Z', 'country': 'india'}
+ [Thread-16]: 02:46:49: Вбиваю телефон
+ [Thread-14]: 02:46:52: Подтвержадаю пол
+ [Thread-16]: 02:46:53: Подтверждаю телефон
+ [Thread-15]: 02:46:53: Указываю пол
+ [Thread-13]: 02:46:54: Генерирую пароль
+ [Thread-15]: 02:47:00: Подтвержадаю пол
+ [Thread-14]: 02:47:01: Генерирую пароль
+ [Thread-16]: 02:47:02: Указываю пол
+ [Thread-13]: 02:47:05: Подтверждаю пароль на странице
+ [Thread-16]: 02:47:08: Подтвержадаю пол
+ [Thread-15]: 02:47:08: Генерирую пароль
+ [Thread-14]: 02:47:12: Подтверждаю пароль на странице
+ [Thread-16]: 02:47:17: Генерирую пароль
+ [Thread-15]: 02:47:20: Подтверждаю пароль на странице
+ [Thread-16]: 02:47:28: Подтверждаю пароль на странице
+ [Thread-13]: 02:47:47: Ищу Not now
+ [Thread-13]: 02:47:47: Рега прошла, подверждение смс
+ [Thread-14]: 02:47:53: Ищу Not now
+ [Thread-14]: 02:47:54: Рега прошла, подверждение смс
+ [Thread-15]: 02:48:01: Ищу Not now
+ [Thread-15]: 02:48:01: Рега прошла, подверждение смс
+ [Thread-13]: 02:48:06: Статус повторной активаций: {'id': 410249809, 'phone': '+221763946769', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:01:26.159797Z', 'sms': [{'created_at': '2023-01-29T23:47:56.563352Z', 'date': '2023-01-29T23:47:56.560716Z', 'sender': '*', 'text': '49931', 'code': '49931'}], 'created_at': '2023-01-29T23:46:26.159797Z', 'country': 'senegal'}
+ [Thread-13]: 02:48:06: Смс: {'id': 410249809, 'phone': '+221763946769', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:01:26.159797Z', 'sms': [{'created_at': '2023-01-29T23:47:56.563352Z', 'date': '2023-01-29T23:47:56.560716Z', 'sender': '*', 'text': '49931', 'code': '49931'}], 'created_at': '2023-01-29T23:46:26.159797Z', 'country': 'senegal'}
+ [Thread-13]: 02:48:06: Проверка на подключение
+ [Thread-13]: 02:48:06: Вбиваю смс
+ [Thread-16]: 02:48:10: checkpoint
+ [Thread-16]: 02:48:10: Статус бана смс заявки: <Response [200]>
+ [Thread-16]: 02:48:10: Аккаунт на чеке
+ [Thread-16]: 02:48:10: Закрытие профиля
+ [Thread-15]: 02:48:11: Смс: {'id': 410249829, 'phone': '+97690682556', 'operator': 'virtual7', 'product': 'facebook', 'price': 7, 'status': 'RECEIVED', 'expires': '2023-01-30T00:06:41.158227Z', 'sms': [{'created_at': '2023-01-29T23:47:51.66703Z', 'date': '2023-01-29T23:47:51.662208Z', 'sender': '', 'text': 'FB-60240 is your Facebook confirmation code', 'code': '60240'}], 'created_at': '2023-01-29T23:46:41.158227Z', 'country': 'mongolia', 'reuse': True, 'reuse_price': 7}
+ [Thread-15]: 02:48:11: Проверка на подключение
+ [Thread-15]: 02:48:11: Вбиваю смс
+ [Thread-16]: 02:48:11: Удаление профиля
+ [Thread-16]: 02:48:12: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-16]: 02:48:12: Поток Thread-16 завершил работу
+ [Thread-14]: 02:48:12: Статус повторной активаций: {'id': 410249818, 'phone': '+221763708785', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:01:33.058983Z', 'sms': [{'created_at': '2023-01-29T23:48:08.456056Z', 'date': '2023-01-29T23:48:08.45248Z', 'sender': '*', 'text': '79256', 'code': '79256'}], 'created_at': '2023-01-29T23:46:33.058983Z', 'country': 'senegal'}
+ [Thread-14]: 02:48:12: Смс: {'id': 410249818, 'phone': '+221763708785', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:01:33.058983Z', 'sms': [{'created_at': '2023-01-29T23:48:08.456056Z', 'date': '2023-01-29T23:48:08.45248Z', 'sender': '*', 'text': '79256', 'code': '79256'}], 'created_at': '2023-01-29T23:46:33.058983Z', 'country': 'senegal'}
+ [Thread-14]: 02:48:12: Проверка на подключение
+ [Thread-14]: 02:48:12: Вбиваю смс
+ [Thread-13]: 02:48:17: Проверка на валидность смс
+ [Thread-13]: 02:48:17: Смс валидна, подтверждаю
+ [Thread-15]: 02:48:22: Проверка на валидность смс
+ [Thread-15]: 02:48:22: Смс валидна, подтверждаю
+ [Thread-14]: 02:48:24: Проверка на валидность смс
+ [Thread-14]: 02:48:24: Смс валидна, подтверждаю
+ [Thread-13]: 02:48:24: Получаю manager_id
+ [Thread-15]: 02:48:29: Получаю manager_id
+ [Thread-14]: 02:48:30: Получаю manager_id
+ [Thread-15]: 02:48:39: Обновление страницы с manager_id
+ [Thread-14]: 02:48:39: Обновление страницы с manager_id
+ [Thread-13]: 02:48:41: Обновление страницы с manager_id
+ [Thread-15]: 02:49:09: Обновление страницы с manager_id
+ [Thread-14]: 02:49:09: Обновление страницы с manager_id
+ [Thread-13]: 02:49:11: Обновление страницы с manager_id
+ [Thread-15]: 02:49:39: Обновление страницы с manager_id
+ [Thread-14]: 02:49:39: manager_id = 938439057389932
+ [Thread-14]: 02:49:39: Получаю Eaab_Token
+ [Thread-14]: 02:49:40: Eaab_Token = EAABsbCS1iHgBAP6OKtwFvBdEMsvb54MZB1k1nVciiN7LZAIZCgdn2ToAIPYkItlEHtkjuM3F8WNzFCg8MZBZBQBzsCgP7xuMWUIY3kZBYULavhJzHiA5Qf537uX6yQxeZB0ZCbDZBXKYsZACQlW6zZCGQwdJbcyJzhbxRcmO8RauAxSD5Np07NbZAZAEk
+ [Thread-13]: 02:49:41: manager_id = 566221358856559
+ [Thread-13]: 02:49:41: Получаю Eaab_Token
+ [Thread-13]: 02:49:42: Eaab_Token = EAABsbCS1iHgBACfbnGZAS5BimbUg9E2jhMOFYlgjYsZCV0ddGmnETvNSDB9hgcZCLBZBT9pTaJuvVsRBd17bXodRttOFbtHSnkcIR140FAreg8AXToYLHGSV7O4MPZBAP6I0alnqMA00lOyrnsBoZAtu0iqs6APOaKrZCLg1uqup9D0fJy1bimTNYX1xW8lsEgZD
+ [Thread-14]: 02:49:46: Статус закрытия смс заявки: <Response [200]>
+ [Thread-14]: 02:49:46: Успешная регистрация
+ [Thread-14]: 02:49:46: Закрытие профиля
+ [Thread-14]: 02:49:47: Удаление профиля
+ [Thread-13]: 02:49:47: Статус закрытия смс заявки: <Response [200]>
+ [Thread-13]: 02:49:47: Успешная регистрация
+ [Thread-13]: 02:49:47: Закрытие профиля
+ [Thread-14]: 02:49:48: Повторное удаление профиля
+ [Thread-14]: 02:49:48: Закрытие профиля
+ [Thread-14]: 02:49:48:  Статус закрытия профиля Too many request per second, please check
+ [Thread-13]: 02:49:48: Удаление профиля
+ [Thread-13]: 02:49:48: Повторное удаление профиля
+ [Thread-13]: 02:49:48: Закрытие профиля
+ [Thread-13]: 02:49:49: Удаление профиля
+ [Thread-13]: 02:49:50: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-13]: 02:49:50: Поток Thread-13 завершил работу
+ [Thread-14]: 02:49:52: Удаление профиля
+ [Thread-14]: 02:49:52: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-14]: 02:49:52: Поток Thread-14 завершил работу
+ [Thread-15]: 02:50:09: manager_id = 705131867827690
+ [Thread-15]: 02:50:09: Получаю Eaab_Token
+ [Thread-15]: 02:50:09: Eaab_Token = EAABsbCS1iHgBAOmIYMRQwJ2390A2KtHOJuVp0Du5hG84WDZCJec5E4itPNh3OvRBZCQEH8iRfm5ZBw2wDrYG48BkScrJk5w3FUZCfKdk9JTcx9HvzgldJNF5Bq1FxAbsUPLyM2hOA9a6GtZBw3Qyd0gWRqizFxUygorPnobUY7CrNBsmtECFEnosBsYROnkQZD
+ [Thread-15]: 02:50:10: Статус закрытия смс заявки: <Response [200]>
+ [Thread-15]: 02:50:10: Успешная регистрация
+ [Thread-15]: 02:50:10: Закрытие профиля
+ [Thread-15]: 02:50:11: Удаление профиля
+ [Thread-15]: 02:50:12: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-15]: 02:50:12: Поток Thread-15 завершил работу
+ [MainThread]: 02:52:30: Инициализация потоков
+ [MainThread]: 02:52:30: Старт потоков
+ [Thread-1]: 02:52:30: Старт потока Thread-1
+ [Thread-1]: 02:52:30: Создание профиля
+ [Thread-1]: 02:52:32: ip = {
+  "IP": "24.20.188.82"
+}
+ [Thread-1]: 02:52:33: {'data': {'id': 'j4x8kow', 'serial_number': '3775'}, 'code': 0, 'msg': 'Success'}
+ [Thread-1]: 02:52:33: Запуск профиля
+ [Thread-2]: 02:52:35: Старт потока Thread-2
+ [Thread-2]: 02:52:35: Создание профиля
+ [Thread-1]: 02:52:36: ID профиля j4x8kow
+ [Thread-2]: 02:52:37: ip = {
+  "IP": "73.183.186.253"
+}
+ [Thread-2]: 02:52:38: {'data': {'id': 'j4x8kp9', 'serial_number': '3776'}, 'code': 0, 'msg': 'Success'}
+ [Thread-2]: 02:52:38: Запуск профиля
+ [Thread-2]: 02:52:41: ID профиля j4x8kp9
+ [Thread-1]: 02:52:43: Открываю фейсбук
+ [Thread-2]: 02:52:48: Открываю фейсбук
+ [Thread-1]: 02:52:54: Нажимаю на регистрацию
+ [Thread-1]: 02:52:59: Размер окна {'width': 1024, 'height': 768}
+ [Thread-2]: 02:53:00: Нажимаю на регистрацию
+ [Thread-2]: 02:53:05: Размер окна {'width': 1024, 'height': 768}
+ [Thread-1]: 02:53:08: Имя
+ [Thread-2]: 02:53:15: Имя
+ [Thread-1]: 02:53:18: Фамилия
+ [Thread-2]: 02:53:23: Фамилия
+ [Thread-1]: 02:53:26: Подтверждаю ФИО
+ [Thread-2]: 02:53:31: Подтверждаю ФИО
+ [Thread-1]: 02:53:33: Месяц рожденья
+ [Thread-2]: 02:53:38: Месяц рожденья
+ [Thread-1]: 02:53:41: День рожденья
+ [Thread-2]: 02:53:46: День рожденья
+ [Thread-1]: 02:53:48: Год рожденья
+ [Thread-2]: 02:53:53: Год рожденья
+ [Thread-1]: 02:53:55: Подтверждаю рождение
+ [Thread-2]: 02:54:01: Подтверждаю рождение
+ [Thread-1]: 02:54:02: Вбиваю телефон
+ [Thread-2]: 02:54:08: Вбиваю телефон
+ [Thread-1]: 02:54:09: Жду телефон 5sim
+ [Thread-1]: 02:54:09: Нет доступных номеров no free phones
+ [Thread-1]: 02:54:10: Ответ покупки номера 5sim {'id': 410250692, 'phone': '+50588754327', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:10.757809731Z', 'sms': None, 'created_at': '2023-01-29T23:54:10.757809731Z', 'country': 'nicaragua'}
+ [Thread-1]: 02:54:10: Вбиваю телефон
+ [Thread-1]: 02:54:14: Подтверждаю телефон
+ [Thread-2]: 02:54:14: Жду телефон 5sim
+ [Thread-2]: 02:54:15: Ответ покупки номера 5sim {'id': 410250703, 'phone': '+50576805578', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:16.127175143Z', 'sms': None, 'created_at': '2023-01-29T23:54:16.127175143Z', 'country': 'nicaragua'}
+ [Thread-2]: 02:54:15: Вбиваю телефон
+ [Thread-2]: 02:54:19: Подтверждаю телефон
+ [Thread-1]: 02:54:23: Указываю пол
+ [Thread-2]: 02:54:28: Указываю пол
+ [Thread-1]: 02:54:29: Подтвержадаю пол
+ [Thread-2]: 02:54:34: Подтвержадаю пол
+ [Thread-1]: 02:54:38: Генерирую пароль
+ [Thread-2]: 02:54:43: Генерирую пароль
+ [Thread-1]: 02:54:49: Подтверждаю пароль на странице
+ [Thread-2]: 02:54:54: Подтверждаю пароль на странице
+ [Thread-1]: 02:55:31: Ищу Not now
+ [Thread-1]: 02:55:31: Рега прошла, подверждение смс
+ [Thread-2]: 02:55:36: Ищу Not now
+ [Thread-2]: 02:55:36: Рега прошла, подверждение смс
+ [Thread-1]: 02:55:50: Статус повторной активаций: {'id': 410250692, 'phone': '+50588754327', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:10.75781Z', 'sms': [], 'created_at': '2023-01-29T23:54:10.75781Z', 'country': 'nicaragua'}
+ [Thread-2]: 02:55:55: Статус повторной активаций: {'id': 410250703, 'phone': '+50576805578', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:16.127175Z', 'sms': [], 'created_at': '2023-01-29T23:54:16.127175Z', 'country': 'nicaragua'}
+ [Thread-1]: 02:56:00: Статус повторной активаций: {'id': 410250692, 'phone': '+50588754327', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:10.75781Z', 'sms': [], 'created_at': '2023-01-29T23:54:10.75781Z', 'country': 'nicaragua'}
+ [Thread-2]: 02:56:05: Статус повторной активаций: {'id': 410250703, 'phone': '+50576805578', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:16.127175Z', 'sms': [], 'created_at': '2023-01-29T23:54:16.127175Z', 'country': 'nicaragua'}
+ [Thread-1]: 02:56:10: Статус повторной активаций: {'id': 410250692, 'phone': '+50588754327', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:10.75781Z', 'sms': [], 'created_at': '2023-01-29T23:54:10.75781Z', 'country': 'nicaragua'}
+ [Thread-2]: 02:56:15: Статус повторной активаций: {'id': 410250703, 'phone': '+50576805578', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:16.127175Z', 'sms': [], 'created_at': '2023-01-29T23:54:16.127175Z', 'country': 'nicaragua'}
+ [Thread-1]: 02:56:20: Статус повторной активаций: {'id': 410250692, 'phone': '+50588754327', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:10.75781Z', 'sms': [], 'created_at': '2023-01-29T23:54:10.75781Z', 'country': 'nicaragua'}
+ [Thread-2]: 02:56:25: Статус повторной активаций: {'id': 410250703, 'phone': '+50576805578', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:16.127175Z', 'sms': [], 'created_at': '2023-01-29T23:54:16.127175Z', 'country': 'nicaragua'}
+ [Thread-1]: 02:56:30: Статус повторной активаций: {'id': 410250692, 'phone': '+50588754327', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:10.75781Z', 'sms': [{'created_at': '2023-01-29T23:56:31.249768Z', 'date': '2023-01-29T23:56:31.246131Z', 'sender': '*', 'text': '60108', 'code': '60108'}], 'created_at': '2023-01-29T23:54:10.75781Z', 'country': 'nicaragua'}
+ [Thread-1]: 02:56:30: Смс: {'id': 410250692, 'phone': '+50588754327', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:10.75781Z', 'sms': [{'created_at': '2023-01-29T23:56:31.249768Z', 'date': '2023-01-29T23:56:31.246131Z', 'sender': '*', 'text': '60108', 'code': '60108'}], 'created_at': '2023-01-29T23:54:10.75781Z', 'country': 'nicaragua'}
+ [Thread-1]: 02:56:30: Проверка на подключение
+ [Thread-1]: 02:56:30: Вбиваю смс
+ [Thread-2]: 02:56:37: Статус повторной активаций: {'id': 410250703, 'phone': '+50576805578', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:16.127175Z', 'sms': [], 'created_at': '2023-01-29T23:54:16.127175Z', 'country': 'nicaragua'}
+ [Thread-1]: 02:56:42: Проверка на валидность смс
+ [Thread-1]: 02:56:42: Смс валидна, подтверждаю
+ [Thread-2]: 02:56:47: Статус повторной активаций: {'id': 410250703, 'phone': '+50576805578', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:16.127175Z', 'sms': [], 'created_at': '2023-01-29T23:54:16.127175Z', 'country': 'nicaragua'}
+ [Thread-1]: 02:56:48: Получаю manager_id
+ [Thread-2]: 02:56:57: Статус повторной активаций: {'id': 410250703, 'phone': '+50576805578', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:16.127175Z', 'sms': [], 'created_at': '2023-01-29T23:54:16.127175Z', 'country': 'nicaragua'}
+ [Thread-1]: 02:57:02: Обновление страницы с manager_id
+ [Thread-2]: 02:57:07: Статус повторной активаций: {'id': 410250703, 'phone': '+50576805578', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:16.127175Z', 'sms': [], 'created_at': '2023-01-29T23:54:16.127175Z', 'country': 'nicaragua'}
+ [Thread-2]: 02:57:17: Статус повторной активаций: {'id': 410250703, 'phone': '+50576805578', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:16.127175Z', 'sms': [], 'created_at': '2023-01-29T23:54:16.127175Z', 'country': 'nicaragua'}
+ [Thread-2]: 02:57:27: Статус повторной активаций: {'id': 410250703, 'phone': '+50576805578', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:16.127175Z', 'sms': [], 'created_at': '2023-01-29T23:54:16.127175Z', 'country': 'nicaragua'}
+ [Thread-1]: 02:57:32: Обновление страницы с manager_id
+ [Thread-2]: 02:57:37: Статус повторной активаций: {'id': 410250703, 'phone': '+50576805578', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:16.127175Z', 'sms': [], 'created_at': '2023-01-29T23:54:16.127175Z', 'country': 'nicaragua'}
+ [Thread-2]: 02:57:48: Статус повторной активаций: {'id': 410250703, 'phone': '+50576805578', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:16.127175Z', 'sms': [], 'created_at': '2023-01-29T23:54:16.127175Z', 'country': 'nicaragua'}
+ [Thread-2]: 02:57:58: Статус повторной активаций: {'id': 410250703, 'phone': '+50576805578', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:16.127175Z', 'sms': [], 'created_at': '2023-01-29T23:54:16.127175Z', 'country': 'nicaragua'}
+ [Thread-1]: 02:58:02: manager_id = 921586919279559
+ [Thread-1]: 02:58:02: Получаю Eaab_Token
+ [Thread-1]: 02:58:02: Eaab_Token = EAABsbCS1iHgBALmt7sRalRKr9ziV3zZCOjcyPbysHYPV4JZCZBwPfv8c9XM3viegQ4QcGVGT4i8H7KUtb0MGuM0wWIWeE11cHucrbAKevwsYHs0ZAoAZAg2ZB1AArqBnnBAhxdT1owp4TKueQpDLxhWiu45qySbfg3VBZCSbPnpMspt38PkA578MUIOzZCCVkJ0ZD
+ [Thread-1]: 02:58:03: Статус закрытия смс заявки: <Response [200]>
+ [Thread-1]: 02:58:03: Успешная регистрация
+ [Thread-1]: 02:58:03: Закрытие профиля
+ [Thread-1]: 02:58:04: Удаление профиля
+ [Thread-1]: 02:58:04: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-1]: 02:58:04: Поток Thread-1 завершил работу
+ [Thread-2]: 02:58:08: Статус повторной активаций: {'id': 410250703, 'phone': '+50576805578', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:16.127175Z', 'sms': [], 'created_at': '2023-01-29T23:54:16.127175Z', 'country': 'nicaragua'}
+ [Thread-2]: 02:58:18: Статус повторной активаций: {'id': 410250703, 'phone': '+50576805578', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:16.127175Z', 'sms': [], 'created_at': '2023-01-29T23:54:16.127175Z', 'country': 'nicaragua'}
+ [Thread-2]: 02:58:18: Смс не пришла, статус активаций: {'id': 410250703, 'phone': '+50576805578', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:04:16.127175Z', 'sms': [], 'created_at': '2023-01-29T23:54:16.127175Z', 'country': 'nicaragua'}
+ [Thread-2]: 02:58:19: Статус бана смс заявки: <Response [200]>
+ [Thread-2]: 02:58:19: Аккаунт на чеке
+ [Thread-2]: 02:58:19: Закрытие профиля
+ [Thread-2]: 02:58:20: Удаление профиля
+ [Thread-2]: 02:58:20: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-2]: 02:58:20: Поток Thread-2 завершил работу
+ [Thread-2]: 02:58:20: Проверка на подключение
+ [Thread-2]: 02:58:24: Лог из веба {'response': {'data': {'id': 'j4x8kp9', 'serial_number': '3776'}, 'code': 0, 'msg': 'Success'}, 'payload': {'name': 'Fb', 'group_id': '1836292', 'domain_name': 'google.com', 'repeat_config': ['0'], 'country': 'us', 'fingerprint_config': {'language': ['uk-UA', 'uk', 'en-US', 'en'], 'ua': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36', 'flash': 'block', 'scan_port_type': '1', 'screen_resolution': '1024_768', 'fonts': ['all'], 'longitude': '180', 'latitude': '90', 'webrtc': 'proxy', 'do_not_track': 'true'}, 'user_proxy_config': {'proxy_soft': 'other', 'proxy_type': 'http', 'proxy_host': '64.74.163.147', 'proxy_port': '10893', 'proxy_user': 'melnikov1133', 'proxy_password': 'f5e6ce'}}}
+ [MainThread]: 03:00:10: Активных потоков: 1
+ [MainThread]: 03:00:10: Старт потоков
+ [Thread-3]: 03:00:10: Старт потока Thread-3
+ [Thread-3]: 03:00:10: Создание профиля
+ [Thread-3]: 03:00:12: ip = {
+  "IP": "192.24.139.28"
+}
+ [Thread-3]: 03:00:13: {'data': {'id': 'j4x8lhe', 'serial_number': '3777'}, 'code': 0, 'msg': 'Success'}
+ [Thread-3]: 03:00:13: Запуск профиля
+ [Thread-4]: 03:00:15: Старт потока Thread-4
+ [Thread-4]: 03:00:15: Создание профиля
+ [Thread-3]: 03:00:16: ID профиля j4x8lhe
+ [Thread-4]: 03:00:17: ip = {
+  "IP": "71.146.177.225"
+}
+ [Thread-4]: 03:00:18: {'data': {'id': 'j4x8lhp', 'serial_number': '3778'}, 'code': 0, 'msg': 'Success'}
+ [Thread-4]: 03:00:18: Запуск профиля
+ [Thread-4]: 03:00:21: ID профиля j4x8lhp
+ [Thread-3]: 03:00:26: Открываю фейсбук
+ [Thread-4]: 03:00:27: Открываю фейсбук
+ [Thread-4]: 03:00:38: Нажимаю на регистрацию
+ [Thread-4]: 03:00:43: Размер окна {'width': 960, 'height': 680}
+ [Thread-3]: 03:00:44: Нажимаю на регистрацию
+ [Thread-3]: 03:00:49: Размер окна {'width': 1024, 'height': 600}
+ [Thread-4]: 03:00:52: Имя
+ [Thread-4]: 03:01:00: Фамилия
+ [Thread-3]: 03:01:02: Имя
+ [Thread-4]: 03:01:09: Подтверждаю ФИО
+ [Thread-3]: 03:01:12: Фамилия
+ [Thread-4]: 03:01:16: Месяц рожденья
+ [Thread-3]: 03:01:20: Подтверждаю ФИО
+ [Thread-4]: 03:01:23: День рожденья
+ [Thread-3]: 03:01:26: Месяц рожденья
+ [Thread-4]: 03:01:31: Год рожденья
+ [Thread-3]: 03:01:34: День рожденья
+ [Thread-4]: 03:01:39: Подтверждаю рождение
+ [Thread-3]: 03:01:41: Год рожденья
+ [Thread-4]: 03:01:45: Вбиваю телефон
+ [Thread-3]: 03:01:49: Подтверждаю рождение
+ [Thread-4]: 03:01:52: Жду телефон 5sim
+ [Thread-4]: 03:01:53: Ответ покупки номера 5sim {'id': 410251621, 'phone': '+50557179223', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:11:54.009121919Z', 'sms': None, 'created_at': '2023-01-30T00:01:54.009121919Z', 'country': 'nicaragua'}
+ [Thread-4]: 03:01:53: Вбиваю телефон
+ [Thread-3]: 03:01:56: Вбиваю телефон
+ [Thread-4]: 03:01:57: Подтверждаю телефон
+ [Thread-3]: 03:02:03: Жду телефон 5sim
+ [Thread-3]: 03:02:03: Нет доступных номеров no free phones
+ [Thread-3]: 03:02:04: Ответ покупки номера 5sim {'id': 410251650, 'phone': '+50583806083', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:12:04.677264936Z', 'sms': None, 'created_at': '2023-01-30T00:02:04.677264936Z', 'country': 'nicaragua'}
+ [Thread-3]: 03:02:04: Вбиваю телефон
+ [Thread-4]: 03:02:05: Указываю пол
+ [Thread-3]: 03:02:08: Подтверждаю телефон
+ [Thread-4]: 03:02:12: Подтвержадаю пол
+ [Thread-3]: 03:02:16: Указываю пол
+ [Thread-4]: 03:02:21: Генерирую пароль
+ [Thread-3]: 03:02:23: Подтвержадаю пол
+ [Thread-3]: 03:02:32: Генерирую пароль
+ [Thread-4]: 03:02:32: Подтверждаю пароль на странице
+ [Thread-3]: 03:02:43: Подтверждаю пароль на странице
+ [Thread-4]: 03:03:14: Ищу Not now
+ [Thread-4]: 03:03:14: Рега прошла, подверждение смс
+ [Thread-3]: 03:03:24: Ищу Not now
+ [Thread-3]: 03:03:24: Рега прошла, подверждение смс
+ [Thread-4]: 03:03:32: Статус повторной активаций: {'id': 410251621, 'phone': '+50557179223', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:11:54.009122Z', 'sms': [], 'created_at': '2023-01-30T00:01:54.009122Z', 'country': 'nicaragua'}
+ [Thread-3]: 03:03:38: Смс: {'id': 410251650, 'phone': '+50583806083', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:12:04.677265Z', 'sms': [{'created_at': '2023-01-30T00:03:25.123809Z', 'date': '2023-01-30T00:03:25.120763Z', 'sender': '*', 'text': '55654', 'code': '55654'}], 'created_at': '2023-01-30T00:02:04.677265Z', 'country': 'nicaragua'}
+ [Thread-3]: 03:03:38: Проверка на подключение
+ [Thread-3]: 03:03:38: Вбиваю смс
+ [Thread-4]: 03:03:43: Статус повторной активаций: {'id': 410251621, 'phone': '+50557179223', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:11:54.009122Z', 'sms': [], 'created_at': '2023-01-30T00:01:54.009122Z', 'country': 'nicaragua'}
+ [Thread-3]: 03:03:49: Проверка на валидность смс
+ [Thread-3]: 03:03:49: Смс валидна, подтверждаю
+ [Thread-4]: 03:03:53: Статус повторной активаций: {'id': 410251621, 'phone': '+50557179223', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:11:54.009122Z', 'sms': [], 'created_at': '2023-01-30T00:01:54.009122Z', 'country': 'nicaragua'}
+ [Thread-3]: 03:03:56: Получаю manager_id
+ [Thread-4]: 03:04:03: Статус повторной активаций: {'id': 410251621, 'phone': '+50557179223', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:11:54.009122Z', 'sms': [], 'created_at': '2023-01-30T00:01:54.009122Z', 'country': 'nicaragua'}
+ [Thread-3]: 03:04:08: Обновление страницы с manager_id
+ [Thread-4]: 03:04:13: Статус повторной активаций: {'id': 410251621, 'phone': '+50557179223', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:11:54.009122Z', 'sms': [], 'created_at': '2023-01-30T00:01:54.009122Z', 'country': 'nicaragua'}
+ [Thread-4]: 03:04:23: Статус повторной активаций: {'id': 410251621, 'phone': '+50557179223', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:11:54.009122Z', 'sms': [], 'created_at': '2023-01-30T00:01:54.009122Z', 'country': 'nicaragua'}
+ [Thread-4]: 03:04:33: Статус повторной активаций: {'id': 410251621, 'phone': '+50557179223', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:11:54.009122Z', 'sms': [], 'created_at': '2023-01-30T00:01:54.009122Z', 'country': 'nicaragua'}
+ [Thread-3]: 03:04:38: Обновление страницы с manager_id
+ [Thread-4]: 03:04:43: Статус повторной активаций: {'id': 410251621, 'phone': '+50557179223', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:11:54.009122Z', 'sms': [], 'created_at': '2023-01-30T00:01:54.009122Z', 'country': 'nicaragua'}
+ [Thread-4]: 03:04:54: Статус повторной активаций: {'id': 410251621, 'phone': '+50557179223', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:11:54.009122Z', 'sms': [], 'created_at': '2023-01-30T00:01:54.009122Z', 'country': 'nicaragua'}
+ [Thread-4]: 03:05:04: Статус повторной активаций: {'id': 410251621, 'phone': '+50557179223', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:11:54.009122Z', 'sms': [], 'created_at': '2023-01-30T00:01:54.009122Z', 'country': 'nicaragua'}
+ [Thread-3]: 03:05:08: Обновление страницы с manager_id
+ [Thread-4]: 03:05:14: Статус повторной активаций: {'id': 410251621, 'phone': '+50557179223', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:11:54.009122Z', 'sms': [], 'created_at': '2023-01-30T00:01:54.009122Z', 'country': 'nicaragua'}
+ [Thread-4]: 03:05:24: Статус повторной активаций: {'id': 410251621, 'phone': '+50557179223', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:11:54.009122Z', 'sms': [], 'created_at': '2023-01-30T00:01:54.009122Z', 'country': 'nicaragua'}
+ [Thread-4]: 03:05:34: Статус повторной активаций: {'id': 410251621, 'phone': '+50557179223', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:11:54.009122Z', 'sms': [], 'created_at': '2023-01-30T00:01:54.009122Z', 'country': 'nicaragua'}
+ [Thread-3]: 03:05:40: manager_id = 583315913673120
+ [Thread-3]: 03:05:40: Получаю Eaab_Token
+ [Thread-3]: 03:05:41: Eaab_Token = EAABsbCS1iHgBABsNFQy27A9676J4YKSZCBZBqoGL9FtGui9U9L8zPGktHIg906IOj2WKl3OaRgRaR9VjN6BnDZCEr8dvmOeqdXHn19PLhBDjJLU4BYnAszwqQj2wOO225ILChfDL588iTyKGgyrXRVa6JY8G8zYOdh0ya7r4kEX2BrFDkBn934kyFX6ZC4UZD
+ [Thread-3]: 03:05:41: Статус закрытия смс заявки: <Response [200]>
+ [Thread-3]: 03:05:41: Успешная регистрация
+ [Thread-3]: 03:05:41: Закрытие профиля
+ [Thread-3]: 03:05:42: Удаление профиля
+ [Thread-3]: 03:05:43: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-3]: 03:05:43: Поток Thread-3 завершил работу
+ [Thread-4]: 03:05:44: Статус повторной активаций: {'id': 410251621, 'phone': '+50557179223', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:11:54.009122Z', 'sms': [], 'created_at': '2023-01-30T00:01:54.009122Z', 'country': 'nicaragua'}
+ [Thread-4]: 03:05:55: Статус повторной активаций: {'id': 410251621, 'phone': '+50557179223', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:11:54.009122Z', 'sms': [], 'created_at': '2023-01-30T00:01:54.009122Z', 'country': 'nicaragua'}
+ [Thread-4]: 03:05:55: Смс не пришла, статус активаций: {'id': 410251621, 'phone': '+50557179223', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:11:54.009122Z', 'sms': [], 'created_at': '2023-01-30T00:01:54.009122Z', 'country': 'nicaragua'}
+ [Thread-4]: 03:05:55: Статус бана смс заявки: <Response [200]>
+ [Thread-4]: 03:05:55: Аккаунт на чеке
+ [Thread-4]: 03:05:55: Закрытие профиля
+ [Thread-4]: 03:05:56: Удаление профиля
+ [Thread-4]: 03:05:56: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-4]: 03:05:56: Поток Thread-4 завершил работу
+ [Thread-4]: 03:05:56: Проверка на подключение
+ [Thread-4]: 03:06:00: Лог из веба {'response': {'data': {'id': 'j4x8lhp', 'serial_number': '3778'}, 'code': 0, 'msg': 'Success'}, 'payload': {'name': 'Fb', 'group_id': '1836292', 'domain_name': 'google.com', 'repeat_config': ['0'], 'country': 'us', 'fingerprint_config': {'language': ['uk-UA', 'uk', 'en-US', 'en'], 'ua': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36', 'flash': 'block', 'scan_port_type': '1', 'screen_resolution': '960_680', 'fonts': ['all'], 'longitude': '180', 'latitude': '90', 'webrtc': 'proxy', 'do_not_track': 'true'}, 'user_proxy_config': {'proxy_soft': 'other', 'proxy_type': 'http', 'proxy_host': '64.74.163.147', 'proxy_port': '10893', 'proxy_user': 'melnikov1133', 'proxy_password': 'f5e6ce'}}}
+ [MainThread]: 03:07:50: Активных потоков: 1
+ [MainThread]: 03:07:50: Старт потоков
+ [Thread-5]: 03:07:50: Старт потока Thread-5
+ [Thread-5]: 03:07:50: Создание профиля
+ [Thread-5]: 03:07:52: ip = {
+  "IP": "69.250.44.85"
+}
+ [Thread-5]: 03:07:53: {'data': {'id': 'j4x8mfy', 'serial_number': '3779'}, 'code': 0, 'msg': 'Success'}
+ [Thread-5]: 03:07:53: Запуск профиля
+ [Thread-6]: 03:07:55: Старт потока Thread-6
+ [Thread-6]: 03:07:55: Создание профиля
+ [Thread-5]: 03:07:56: ID профиля j4x8mfy
+ [Thread-6]: 03:07:57: ip = {
+  "IP": "96.234.183.86"
+}
+ [Thread-6]: 03:07:58: {'data': {'id': 'j4x8mgh', 'serial_number': '3780'}, 'code': 0, 'msg': 'Success'}
+ [Thread-6]: 03:07:58: Запуск профиля
+ [Thread-6]: 03:08:01: ID профиля j4x8mgh
+ [Thread-5]: 03:08:02: Открываю фейсбук
+ [Thread-6]: 03:08:07: Открываю фейсбук
+ [Thread-5]: 03:08:11: Нажимаю на регистрацию
+ [Thread-5]: 03:08:16: Размер окна {'width': 1024, 'height': 768}
+ [Thread-6]: 03:08:20: Нажимаю на регистрацию
+ [Thread-5]: 03:08:25: Имя
+ [Thread-6]: 03:08:25: Размер окна {'width': 1367, 'height': 1080}
+ [Thread-5]: 03:08:33: Фамилия
+ [Thread-6]: 03:08:34: Имя
+ [Thread-5]: 03:08:42: Подтверждаю ФИО
+ [Thread-6]: 03:08:42: Фамилия
+ [Thread-5]: 03:08:49: Месяц рожденья
+ [Thread-6]: 03:08:50: Подтверждаю ФИО
+ [Thread-5]: 03:08:56: День рожденья
+ [Thread-6]: 03:08:57: Месяц рожденья
+ [Thread-5]: 03:09:04: Год рожденья
+ [Thread-6]: 03:09:05: День рожденья
+ [Thread-5]: 03:09:11: Подтверждаю рождение
+ [Thread-6]: 03:09:12: Год рожденья
+ [Thread-5]: 03:09:18: Вбиваю телефон
+ [Thread-6]: 03:09:20: Подтверждаю рождение
+ [Thread-5]: 03:09:25: Жду телефон 5sim
+ [Thread-5]: 03:09:25: Нет доступных номеров no free phones
+ [Thread-5]: 03:09:26: Ответ покупки номера 5sim {'id': 410252536, 'phone': '+50558043959', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:19:26.918422922Z', 'sms': None, 'created_at': '2023-01-30T00:09:26.918422922Z', 'country': 'nicaragua'}
+ [Thread-5]: 03:09:26: Вбиваю телефон
+ [Thread-6]: 03:09:27: Вбиваю телефон
+ [Thread-5]: 03:09:30: Подтверждаю телефон
+ [Thread-6]: 03:09:34: Жду телефон 5sim
+ [Thread-6]: 03:09:35: Ответ покупки номера 5sim {'id': 410252552, 'phone': '+50587990568', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:19:35.657814778Z', 'sms': None, 'created_at': '2023-01-30T00:09:35.657814778Z', 'country': 'nicaragua'}
+ [Thread-6]: 03:09:35: Вбиваю телефон
+ [Thread-5]: 03:09:39: Указываю пол
+ [Thread-6]: 03:09:39: Подтверждаю телефон
+ [Thread-5]: 03:09:45: Подтвержадаю пол
+ [Thread-6]: 03:09:48: Указываю пол
+ [Thread-5]: 03:09:54: Генерирую пароль
+ [Thread-6]: 03:09:54: Подтвержадаю пол
+ [Thread-6]: 03:10:03: Генерирую пароль
+ [Thread-5]: 03:10:05: Подтверждаю пароль на странице
+ [Thread-6]: 03:10:14: Подтверждаю пароль на странице
+ [Thread-5]: 03:10:47: Аккаунт существует
+ [Thread-6]: 03:10:56: Ищу Not now
+ [Thread-5]: 03:11:05: Ищу поле для пароля из смс
+ [Thread-6]: 03:11:16: Не нашел правильной кнопки =  какая-то неведомая хуйня
+ [Thread-6]: 03:11:16: Статус бана смс заявки: <Response [200]>
+ [Thread-6]: 03:11:16: Аккаунт на чеке
+ [Thread-6]: 03:11:16: Закрытие профиля
+ [Thread-6]: 03:11:17: Удаление профиля
+ [Thread-6]: 03:11:18: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-6]: 03:11:18: Поток Thread-6 завершил работу
+ [Thread-5]: 03:11:25: Чекпоинт загрузи внутри action-dialog
+ [Thread-5]: 03:11:26: Статус бана смс заявки: <Response [400]>
+ [Thread-5]: 03:11:26: Аккаунт на чеке
+ [Thread-5]: 03:11:26: Закрытие профиля
+ [Thread-5]: 03:11:27: Удаление профиля
+ [Thread-5]: 03:11:27: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-5]: 03:11:27: Поток Thread-5 завершил работу
+ [MainThread]: 03:15:30: Активных потоков: 1
+ [MainThread]: 03:15:30: Старт потоков
+ [Thread-7]: 03:15:30: Старт потока Thread-7
+ [Thread-7]: 03:15:30: Создание профиля
+ [Thread-7]: 03:15:33: ip = {
+  "IP": "99.111.240.234"
+}
+ [Thread-7]: 03:15:33: {'data': {'id': 'j4x8nsx', 'serial_number': '3781'}, 'code': 0, 'msg': 'Success'}
+ [Thread-7]: 03:15:33: Запуск профиля
+ [Thread-8]: 03:15:35: Старт потока Thread-8
+ [Thread-8]: 03:15:35: Создание профиля
+ [Thread-7]: 03:15:36: ID профиля j4x8nsx
+ [Thread-8]: 03:15:38: ip = {
+  "IP": "70.188.149.167"
+}
+ [Thread-8]: 03:15:39: {'data': {'id': 'j4x8nt4', 'serial_number': '3782'}, 'code': 0, 'msg': 'Success'}
+ [Thread-8]: 03:15:39: Запуск профиля
+ [Thread-8]: 03:15:42: ID профиля j4x8nt4
+ [Thread-7]: 03:15:44: Открываю фейсбук
+ [Thread-8]: 03:15:48: Открываю фейсбук
+ [Thread-7]: 03:15:51: Нажимаю на регистрацию
+ [Thread-7]: 03:15:56: Размер окна {'width': 1367, 'height': 1080}
+ [Thread-7]: 03:16:04: Имя
+ [Thread-8]: 03:16:06: Нажимаю на регистрацию
+ [Thread-8]: 03:16:11: Размер окна {'width': 960, 'height': 680}
+ [Thread-7]: 03:16:13: Фамилия
+ [Thread-8]: 03:16:21: Имя
+ [Thread-7]: 03:16:22: Подтверждаю ФИО
+ [Thread-7]: 03:16:29: Месяц рожденья
+ [Thread-8]: 03:16:30: Фамилия
+ [Thread-7]: 03:16:37: День рожденья
+ [Thread-8]: 03:16:39: Подтверждаю ФИО
+ [Thread-7]: 03:16:44: Год рожденья
+ [Thread-8]: 03:16:46: Месяц рожденья
+ [Thread-7]: 03:16:52: Подтверждаю рождение
+ [Thread-8]: 03:16:54: День рожденья
+ [Thread-7]: 03:16:59: Вбиваю телефон
+ [Thread-8]: 03:17:02: Год рожденья
+ [Thread-7]: 03:17:06: Жду телефон 5sim
+ [Thread-7]: 03:17:06: Нет доступных номеров no free phones
+ [Thread-7]: 03:17:07: Ответ покупки номера 5sim {'id': 410253317, 'phone': '+50586828287', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:27:07.858825858Z', 'sms': None, 'created_at': '2023-01-30T00:17:07.858825858Z', 'country': 'nicaragua'}
+ [Thread-7]: 03:17:07: Вбиваю телефон
+ [Thread-8]: 03:17:09: Подтверждаю рождение
+ [Thread-7]: 03:17:10: Подтверждаю телефон
+ [Thread-8]: 03:17:16: Вбиваю телефон
+ [Thread-7]: 03:17:19: Указываю пол
+ [Thread-8]: 03:17:23: Жду телефон 5sim
+ [Thread-8]: 03:17:24: Ответ покупки номера 5sim {'id': 410253342, 'phone': '+50585664204', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:27:24.5836964Z', 'sms': None, 'created_at': '2023-01-30T00:17:24.5836964Z', 'country': 'nicaragua'}
+ [Thread-8]: 03:17:24: Вбиваю телефон
+ [Thread-7]: 03:17:26: Подтвержадаю пол
+ [Thread-8]: 03:17:27: Подтверждаю телефон
+ [Thread-7]: 03:17:35: Генерирую пароль
+ [Thread-8]: 03:17:36: Указываю пол
+ [Thread-8]: 03:17:43: Подтвержадаю пол
+ [Thread-7]: 03:17:46: Подтверждаю пароль на странице
+ [Thread-8]: 03:17:52: Генерирую пароль
+ [Thread-8]: 03:18:02: Подтверждаю пароль на странице
+ [Thread-7]: 03:18:27: checkpoint
+ [Thread-7]: 03:18:28: Статус бана смс заявки: <Response [200]>
+ [Thread-7]: 03:18:28: Аккаунт на чеке
+ [Thread-7]: 03:18:28: Закрытие профиля
+ [Thread-7]: 03:18:29: Удаление профиля
+ [Thread-7]: 03:18:29: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-7]: 03:18:29: Поток Thread-7 завершил работу
+ [Thread-8]: 03:18:44: Ищу Not now
+ [Thread-8]: 03:18:44: Рега прошла, подверждение смс
+ [Thread-8]: 03:19:03: Статус повторной активаций: {'id': 410253342, 'phone': '+50585664204', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:27:24.583696Z', 'sms': [], 'created_at': '2023-01-30T00:17:24.583696Z', 'country': 'nicaragua'}
+ [Thread-8]: 03:19:13: Статус повторной активаций: {'id': 410253342, 'phone': '+50585664204', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:27:24.583696Z', 'sms': [], 'created_at': '2023-01-30T00:17:24.583696Z', 'country': 'nicaragua'}
+ [Thread-8]: 03:19:24: Статус повторной активаций: {'id': 410253342, 'phone': '+50585664204', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:27:24.583696Z', 'sms': [], 'created_at': '2023-01-30T00:17:24.583696Z', 'country': 'nicaragua'}
+ [Thread-8]: 03:19:34: Статус повторной активаций: {'id': 410253342, 'phone': '+50585664204', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:27:24.583696Z', 'sms': [], 'created_at': '2023-01-30T00:17:24.583696Z', 'country': 'nicaragua'}
+ [Thread-8]: 03:19:44: Статус повторной активаций: {'id': 410253342, 'phone': '+50585664204', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:27:24.583696Z', 'sms': [], 'created_at': '2023-01-30T00:17:24.583696Z', 'country': 'nicaragua'}
+ [Thread-8]: 03:19:54: Статус повторной активаций: {'id': 410253342, 'phone': '+50585664204', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:27:24.583696Z', 'sms': [], 'created_at': '2023-01-30T00:17:24.583696Z', 'country': 'nicaragua'}
+ [Thread-8]: 03:20:04: Статус повторной активаций: {'id': 410253342, 'phone': '+50585664204', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:27:24.583696Z', 'sms': [], 'created_at': '2023-01-30T00:17:24.583696Z', 'country': 'nicaragua'}
+ [Thread-8]: 03:20:14: Статус повторной активаций: {'id': 410253342, 'phone': '+50585664204', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:27:24.583696Z', 'sms': [], 'created_at': '2023-01-30T00:17:24.583696Z', 'country': 'nicaragua'}
+ [Thread-8]: 03:20:25: Статус повторной активаций: {'id': 410253342, 'phone': '+50585664204', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:27:24.583696Z', 'sms': [], 'created_at': '2023-01-30T00:17:24.583696Z', 'country': 'nicaragua'}
+ [Thread-8]: 03:20:35: Статус повторной активаций: {'id': 410253342, 'phone': '+50585664204', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:27:24.583696Z', 'sms': [], 'created_at': '2023-01-30T00:17:24.583696Z', 'country': 'nicaragua'}
+ [Thread-8]: 03:20:45: Статус повторной активаций: {'id': 410253342, 'phone': '+50585664204', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:27:24.583696Z', 'sms': [], 'created_at': '2023-01-30T00:17:24.583696Z', 'country': 'nicaragua'}
+ [Thread-8]: 03:20:55: Статус повторной активаций: {'id': 410253342, 'phone': '+50585664204', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:27:24.583696Z', 'sms': [], 'created_at': '2023-01-30T00:17:24.583696Z', 'country': 'nicaragua'}
+ [Thread-8]: 03:21:05: Статус повторной активаций: {'id': 410253342, 'phone': '+50585664204', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:27:24.583696Z', 'sms': [], 'created_at': '2023-01-30T00:17:24.583696Z', 'country': 'nicaragua'}
+ [Thread-8]: 03:21:15: Статус повторной активаций: {'id': 410253342, 'phone': '+50585664204', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:27:24.583696Z', 'sms': [], 'created_at': '2023-01-30T00:17:24.583696Z', 'country': 'nicaragua'}
+ [Thread-8]: 03:21:26: Статус повторной активаций: {'id': 410253342, 'phone': '+50585664204', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:27:24.583696Z', 'sms': [], 'created_at': '2023-01-30T00:17:24.583696Z', 'country': 'nicaragua'}
+ [Thread-8]: 03:21:26: Смс не пришла, статус активаций: {'id': 410253342, 'phone': '+50585664204', 'operator': 'virtual23', 'product': 'facebook', 'price': 3.8, 'status': 'RECEIVED', 'expires': '2023-01-30T00:27:24.583696Z', 'sms': [], 'created_at': '2023-01-30T00:17:24.583696Z', 'country': 'nicaragua'}
+ [Thread-8]: 03:21:26: Статус бана смс заявки: <Response [200]>
+ [Thread-8]: 03:21:26: Аккаунт на чеке
+ [Thread-8]: 03:21:26: Закрытие профиля
+ [Thread-8]: 03:21:27: Удаление профиля
+ [Thread-8]: 03:21:28: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-8]: 03:21:28: Поток Thread-8 завершил работу
+ [Thread-8]: 03:21:28: Проверка на подключение
+ [Thread-8]: 03:21:32: Лог из веба {'response': {'data': {'id': 'j4x8nt4', 'serial_number': '3782'}, 'code': 0, 'msg': 'Success'}, 'payload': {'name': 'Fb', 'group_id': '1836292', 'domain_name': 'google.com', 'repeat_config': ['0'], 'country': 'us', 'fingerprint_config': {'language': ['uk-UA', 'uk', 'en-US', 'en'], 'ua': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', 'flash': 'block', 'scan_port_type': '1', 'screen_resolution': '960_680', 'fonts': ['all'], 'longitude': '180', 'latitude': '90', 'webrtc': 'proxy', 'do_not_track': 'true'}, 'user_proxy_config': {'proxy_soft': 'other', 'proxy_type': 'http', 'proxy_host': '64.74.163.147', 'proxy_port': '10893', 'proxy_user': 'melnikov1133', 'proxy_password': 'f5e6ce'}}}
+ [MainThread]: 03:25:31: Инициализация потоков
+ [MainThread]: 03:25:31: Старт потоков
+ [Thread-1]: 03:25:31: Старт потока Thread-1
+ [Thread-1]: 03:25:31: Создание профиля
+ [Thread-1]: 03:25:33: ip = {
+  "IP": "73.177.220.59"
+}
+ [Thread-1]: 03:25:34: {'data': {'id': 'j4x8p8y', 'serial_number': '3783'}, 'code': 0, 'msg': 'Success'}
+ [Thread-1]: 03:25:34: Запуск профиля
+ [Thread-1]: 03:25:37: ID профиля j4x8p8y
+ [Thread-1]: 03:25:43: Открываю фейсбук
+ [Thread-1]: 03:25:53: Нажимаю на регистрацию
+ [Thread-1]: 03:25:58: Размер окна {'width': 1024, 'height': 768}
+ [Thread-1]: 03:26:07: Имя
+ [Thread-1]: 03:26:16: Фамилия
+ [Thread-1]: 03:26:25: Подтверждаю ФИО
+ [Thread-1]: 03:26:32: Месяц рожденья
+ [Thread-1]: 03:26:39: День рожденья
+ [Thread-1]: 03:26:46: Год рожденья
+ [Thread-1]: 03:26:54: Подтверждаю рождение
+ [Thread-1]: 03:27:01: Вбиваю телефон
+ [Thread-1]: 03:27:08: Жду телефон 5sim
+ [Thread-1]: 03:27:08: Нет доступных номеров no free phones
+ [Thread-1]: 03:27:10: Ответ покупки номера 5sim {'id': 410254327, 'phone': '+221776884201', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:42:11.246015783Z', 'sms': None, 'created_at': '2023-01-30T00:27:11.246015783Z', 'country': 'senegal'}
+ [Thread-1]: 03:27:10: Вбиваю телефон
+ [Thread-1]: 03:27:15: Подтверждаю телефон
+ [Thread-1]: 03:27:24: Указываю пол
+ [Thread-1]: 03:27:30: Подтвержадаю пол
+ [Thread-1]: 03:27:39: Генерирую пароль
+ [Thread-1]: 03:27:50: Подтверждаю пароль на странице
+ [Thread-1]: 03:28:32: Ищу Not now
+ [Thread-1]: 03:28:32: Рега прошла, подверждение смс
+ [Thread-1]: 03:28:51: Статус повторной активаций: {'id': 410254327, 'phone': '+221776884201', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:42:11.246016Z', 'sms': [], 'created_at': '2023-01-30T00:27:11.246016Z', 'country': 'senegal'}
+ [Thread-1]: 03:29:01: Статус повторной активаций: {'id': 410254327, 'phone': '+221776884201', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:42:11.246016Z', 'sms': [], 'created_at': '2023-01-30T00:27:11.246016Z', 'country': 'senegal'}
+ [Thread-1]: 03:29:11: Статус повторной активаций: {'id': 410254327, 'phone': '+221776884201', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:42:11.246016Z', 'sms': [], 'created_at': '2023-01-30T00:27:11.246016Z', 'country': 'senegal'}
+ [Thread-1]: 03:29:21: Статус повторной активаций: {'id': 410254327, 'phone': '+221776884201', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:42:11.246016Z', 'sms': [], 'created_at': '2023-01-30T00:27:11.246016Z', 'country': 'senegal'}
+ [Thread-1]: 03:29:31: Статус повторной активаций: {'id': 410254327, 'phone': '+221776884201', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:42:11.246016Z', 'sms': [], 'created_at': '2023-01-30T00:27:11.246016Z', 'country': 'senegal'}
+ [Thread-1]: 03:29:41: Статус повторной активаций: {'id': 410254327, 'phone': '+221776884201', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:42:11.246016Z', 'sms': [], 'created_at': '2023-01-30T00:27:11.246016Z', 'country': 'senegal'}
+ [Thread-1]: 03:29:51: Статус повторной активаций: {'id': 410254327, 'phone': '+221776884201', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:42:11.246016Z', 'sms': [], 'created_at': '2023-01-30T00:27:11.246016Z', 'country': 'senegal'}
+ [Thread-1]: 03:30:02: Статус повторной активаций: {'id': 410254327, 'phone': '+221776884201', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:42:11.246016Z', 'sms': [], 'created_at': '2023-01-30T00:27:11.246016Z', 'country': 'senegal'}
+ [Thread-1]: 03:30:12: Статус повторной активаций: {'id': 410254327, 'phone': '+221776884201', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:42:11.246016Z', 'sms': [], 'created_at': '2023-01-30T00:27:11.246016Z', 'country': 'senegal'}
+ [Thread-1]: 03:30:22: Статус повторной активаций: {'id': 410254327, 'phone': '+221776884201', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:42:11.246016Z', 'sms': [], 'created_at': '2023-01-30T00:27:11.246016Z', 'country': 'senegal'}
+ [Thread-1]: 03:30:32: Статус повторной активаций: {'id': 410254327, 'phone': '+221776884201', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:42:11.246016Z', 'sms': [], 'created_at': '2023-01-30T00:27:11.246016Z', 'country': 'senegal'}
+ [Thread-1]: 03:30:42: Статус повторной активаций: {'id': 410254327, 'phone': '+221776884201', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:42:11.246016Z', 'sms': [], 'created_at': '2023-01-30T00:27:11.246016Z', 'country': 'senegal'}
+ [Thread-1]: 03:30:52: Статус повторной активаций: {'id': 410254327, 'phone': '+221776884201', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:42:11.246016Z', 'sms': [], 'created_at': '2023-01-30T00:27:11.246016Z', 'country': 'senegal'}
+ [Thread-1]: 03:31:03: Статус повторной активаций: {'id': 410254327, 'phone': '+221776884201', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:42:11.246016Z', 'sms': [], 'created_at': '2023-01-30T00:27:11.246016Z', 'country': 'senegal'}
+ [Thread-1]: 03:31:13: Статус повторной активаций: {'id': 410254327, 'phone': '+221776884201', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:42:11.246016Z', 'sms': [], 'created_at': '2023-01-30T00:27:11.246016Z', 'country': 'senegal'}
+ [Thread-1]: 03:31:13: Смс не пришла, статус активаций: {'id': 410254327, 'phone': '+221776884201', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T00:42:11.246016Z', 'sms': [], 'created_at': '2023-01-30T00:27:11.246016Z', 'country': 'senegal'}
+ [Thread-1]: 03:31:14: Статус бана смс заявки: <Response [200]>
+ [Thread-1]: 03:31:14: Аккаунт на чеке
+ [Thread-1]: 03:31:14: Закрытие профиля
+ [Thread-1]: 03:31:15: Удаление профиля
+ [Thread-1]: 03:31:16: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-1]: 03:31:16: Поток Thread-1 завершил работу
+ [Thread-1]: 03:31:16: Проверка на подключение
+ [Thread-1]: 03:31:20: Лог из веба {'response': {'data': {'id': 'j4x8p8y', 'serial_number': '3783'}, 'code': 0, 'msg': 'Success'}, 'payload': {'name': 'Fb', 'group_id': '1836292', 'domain_name': 'google.com', 'repeat_config': ['0'], 'country': 'us', 'fingerprint_config': {'language': ['uk-UA', 'uk', 'en-US', 'en'], 'ua': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36', 'flash': 'block', 'scan_port_type': '1', 'screen_resolution': '1024_768', 'fonts': ['all'], 'longitude': '180', 'latitude': '90', 'webrtc': 'proxy', 'do_not_track': 'true'}, 'user_proxy_config': {'proxy_soft': 'other', 'proxy_type': 'http', 'proxy_host': '64.74.163.147', 'proxy_port': '10893', 'proxy_user': 'melnikov1133', 'proxy_password': 'f5e6ce'}}}
+ [MainThread]: 03:43:37: Инициализация потоков
+ [MainThread]: 03:43:37: Старт потоков
+ [Thread-1]: 03:43:37: Старт потока Thread-1
+ [Thread-1]: 03:43:37: Создание профиля
+ [Thread-1]: 03:43:39: ip = {
+  "IP": "205.149.53.113"
+}
+ [Thread-1]: 03:43:40: {'data': {'id': 'j4x8tm9', 'serial_number': '3784'}, 'code': 0, 'msg': 'Success'}
+ [Thread-1]: 03:43:40: Запуск профиля
+ [Thread-1]: 03:43:43: ID профиля j4x8tm9
+ [Thread-1]: 03:43:49: Открываю фейсбук
+ [Thread-1]: 03:44:03: Нажимаю на регистрацию
+ [Thread-1]: 03:44:08: Размер окна {'width': 960, 'height': 680}
+ [Thread-1]: 03:44:17: Имя
+ [Thread-1]: 03:44:26: Фамилия
+ [Thread-1]: 03:44:34: Подтверждаю ФИО
+ [Thread-1]: 03:44:41: Месяц рожденья
+ [Thread-1]: 03:44:49: День рожденья
+ [Thread-1]: 03:44:57: Год рожденья
+ [Thread-1]: 03:45:05: Подтверждаю рождение
+ [Thread-1]: 03:45:11: Вбиваю телефон
+ [Thread-1]: 03:45:18: Жду телефон 5sim
+ [Thread-1]: 03:45:18: Нет доступных номеров no free phones
+ [Thread-1]: 03:45:19: Ответ покупки номера 5sim {'id': 410256962, 'phone': '+221773656254', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:00:19.728419488Z', 'sms': None, 'created_at': '2023-01-30T00:45:19.728419488Z', 'country': 'senegal'}
+ [Thread-1]: 03:45:19: Вбиваю телефон
+ [Thread-1]: 03:45:23: Подтверждаю телефон
+ [Thread-1]: 03:45:32: Указываю пол
+ [Thread-1]: 03:45:38: Подтвержадаю пол
+ [Thread-1]: 03:45:47: Генерирую пароль
+ [Thread-1]: 03:45:58: Подтверждаю пароль на странице
+ [Thread-1]: 03:46:40: checkpoint
+ [Thread-1]: 03:46:41: Статус бана смс заявки: <Response [200]>
+ [Thread-1]: 03:46:41: Аккаунт на чеке
+ [Thread-1]: 03:46:41: Закрытие профиля
+ [Thread-1]: 03:46:42: Удаление профиля
+ [Thread-1]: 03:46:43: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-1]: 03:46:43: Поток Thread-1 завершил работу
+ [MainThread]: 03:47:36: Инициализация потоков
+ [MainThread]: 03:47:36: Старт потоков
+ [Thread-1]: 03:47:36: Старт потока Thread-1
+ [Thread-1]: 03:47:36: Создание профиля
+ [Thread-1]: 03:47:38: ip = {
+  "IP": "162.219.229.167"
+}
+ [Thread-1]: 03:47:39: {'data': {'id': 'j4x8uuw', 'serial_number': '3785'}, 'code': 0, 'msg': 'Success'}
+ [Thread-1]: 03:47:39: Запуск профиля
+ [Thread-1]: 03:47:42: ID профиля j4x8uuw
+ [Thread-1]: 03:47:49: Открываю фейсбук
+ [Thread-1]: 03:47:59: Нажимаю на регистрацию
+ [Thread-1]: 03:48:04: Размер окна {'width': 1024, 'height': 768}
+ [Thread-1]: 03:48:12: Имя
+ [Thread-1]: 03:48:21: Фамилия
+ [Thread-1]: 03:48:31: Подтверждаю ФИО
+ [Thread-1]: 03:48:37: Месяц рожденья
+ [Thread-1]: 03:48:45: День рожденья
+ [Thread-1]: 03:48:52: Год рожденья
+ [Thread-1]: 03:49:00: Подтверждаю рождение
+ [Thread-1]: 03:49:07: Вбиваю телефон
+ [Thread-1]: 03:49:14: Жду телефон 5sim
+ [Thread-1]: 03:49:14: Нет доступных номеров no free phones
+ [Thread-1]: 03:49:16: Ответ покупки номера 5sim {'id': 410258036, 'phone': '+221767420492', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:04:16.957018201Z', 'sms': None, 'created_at': '2023-01-30T00:49:16.957018201Z', 'country': 'senegal'}
+ [Thread-1]: 03:49:16: Вбиваю телефон
+ [Thread-1]: 03:49:20: Подтверждаю телефон
+ [Thread-1]: 03:49:29: Указываю пол
+ [Thread-1]: 03:49:36: Подтвержадаю пол
+ [Thread-1]: 03:49:44: Генерирую пароль
+ [Thread-1]: 03:49:55: Подтверждаю пароль на странице
+ [Thread-1]: 03:50:37: checkpoint
+ [Thread-1]: 03:50:39: Статус бана смс заявки: <Response [200]>
+ [Thread-1]: 03:50:39: Аккаунт на чеке
+ [Thread-1]: 03:50:39: Закрытие профиля
+ [Thread-1]: 03:50:40: Удаление профиля
+ [Thread-1]: 03:50:41: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-1]: 03:50:41: Поток Thread-1 завершил работу
+ [MainThread]: 03:54:44: Инициализация потоков
+ [MainThread]: 03:54:44: Старт потоков
+ [Thread-1]: 03:54:44: Старт потока Thread-1
+ [Thread-1]: 03:54:44: Создание профиля
+ [Thread-1]: 03:54:46: ip = {
+  "IP": "68.126.207.7"
+}
+ [Thread-1]: 03:54:47: {'data': {'id': 'j4x8wkc', 'serial_number': '3786'}, 'code': 0, 'msg': 'Success'}
+ [Thread-1]: 03:54:47: Запуск профиля
+ [Thread-1]: 03:54:50: ID профиля j4x8wkc
+ [Thread-1]: 03:54:55: Открываю фейсбук
+ [Thread-1]: 03:55:24: Нажимаю на регистрацию
+ [Thread-1]: 03:55:29: Размер окна {'width': 1024, 'height': 768}
+ [Thread-1]: 03:55:38: Имя
+ [Thread-1]: 03:55:47: Фамилия
+ [Thread-1]: 03:55:56: Подтверждаю ФИО
+ [Thread-1]: 03:56:03: Месяц рожденья
+ [Thread-1]: 03:56:10: День рожденья
+ [Thread-1]: 03:56:18: Год рожденья
+ [Thread-1]: 03:56:26: Подтверждаю рождение
+ [Thread-1]: 03:56:33: Вбиваю телефон
+ [Thread-1]: 03:56:39: Жду телефон 5sim
+ [Thread-1]: 03:56:40: Нет доступных номеров no free phones
+ [Thread-1]: 03:56:40: Ответ покупки номера 5sim {'id': 410258954, 'phone': '+221766156728', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:11:41.066738197Z', 'sms': None, 'created_at': '2023-01-30T00:56:41.066738197Z', 'country': 'senegal'}
+ [Thread-1]: 03:56:40: Вбиваю телефон
+ [Thread-1]: 03:56:45: Подтверждаю телефон
+ [Thread-1]: 03:56:53: Указываю пол
+ [Thread-1]: 03:57:00: Подтвержадаю пол
+ [Thread-1]: 03:57:09: Генерирую пароль
+ [Thread-1]: 03:57:20: Подтверждаю пароль на странице
+ [Thread-1]: 03:58:01: Ищу Not now
+ [Thread-1]: 03:58:01: Рега прошла, подверждение смс
+ [Thread-1]: 03:58:20: Статус повторной активаций: {'id': 410258954, 'phone': '+221766156728', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:11:41.066738Z', 'sms': [], 'created_at': '2023-01-30T00:56:41.066738Z', 'country': 'senegal'}
+ [Thread-1]: 03:58:30: Статус повторной активаций: {'id': 410258954, 'phone': '+221766156728', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:11:41.066738Z', 'sms': [], 'created_at': '2023-01-30T00:56:41.066738Z', 'country': 'senegal'}
+ [Thread-1]: 03:58:40: Статус повторной активаций: {'id': 410258954, 'phone': '+221766156728', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:11:41.066738Z', 'sms': [], 'created_at': '2023-01-30T00:56:41.066738Z', 'country': 'senegal'}
+ [Thread-1]: 03:58:50: Статус повторной активаций: {'id': 410258954, 'phone': '+221766156728', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:11:41.066738Z', 'sms': [], 'created_at': '2023-01-30T00:56:41.066738Z', 'country': 'senegal'}
+ [Thread-1]: 03:59:00: Статус повторной активаций: {'id': 410258954, 'phone': '+221766156728', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:11:41.066738Z', 'sms': [], 'created_at': '2023-01-30T00:56:41.066738Z', 'country': 'senegal'}
+ [Thread-1]: 03:59:11: Статус повторной активаций: {'id': 410258954, 'phone': '+221766156728', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:11:41.066738Z', 'sms': [], 'created_at': '2023-01-30T00:56:41.066738Z', 'country': 'senegal'}
+ [Thread-1]: 03:59:21: Статус повторной активаций: {'id': 410258954, 'phone': '+221766156728', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:11:41.066738Z', 'sms': [], 'created_at': '2023-01-30T00:56:41.066738Z', 'country': 'senegal'}
+ [Thread-1]: 03:59:31: Статус повторной активаций: {'id': 410258954, 'phone': '+221766156728', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:11:41.066738Z', 'sms': [], 'created_at': '2023-01-30T00:56:41.066738Z', 'country': 'senegal'}
+ [Thread-1]: 03:59:41: Статус повторной активаций: {'id': 410258954, 'phone': '+221766156728', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:11:41.066738Z', 'sms': [], 'created_at': '2023-01-30T00:56:41.066738Z', 'country': 'senegal'}
+ [Thread-1]: 03:59:51: Статус повторной активаций: {'id': 410258954, 'phone': '+221766156728', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:11:41.066738Z', 'sms': [], 'created_at': '2023-01-30T00:56:41.066738Z', 'country': 'senegal'}
+ [Thread-1]: 04:00:01: Статус повторной активаций: {'id': 410258954, 'phone': '+221766156728', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:11:41.066738Z', 'sms': [], 'created_at': '2023-01-30T00:56:41.066738Z', 'country': 'senegal'}
+ [Thread-1]: 04:00:12: Статус повторной активаций: {'id': 410258954, 'phone': '+221766156728', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:11:41.066738Z', 'sms': [], 'created_at': '2023-01-30T00:56:41.066738Z', 'country': 'senegal'}
+ [Thread-1]: 04:00:22: Статус повторной активаций: {'id': 410258954, 'phone': '+221766156728', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:11:41.066738Z', 'sms': [], 'created_at': '2023-01-30T00:56:41.066738Z', 'country': 'senegal'}
+ [Thread-1]: 04:00:32: Статус повторной активаций: {'id': 410258954, 'phone': '+221766156728', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:11:41.066738Z', 'sms': [], 'created_at': '2023-01-30T00:56:41.066738Z', 'country': 'senegal'}
+ [Thread-1]: 04:00:42: Статус повторной активаций: {'id': 410258954, 'phone': '+221766156728', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:11:41.066738Z', 'sms': [], 'created_at': '2023-01-30T00:56:41.066738Z', 'country': 'senegal'}
+ [Thread-1]: 04:00:42: Смс не пришла, статус активаций: {'id': 410258954, 'phone': '+221766156728', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:11:41.066738Z', 'sms': [], 'created_at': '2023-01-30T00:56:41.066738Z', 'country': 'senegal'}
+ [Thread-1]: 04:00:42: Статус бана смс заявки: <Response [200]>
+ [Thread-1]: 04:00:42: Аккаунт на чеке
+ [Thread-1]: 04:00:42: Закрытие профиля
+ [Thread-1]: 04:00:44: Удаление профиля
+ [Thread-1]: 04:00:45: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-1]: 04:00:45: Поток Thread-1 завершил работу
+ [Thread-1]: 04:00:45: Проверка на подключение
+ [Thread-1]: 04:00:49: Лог из веба {'response': {'data': {'id': 'j4x8wkc', 'serial_number': '3786'}, 'code': 0, 'msg': 'Success'}, 'payload': {'name': 'Fb', 'group_id': '1836292', 'domain_name': 'google.com', 'repeat_config': ['0'], 'country': 'us', 'fingerprint_config': {'language': ['uk-UA', 'uk', 'en-US', 'en'], 'ua': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36', 'flash': 'block', 'scan_port_type': '1', 'screen_resolution': '1024_768', 'fonts': ['all'], 'longitude': '180', 'latitude': '90', 'webrtc': 'proxy', 'do_not_track': 'true'}, 'user_proxy_config': {'proxy_soft': 'other', 'proxy_type': 'http', 'proxy_host': '64.74.163.147', 'proxy_port': '10893', 'proxy_user': 'melnikov1133', 'proxy_password': 'f5e6ce'}}}
+ [MainThread]: 04:02:19: Старт потоков
+ [Thread-2]: 04:02:19: Старт потока Thread-2
+ [Thread-2]: 04:02:19: Создание профиля
+ [Thread-2]: 04:02:21: ip = {
+  "IP": "205.149.52.84"
+}
+ [Thread-2]: 04:02:22: {'data': {'id': 'j4x8y9g', 'serial_number': '3787'}, 'code': 0, 'msg': 'Success'}
+ [Thread-2]: 04:02:22: Запуск профиля
+ [Thread-2]: 04:02:25: ID профиля j4x8y9g
+ [Thread-2]: 04:02:31: Открываю фейсбук
+ [Thread-2]: 04:02:45: Нажимаю на регистрацию
+ [Thread-2]: 04:02:50: Размер окна {'width': 1024, 'height': 768}
+ [Thread-2]: 04:03:00: Имя
+ [Thread-2]: 04:03:08: Фамилия
+ [Thread-2]: 04:03:17: Подтверждаю ФИО
+ [Thread-2]: 04:03:23: Месяц рожденья
+ [Thread-2]: 04:03:31: День рожденья
+ [Thread-2]: 04:03:39: Год рожденья
+ [Thread-2]: 04:03:47: Подтверждаю рождение
+ [Thread-2]: 04:03:53: Вбиваю телефон
+ [Thread-2]: 04:04:00: Жду телефон 5sim
+ [Thread-2]: 04:04:00: Нет доступных номеров no free phones
+ [Thread-2]: 04:04:01: Ответ покупки номера 5sim {'id': 410259835, 'phone': '+221772871137', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:19:01.708280488Z', 'sms': None, 'created_at': '2023-01-30T01:04:01.708280488Z', 'country': 'senegal'}
+ [Thread-2]: 04:04:01: Вбиваю телефон
+ [Thread-2]: 04:04:05: Подтверждаю телефон
+ [Thread-2]: 04:04:14: Указываю пол
+ [Thread-2]: 04:04:20: Подтвержадаю пол
+ [Thread-2]: 04:04:29: Генерирую пароль
+ [Thread-2]: 04:04:40: Подтверждаю пароль на странице
+ [Thread-2]: 04:05:22: Ищу Not now
+ [Thread-2]: 04:05:22: Рега прошла, подверждение смс
+ [Thread-2]: 04:05:41: Статус повторной активаций: {'id': 410259835, 'phone': '+221772871137', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:19:01.70828Z', 'sms': [], 'created_at': '2023-01-30T01:04:01.70828Z', 'country': 'senegal'}
+ [Thread-2]: 04:05:51: Статус повторной активаций: {'id': 410259835, 'phone': '+221772871137', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:19:01.70828Z', 'sms': [], 'created_at': '2023-01-30T01:04:01.70828Z', 'country': 'senegal'}
+ [Thread-2]: 04:06:01: Статус повторной активаций: {'id': 410259835, 'phone': '+221772871137', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:19:01.70828Z', 'sms': [], 'created_at': '2023-01-30T01:04:01.70828Z', 'country': 'senegal'}
+ [Thread-2]: 04:06:11: Статус повторной активаций: {'id': 410259835, 'phone': '+221772871137', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:19:01.70828Z', 'sms': [], 'created_at': '2023-01-30T01:04:01.70828Z', 'country': 'senegal'}
+ [Thread-2]: 04:06:21: Статус повторной активаций: {'id': 410259835, 'phone': '+221772871137', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:19:01.70828Z', 'sms': [], 'created_at': '2023-01-30T01:04:01.70828Z', 'country': 'senegal'}
+ [Thread-2]: 04:06:31: Статус повторной активаций: {'id': 410259835, 'phone': '+221772871137', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:19:01.70828Z', 'sms': [], 'created_at': '2023-01-30T01:04:01.70828Z', 'country': 'senegal'}
+ [Thread-2]: 04:06:42: Статус повторной активаций: {'id': 410259835, 'phone': '+221772871137', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:19:01.70828Z', 'sms': [], 'created_at': '2023-01-30T01:04:01.70828Z', 'country': 'senegal'}
+ [Thread-2]: 04:06:52: Статус повторной активаций: {'id': 410259835, 'phone': '+221772871137', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:19:01.70828Z', 'sms': [], 'created_at': '2023-01-30T01:04:01.70828Z', 'country': 'senegal'}
+ [Thread-2]: 04:07:02: Статус повторной активаций: {'id': 410259835, 'phone': '+221772871137', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:19:01.70828Z', 'sms': [], 'created_at': '2023-01-30T01:04:01.70828Z', 'country': 'senegal'}
+ [Thread-2]: 04:07:12: Статус повторной активаций: {'id': 410259835, 'phone': '+221772871137', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:19:01.70828Z', 'sms': [], 'created_at': '2023-01-30T01:04:01.70828Z', 'country': 'senegal'}
+ [Thread-2]: 04:07:22: Статус повторной активаций: {'id': 410259835, 'phone': '+221772871137', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:19:01.70828Z', 'sms': [], 'created_at': '2023-01-30T01:04:01.70828Z', 'country': 'senegal'}
+ [Thread-2]: 04:07:32: Статус повторной активаций: {'id': 410259835, 'phone': '+221772871137', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:19:01.70828Z', 'sms': [], 'created_at': '2023-01-30T01:04:01.70828Z', 'country': 'senegal'}
+ [Thread-2]: 04:07:43: Статус повторной активаций: {'id': 410259835, 'phone': '+221772871137', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:19:01.70828Z', 'sms': [], 'created_at': '2023-01-30T01:04:01.70828Z', 'country': 'senegal'}
+ [Thread-2]: 04:07:53: Статус повторной активаций: {'id': 410259835, 'phone': '+221772871137', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:19:01.70828Z', 'sms': [], 'created_at': '2023-01-30T01:04:01.70828Z', 'country': 'senegal'}
+ [Thread-2]: 04:08:03: Статус повторной активаций: {'id': 410259835, 'phone': '+221772871137', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:19:01.70828Z', 'sms': [], 'created_at': '2023-01-30T01:04:01.70828Z', 'country': 'senegal'}
+ [Thread-2]: 04:08:03: Смс не пришла, статус активаций: {'id': 410259835, 'phone': '+221772871137', 'operator': 'virtual4', 'product': 'facebook', 'price': 9.4, 'status': 'RECEIVED', 'expires': '2023-01-30T01:19:01.70828Z', 'sms': [], 'created_at': '2023-01-30T01:04:01.70828Z', 'country': 'senegal'}
+ [Thread-2]: 04:08:03: Статус бана смс заявки: <Response [200]>
+ [Thread-2]: 04:08:03: Аккаунт на чеке
+ [Thread-2]: 04:08:03: Закрытие профиля
+ [Thread-2]: 04:08:04: Удаление профиля
+ [Thread-2]: 04:08:05: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-2]: 04:08:05: Поток Thread-2 завершил работу
+ [Thread-2]: 04:08:05: Проверка на подключение
+ [Thread-2]: 04:08:09: Лог из веба {'response': {'data': {'id': 'j4x8y9g', 'serial_number': '3787'}, 'code': 0, 'msg': 'Success'}, 'payload': {'name': 'Fb', 'group_id': '1836292', 'domain_name': 'google.com', 'repeat_config': ['0'], 'country': 'us', 'fingerprint_config': {'language': ['uk-UA', 'uk', 'en-US', 'en'], 'ua': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', 'flash': 'block', 'scan_port_type': '1', 'screen_resolution': '1024_768', 'fonts': ['all'], 'longitude': '180', 'latitude': '90', 'webrtc': 'proxy', 'do_not_track': 'true'}, 'user_proxy_config': {'proxy_soft': 'other', 'proxy_type': 'http', 'proxy_host': '64.74.163.147', 'proxy_port': '10893', 'proxy_user': 'melnikov1133', 'proxy_password': 'f5e6ce'}}}
+ [MainThread]: 04:09:30: Инициализация потоков
+ [MainThread]: 04:09:30: Старт потоков
+ [Thread-1]: 04:09:30: Старт потока Thread-1
+ [Thread-1]: 04:09:30: Создание профиля
+ [Thread-1]: 04:09:32: ip = {
+  "IP": "147.72.249.250"
+}
+ [Thread-1]: 04:09:33: {'data': {'id': 'j4x91fm', 'serial_number': '3788'}, 'code': 0, 'msg': 'Success'}
+ [Thread-1]: 04:09:33: Запуск профиля
+ [Thread-1]: 04:09:36: ID профиля j4x91fm
+ [Thread-1]: 04:09:42: Открываю фейсбук
+ [Thread-1]: 04:09:53: Нажимаю на регистрацию
+ [Thread-1]: 04:09:58: Размер окна {'width': 1367, 'height': 1080}
+ [Thread-1]: 04:10:08: Имя
+ [Thread-1]: 04:10:17: Фамилия
+ [Thread-1]: 04:10:26: Подтверждаю ФИО
+ [Thread-1]: 04:10:33: Месяц рожденья
+ [Thread-1]: 04:10:40: День рожденья
+ [Thread-1]: 04:10:47: Год рожденья
+ [Thread-1]: 04:10:55: Подтверждаю рождение
+ [Thread-1]: 04:11:02: Вбиваю телефон
+ [Thread-1]: 04:11:09: Жду телефон 5sim
+ [Thread-1]: 04:11:09: Ответ покупки номера 5sim {'id': 410260703, 'phone': '+201068047485', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:31:10.112364567Z', 'sms': None, 'created_at': '2023-01-30T01:11:10.112364567Z', 'country': 'egypt'}
+ [Thread-1]: 04:11:09: Вбиваю телефон
+ [Thread-1]: 04:11:14: Подтверждаю телефон
+ [Thread-1]: 04:11:22: Указываю пол
+ [Thread-1]: 04:11:29: Подтвержадаю пол
+ [Thread-1]: 04:11:38: Генерирую пароль
+ [Thread-1]: 04:11:49: Подтверждаю пароль на странице
+ [Thread-1]: 04:12:31: Ищу Not now
+ [Thread-1]: 04:12:31: Рега прошла, подверждение смс
+ [Thread-1]: 04:12:49: Статус повторной активаций: {'id': 410260703, 'phone': '+201068047485', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:31:10.112365Z', 'sms': [], 'created_at': '2023-01-30T01:11:10.112365Z', 'country': 'egypt'}
+ [Thread-1]: 04:13:00: Статус повторной активаций: {'id': 410260703, 'phone': '+201068047485', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:31:10.112365Z', 'sms': [], 'created_at': '2023-01-30T01:11:10.112365Z', 'country': 'egypt'}
+ [Thread-1]: 04:13:10: Статус повторной активаций: {'id': 410260703, 'phone': '+201068047485', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:31:10.112365Z', 'sms': [], 'created_at': '2023-01-30T01:11:10.112365Z', 'country': 'egypt'}
+ [Thread-1]: 04:13:20: Статус повторной активаций: {'id': 410260703, 'phone': '+201068047485', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:31:10.112365Z', 'sms': [], 'created_at': '2023-01-30T01:11:10.112365Z', 'country': 'egypt'}
+ [Thread-1]: 04:13:30: Статус повторной активаций: {'id': 410260703, 'phone': '+201068047485', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:31:10.112365Z', 'sms': [], 'created_at': '2023-01-30T01:11:10.112365Z', 'country': 'egypt'}
+ [Thread-1]: 04:13:40: Статус повторной активаций: {'id': 410260703, 'phone': '+201068047485', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:31:10.112365Z', 'sms': [], 'created_at': '2023-01-30T01:11:10.112365Z', 'country': 'egypt'}
+ [Thread-1]: 04:13:50: Статус повторной активаций: {'id': 410260703, 'phone': '+201068047485', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:31:10.112365Z', 'sms': [], 'created_at': '2023-01-30T01:11:10.112365Z', 'country': 'egypt'}
+ [Thread-1]: 04:14:01: Статус повторной активаций: {'id': 410260703, 'phone': '+201068047485', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:31:10.112365Z', 'sms': [], 'created_at': '2023-01-30T01:11:10.112365Z', 'country': 'egypt'}
+ [Thread-1]: 04:14:11: Статус повторной активаций: {'id': 410260703, 'phone': '+201068047485', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:31:10.112365Z', 'sms': [], 'created_at': '2023-01-30T01:11:10.112365Z', 'country': 'egypt'}
+ [Thread-1]: 04:14:21: Статус повторной активаций: {'id': 410260703, 'phone': '+201068047485', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:31:10.112365Z', 'sms': [], 'created_at': '2023-01-30T01:11:10.112365Z', 'country': 'egypt'}
+ [Thread-1]: 04:14:31: Статус повторной активаций: {'id': 410260703, 'phone': '+201068047485', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:31:10.112365Z', 'sms': [], 'created_at': '2023-01-30T01:11:10.112365Z', 'country': 'egypt'}
+ [Thread-1]: 04:14:41: Статус повторной активаций: {'id': 410260703, 'phone': '+201068047485', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:31:10.112365Z', 'sms': [], 'created_at': '2023-01-30T01:11:10.112365Z', 'country': 'egypt'}
+ [Thread-1]: 04:14:51: Статус повторной активаций: {'id': 410260703, 'phone': '+201068047485', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:31:10.112365Z', 'sms': [], 'created_at': '2023-01-30T01:11:10.112365Z', 'country': 'egypt'}
+ [Thread-1]: 04:15:02: Статус повторной активаций: {'id': 410260703, 'phone': '+201068047485', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:31:10.112365Z', 'sms': [], 'created_at': '2023-01-30T01:11:10.112365Z', 'country': 'egypt'}
+ [Thread-1]: 04:15:12: Статус повторной активаций: {'id': 410260703, 'phone': '+201068047485', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:31:10.112365Z', 'sms': [], 'created_at': '2023-01-30T01:11:10.112365Z', 'country': 'egypt'}
+ [Thread-1]: 04:15:12: Смс не пришла, статус активаций: {'id': 410260703, 'phone': '+201068047485', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:31:10.112365Z', 'sms': [], 'created_at': '2023-01-30T01:11:10.112365Z', 'country': 'egypt'}
+ [Thread-1]: 04:15:12: Статус бана смс заявки: <Response [200]>
+ [Thread-1]: 04:15:12: Аккаунт на чеке
+ [Thread-1]: 04:15:12: Закрытие профиля
+ [Thread-1]: 04:15:13: Удаление профиля
+ [Thread-1]: 04:15:14: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-1]: 04:15:14: Поток Thread-1 завершил работу
+ [Thread-1]: 04:15:14: Проверка на подключение
+ [Thread-1]: 04:15:18: Лог из веба {'response': {'data': {'id': 'j4x91fm', 'serial_number': '3788'}, 'code': 0, 'msg': 'Success'}, 'payload': {'name': 'Fb', 'group_id': '1836292', 'domain_name': 'google.com', 'repeat_config': ['0'], 'country': 'us', 'fingerprint_config': {'language': ['uk-UA', 'uk', 'en-US', 'en'], 'ua': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36', 'flash': 'block', 'scan_port_type': '1', 'screen_resolution': '1366_1080', 'fonts': ['all'], 'longitude': '180', 'latitude': '90', 'webrtc': 'proxy', 'do_not_track': 'true'}, 'user_proxy_config': {'proxy_soft': 'other', 'proxy_type': 'http', 'proxy_host': '64.74.163.147', 'proxy_port': '10893', 'proxy_user': 'melnikov1133', 'proxy_password': 'f5e6ce'}}}
+ [MainThread]: 04:17:05: Старт потоков
+ [Thread-2]: 04:17:05: Старт потока Thread-2
+ [Thread-2]: 04:17:05: Создание профиля
+ [Thread-2]: 04:17:07: ip = {
+  "IP": "184.92.112.161"
+}
+ [Thread-2]: 04:17:08: {'data': {'id': 'j4x93lt', 'serial_number': '3789'}, 'code': 0, 'msg': 'Success'}
+ [Thread-2]: 04:17:08: Запуск профиля
+ [Thread-2]: 04:17:11: ID профиля j4x93lt
+ [Thread-2]: 04:17:18: Открываю фейсбук
+ [Thread-2]: 04:17:35: Нажимаю на регистрацию
+ [Thread-2]: 04:17:40: Размер окна {'width': 1280, 'height': 720}
+ [Thread-2]: 04:17:50: Имя
+ [Thread-2]: 04:17:59: Фамилия
+ [Thread-2]: 04:18:07: Подтверждаю ФИО
+ [Thread-2]: 04:18:14: Месяц рожденья
+ [Thread-2]: 04:18:22: День рожденья
+ [Thread-2]: 04:18:29: Год рожденья
+ [Thread-2]: 04:18:37: Подтверждаю рождение
+ [Thread-2]: 04:18:44: Вбиваю телефон
+ [Thread-2]: 04:18:50: Жду телефон 5sim
+ [Thread-2]: 04:18:51: Ответ покупки номера 5sim {'id': 410261651, 'phone': '+201061272461', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:38:51.718260027Z', 'sms': None, 'created_at': '2023-01-30T01:18:51.718260027Z', 'country': 'egypt'}
+ [Thread-2]: 04:18:51: Вбиваю телефон
+ [Thread-2]: 04:18:55: Подтверждаю телефон
+ [Thread-2]: 04:19:04: Указываю пол
+ [Thread-2]: 04:19:11: Подтвержадаю пол
+ [Thread-2]: 04:19:19: Генерирую пароль
+ [Thread-2]: 04:19:30: Подтверждаю пароль на странице
+ [Thread-2]: 04:20:12: Ищу Not now
+ [Thread-2]: 04:20:12: Рега прошла, подверждение смс
+ [Thread-2]: 04:20:21: Смс: {'id': 410261651, 'phone': '+201061272461', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:38:51.71826Z', 'sms': [{'created_at': '2023-01-30T01:20:09.661515Z', 'date': '2023-01-30T01:20:09.656347Z', 'sender': 'FACEBOOK', 'text': 'FB-94434 is your Facebook confirmation code', 'code': '94434'}], 'created_at': '2023-01-30T01:18:51.71826Z', 'country': 'egypt'}
+ [Thread-2]: 04:20:21: Проверка на подключение
+ [Thread-2]: 04:20:21: Вбиваю смс
+ [Thread-2]: 04:20:33: Проверка на валидность смс
+ [Thread-2]: 04:20:33: Смс валидна, подтверждаю
+ [Thread-2]: 04:20:39: Получаю manager_id
+ [Thread-2]: 04:20:49: Обновление страницы с manager_id
+ [Thread-2]: 04:21:19: Обновление страницы с manager_id
+ [Thread-2]: 04:21:49: Обновление страницы с manager_id
+ [Thread-2]: 04:22:19: Обновление страницы с manager_id
+ [Thread-2]: 04:22:49: Обновление страницы с manager_id
+ [Thread-2]: 04:23:41: manager_id = 846363526456509
+ [Thread-2]: 04:23:41: Получаю Eaab_Token
+ [Thread-2]: 04:23:41: Eaab_Token = EAABsbCS1iHgBABccigLmcXrvY5gXtQ9nDAOtXwQTZBOVA3AkTvjW4jd2ZAgfK5AlzmWujZB6dwsXbZAtxtHg3V62uw0UjYQKV6TBaxTwkGZC2sob6WpWmNveoo7wqBKoFvCX9eVmXrUTkj4gCgtWImT1JV8ktVOSEbPSOuZAa4vypI1E5hzn4m
+ [Thread-2]: 04:23:42: Статус закрытия смс заявки: <Response [200]>
+ [Thread-2]: 04:23:42: Успешная регистрация
+ [Thread-2]: 04:23:42: Закрытие профиля
+ [Thread-2]: 04:23:43: Удаление профиля
+ [Thread-2]: 04:23:43: Повторное удаление профиля
+ [Thread-2]: 04:23:43: Закрытие профиля
+ [Thread-2]: 04:23:44: Удаление профиля
+ [Thread-2]: 04:23:45: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-2]: 04:23:45: Поток Thread-2 завершил работу
+ [MainThread]: 04:24:50: Инициализация потоков
+ [MainThread]: 04:24:50: Старт потоков
+ [Thread-1]: 04:24:50: Старт потока Thread-1
+ [Thread-1]: 04:24:50: Создание профиля
+ [Thread-1]: 04:24:52: ip = {
+  "IP": "72.186.54.119"
+}
+ [Thread-1]: 04:24:53: {'data': {'id': 'j4x962y', 'serial_number': '3790'}, 'code': 0, 'msg': 'Success'}
+ [Thread-1]: 04:24:53: Запуск профиля
+ [Thread-1]: 04:24:56: ID профиля j4x962y
+ [Thread-1]: 04:25:03: Открываю фейсбук
+ [Thread-1]: 04:25:18: Нажимаю на регистрацию
+ [Thread-1]: 04:25:23: Размер окна {'width': 960, 'height': 680}
+ [Thread-1]: 04:25:33: Имя
+ [Thread-1]: 04:25:41: Фамилия
+ [Thread-1]: 04:25:50: Подтверждаю ФИО
+ [Thread-1]: 04:25:57: Месяц рожденья
+ [Thread-1]: 04:26:04: День рожденья
+ [Thread-1]: 04:26:11: Год рожденья
+ [Thread-1]: 04:26:19: Подтверждаю рождение
+ [Thread-1]: 04:26:26: Вбиваю телефон
+ [Thread-1]: 04:26:33: Жду телефон 5sim
+ [Thread-1]: 04:26:33: Ответ покупки номера 5sim {'id': 410262675, 'phone': '+201200371383', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:46:34.165671056Z', 'sms': None, 'created_at': '2023-01-30T01:26:34.165671056Z', 'country': 'egypt'}
+ [Thread-1]: 04:26:33: Вбиваю телефон
+ [Thread-1]: 04:26:37: Подтверждаю телефон
+ [Thread-1]: 04:26:46: Указываю пол
+ [Thread-1]: 04:26:53: Подтвержадаю пол
+ [Thread-1]: 04:27:01: Генерирую пароль
+ [Thread-1]: 04:27:12: Подтверждаю пароль на странице
+ [Thread-1]: 04:27:54: Ищу Not now
+ [Thread-1]: 04:27:54: Рега прошла, подверждение смс
+ [Thread-1]: 04:28:13: Статус повторной активаций: {'id': 410262675, 'phone': '+201200371383', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:46:34.165671Z', 'sms': [], 'created_at': '2023-01-30T01:26:34.165671Z', 'country': 'egypt'}
+ [Thread-1]: 04:28:23: Статус повторной активаций: {'id': 410262675, 'phone': '+201200371383', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:46:34.165671Z', 'sms': [], 'created_at': '2023-01-30T01:26:34.165671Z', 'country': 'egypt'}
+ [Thread-1]: 04:28:34: Статус повторной активаций: {'id': 410262675, 'phone': '+201200371383', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:46:34.165671Z', 'sms': [], 'created_at': '2023-01-30T01:26:34.165671Z', 'country': 'egypt'}
+ [Thread-1]: 04:28:45: Статус повторной активаций: {'id': 410262675, 'phone': '+201200371383', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:46:34.165671Z', 'sms': [], 'created_at': '2023-01-30T01:26:34.165671Z', 'country': 'egypt'}
+ [Thread-1]: 04:28:55: Статус повторной активаций: {'id': 410262675, 'phone': '+201200371383', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:46:34.165671Z', 'sms': [], 'created_at': '2023-01-30T01:26:34.165671Z', 'country': 'egypt'}
+ [Thread-1]: 04:29:05: Статус повторной активаций: {'id': 410262675, 'phone': '+201200371383', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:46:34.165671Z', 'sms': [], 'created_at': '2023-01-30T01:26:34.165671Z', 'country': 'egypt'}
+ [Thread-1]: 04:29:15: Статус повторной активаций: {'id': 410262675, 'phone': '+201200371383', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:46:34.165671Z', 'sms': [], 'created_at': '2023-01-30T01:26:34.165671Z', 'country': 'egypt'}
+ [Thread-1]: 04:29:25: Статус повторной активаций: {'id': 410262675, 'phone': '+201200371383', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:46:34.165671Z', 'sms': [], 'created_at': '2023-01-30T01:26:34.165671Z', 'country': 'egypt'}
+ [Thread-1]: 04:29:35: Статус повторной активаций: {'id': 410262675, 'phone': '+201200371383', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:46:34.165671Z', 'sms': [], 'created_at': '2023-01-30T01:26:34.165671Z', 'country': 'egypt'}
+ [Thread-1]: 04:29:46: Статус повторной активаций: {'id': 410262675, 'phone': '+201200371383', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:46:34.165671Z', 'sms': [], 'created_at': '2023-01-30T01:26:34.165671Z', 'country': 'egypt'}
+ [Thread-1]: 04:29:56: Статус повторной активаций: {'id': 410262675, 'phone': '+201200371383', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:46:34.165671Z', 'sms': [], 'created_at': '2023-01-30T01:26:34.165671Z', 'country': 'egypt'}
+ [Thread-1]: 04:30:06: Статус повторной активаций: {'id': 410262675, 'phone': '+201200371383', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:46:34.165671Z', 'sms': [], 'created_at': '2023-01-30T01:26:34.165671Z', 'country': 'egypt'}
+ [Thread-1]: 04:30:16: Статус повторной активаций: {'id': 410262675, 'phone': '+201200371383', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:46:34.165671Z', 'sms': [], 'created_at': '2023-01-30T01:26:34.165671Z', 'country': 'egypt'}
+ [Thread-1]: 04:30:26: Статус повторной активаций: {'id': 410262675, 'phone': '+201200371383', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:46:34.165671Z', 'sms': [], 'created_at': '2023-01-30T01:26:34.165671Z', 'country': 'egypt'}
+ [Thread-1]: 04:30:36: Статус повторной активаций: {'id': 410262675, 'phone': '+201200371383', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:46:34.165671Z', 'sms': [], 'created_at': '2023-01-30T01:26:34.165671Z', 'country': 'egypt'}
+ [Thread-1]: 04:30:36: Смс не пришла, статус активаций: {'id': 410262675, 'phone': '+201200371383', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:46:34.165671Z', 'sms': [], 'created_at': '2023-01-30T01:26:34.165671Z', 'country': 'egypt'}
+ [Thread-1]: 04:30:36: Статус бана смс заявки: <Response [200]>
+ [Thread-1]: 04:30:36: Аккаунт на чеке
+ [Thread-1]: 04:30:36: Закрытие профиля
+ [Thread-1]: 04:30:38: Удаление профиля
+ [Thread-1]: 04:30:38: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-1]: 04:30:38: Поток Thread-1 завершил работу
+ [Thread-1]: 04:30:38: Проверка на подключение
+ [Thread-1]: 04:30:43: Лог из веба {'response': {'data': {'id': 'j4x962y', 'serial_number': '3790'}, 'code': 0, 'msg': 'Success'}, 'payload': {'name': 'Fb', 'group_id': '1836292', 'domain_name': 'google.com', 'repeat_config': ['0'], 'country': 'us', 'fingerprint_config': {'language': ['uk-UA', 'uk', 'en-US', 'en'], 'ua': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36', 'flash': 'block', 'scan_port_type': '1', 'screen_resolution': '960_680', 'fonts': ['all'], 'longitude': '180', 'latitude': '90', 'webrtc': 'proxy', 'do_not_track': 'true'}, 'user_proxy_config': {'proxy_soft': 'other', 'proxy_type': 'http', 'proxy_host': '64.74.163.147', 'proxy_port': '10893', 'proxy_user': 'melnikov1133', 'proxy_password': 'f5e6ce'}}}
+ [MainThread]: 04:32:25: Старт потоков
+ [Thread-2]: 04:32:25: Старт потока Thread-2
+ [Thread-2]: 04:32:25: Создание профиля
+ [Thread-2]: 04:32:27: ip = {
+  "IP": "96.18.234.61"
+}
+ [Thread-2]: 04:32:28: {'data': {'id': 'j4x98gy', 'serial_number': '3791'}, 'code': 0, 'msg': 'Success'}
+ [Thread-2]: 04:32:28: Запуск профиля
+ [Thread-2]: 04:32:31: ID профиля j4x98gy
+ [Thread-2]: 04:32:37: Открываю фейсбук
+ [Thread-2]: 04:32:53: Нажимаю на регистрацию
+ [Thread-2]: 04:32:58: Размер окна {'width': 1024, 'height': 768}
+ [Thread-2]: 04:33:07: Имя
+ [Thread-2]: 04:33:16: Фамилия
+ [Thread-2]: 04:33:24: Подтверждаю ФИО
+ [Thread-2]: 04:33:31: Месяц рожденья
+ [Thread-2]: 04:33:39: День рожденья
+ [Thread-2]: 04:33:46: Год рожденья
+ [Thread-2]: 04:33:54: Подтверждаю рождение
+ [Thread-2]: 04:34:01: Вбиваю телефон
+ [Thread-2]: 04:34:08: Жду телефон 5sim
+ [Thread-2]: 04:34:08: Ответ покупки номера 5sim {'id': 410263721, 'phone': '+201098803504', 'operator': 'virtual21', 'product': 'facebook', 'price': 5, 'status': 'RECEIVED', 'expires': '2023-01-30T01:54:09.047023354Z', 'sms': None, 'created_at': '2023-01-30T01:34:09.047023354Z', 'country': 'egypt'}
+ [Thread-2]: 04:34:08: Вбиваю телефон
+ [Thread-2]: 04:34:12: Подтверждаю телефон
+ [Thread-2]: 04:34:21: Указываю пол
+ [Thread-2]: 04:34:28: Подтвержадаю пол
+ [Thread-2]: 04:34:37: Генерирую пароль
+ [Thread-2]: 04:34:48: Подтверждаю пароль на странице
+ [Thread-2]: 04:35:29: checkpoint
+ [Thread-2]: 04:35:29: Статус бана смс заявки: <Response [200]>
+ [Thread-2]: 04:35:29: Аккаунт на чеке
+ [Thread-2]: 04:35:29: Закрытие профиля
+ [Thread-2]: 04:35:30: Удаление профиля
+ [Thread-2]: 04:35:31: Профиль удален {'data': {}, 'code': 0, 'msg': 'Success'}
+ [Thread-2]: 04:35:31: Поток Thread-2 завершил работу

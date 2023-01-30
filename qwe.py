@@ -1,15 +1,30 @@
-# получить текущее имя потока
-import threading
-threading.current_thread().name
 
-def qwe():
-    print(f'Привет {threading.current_thread().name}')
+import json
+import os
+a = 'имя'
+b = 'фамилия'
+c = 1
+d = 'sms'
+qwe = {
+            "a" : a,
+            "b" : b,
+            'c':  c,
+            'd' : d 
+            }
+filename = 'qwe.json'
 
-q1 = threading.Thread(target=qwe)
-q2= threading.Thread(target=qwe)
-q3 =threading.Thread(target=qwe)
-q4 = threading.Thread(target=qwe)
-q1.start()
-q2.start()
-q3.start()
-q4.start()
+
+if os.stat(filename).st_size == 0:
+    with open(filename, "w") as file:
+        json.dump([qwe], file, indent=4)
+else:
+    with open(filename) as fp:
+        listObj = json.loads(fp.read())
+        listObj.append(qwe)
+    with open(filename, 'w') as json_file:
+        json.dump(listObj, json_file, 
+                            indent=4,  
+                            separators=(',',': '))
+
+# with open (filename, 'r', encoding='windows-1251') as file_read:
+#     data = json.loads(file_read.read())
