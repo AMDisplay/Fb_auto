@@ -1,12 +1,16 @@
-import csv
 import json
 import os
 
-filename = 'csv\Ready_analysis.jaon'
-
+# Для Анализа полученных акков и фильтраций по успешным и не пришедшим смс
+# Анализ телефонов, операторов и айпи
+# 33 аккаунта на 30.01 6,07 утра
+filename = 'csv\Ready_analysis.json'
+# 21
 
 with open("csv\For_analysis.json", encoding="windows-1251") as r_file:
     file_reader = json.loads(r_file.read())
+    sum_reg_acc = len(file_reader)
+    print('Сумма попыток = %s', sum_reg_acc)
     for acc in file_reader:
         if acc['status'] == "Success" or acc['status'] == "Sms ne prishla":
             country = acc['country_number']
@@ -29,3 +33,5 @@ with open("csv\For_analysis.json", encoding="windows-1251") as r_file:
                     json.dump(listObj, json_file, 
                                         indent=4,  
                                         separators=(',',': '))
+
+open("csv\For_analysis.json","w").close()

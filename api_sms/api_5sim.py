@@ -1,37 +1,39 @@
 import requests
 import logging
 import time
-import main
 
 
 API_KEY_5SIM = 'eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDYyNjM3MjcsImlhdCI6MTY3NDcyNzcyNywicmF5IjoiN2ZhZmQ1YjI1MWY3NmM5OGI5YThkNDY3NDBiOTVhMDAiLCJzdWIiOjE0MDk3ODF9.xvSchlmDf37N4F5msHJJBGGJ3qrjb-eQdn5BqApayszno7RywRCNIhKGQqRMbSGq0MfJDkMUZjm-sutTnDIcWy3SCpiiD2aPlYaN828qntZEVqdkfcNEIjU88fLpLq9niy8xnFEp0gry-6vU1TUdoldylnSkeLKKLBJB0S0RqT8mznN1XUqDOv7NiOc6neF3Pdb-IpWBZanrVltyeT8mKFvkkDJ_JJhm2FVAKIvAnm8k8IxC3DInKk4iOuWt6eyolbsigaTHvUBcrEP18yQqjdffWJPoEvOwP38ot4cbYnPnorWZpv6wVe0U9ErcwMPOpiROTmp1j1J9mTONVktmQg'
 DOMAIN = "5sim.net"
-# @ - На тесте
-# {'country': 'canada', 'operator': 'virtual12', 'cost': 5.6, 'count': 145727} 4/5 5 1 4 2 3
-# {'country': 'canada', 'operator': 'virtual23', 'cost': 8.4, 'count': 1000} 0/2 Проходит хорошо, смс не приходит 5 тест 10 0/9 дял цены плохо TEST 1 2 3 4 5 
-# {'country': 'canada', 'operator': 'virtual35', 'cost': 8.4, 'count': 1000} 0/2 Проходит хорошо, смс не приходит TEST 2 3 4 1 5 
-# {'country': 'canada', 'operator': 'virtual8', 'cost': 5, 'count': 175} 4/5 3 4 5 1 2
-# {'country': 'colombia', 'operator': 'virtual21', 'cost': 9, 'count': 33} Не приходят смс 1/5 TEST Нет номеров 5 1 2 3 4
-# {'country': 'congo', 'operator': 'virtual4', 'cost': 8.8, 'count': 528} 4/5 1 2 3 4 5 
-# {'country': 'denmark', 'operator': 'virtual35', 'cost': 8.84, 'count': 1000} 2 3 1 4 5 
-# {'country': 'egypt', 'operator': 'virtual21', 'cost': 5, 'count': 94} 1/2 Чеков много 3 4 2 1 @ 
-# {'country': 'england', 'operator': 'virtual34', 'cost': 9, 'count': 1248} Оценка - 5/5 4 5 1 3 2 
-# {'country': 'england', 'operator': 'virtual4', 'cost': 8, 'count': 8014} 4/5 5 1 3 2 4
-# {'country': 'haiti', 'operator': 'virtual4', 'cost': 8.7, 'count': 601} 4/5 2 3 5 1 4 
-# {'country': 'india', 'operator': 'virtual21', 'cost': 4, 'count': 25}  3 2 1 4 5 
-# {'country': 'mauritius', 'operator': 'virtual21', 'cost': 3, 'count': 2}  1 4 2 35 @ 
-# {'country': 'mongolia', 'operator': 'virtual7', 'cost': 7, 'count': 1000} 1/2 4 тест 9 (4/9) - Отлично за свою цену И смс все принимает, сажать на топ прокси 2 5 3 1 4
-# {'country': 'nicaragua', 'operator': 'virtual23', 'cost': 3.8, 'count': 1000} 3/5. смс пришли 5/14 3 1 4 2 5
-# {'country': 'senegal', 'operator': 'virtual4', 'cost': 9.4, 'count': 807} 2/5 4 2 5 3 1 
-# {'country': 'tanzania', 'operator': 'virtual21', 'cost': 9, 'count': 2} 5 3 1 2 4
+
+# {'country': 'canada', 'operator': 'virtual8', 'cost': 5, 'count': 175}
+# {'country': 'haiti', 'operator': 'virtual4', 'cost': 8.7, 'count': 601}
+# {'country': 'mongolia', 'operator': 'virtual7', 'cost': 7, 'count': 1000}
+# {'country': 'england', 'operator': 'virtual34', 'cost': 9, 'count': 1248} 
+# {'country': 'senegal', 'operator': 'virtual4', 'cost': 9.4, 'count': 807}
+# {'country': 'canada', 'operator': 'virtual12', 'cost': 5.6, 'count': 145727} 
+# {'country': 'congo', 'operator': 'virtual4', 'cost': 8.8, 'count': 528} 
+# {'country': 'colombia', 'operator': 'virtual21', 'cost': 9, 'count': 33}
+# {'country': 'egypt', 'operator': 'virtual21', 'cost': 5, 'count': 94}
+# {'country': 'mauritius', 'operator': 'virtual21', 'cost': 3, 'count': 2}  
+# {'country': 'nicaragua', 'operator': 'virtual23', 'cost': 3.8, 'count': 1000} 
+# {'country': 'tanzania', 'operator': 'virtual21', 'cost': 9, 'count': 2}
+# {'country': 'canada', 'operator': 'virtual35', 'cost': 8.4, 'count': 1000} 
+# {'country': 'england', 'operator': 'virtual4', 'cost': 8, 'count': 8014} 
+
+# {'country': 'canada', 'operator': 'virtual23', 'cost': 8.4, 'count': 1000} Была тесте, показала себя плохо. Не юзать
+# {'country': 'india', 'operator': 'virtual21', 'cost': 4, 'count': 25} Была тесте, показала себя плохо. Не юзать
+# {'country': 'denmark', 'operator': 'virtual35', 'cost': 8.84, 'count': 1000} Была тесте, показала себя плохо. Не юзать
 
 
 country_dict =[
+{'country': 'canada', 'operator': 'virtual8'},
+{'country': 'haiti', 'operator': 'virtual4'},
+{'country': 'mongolia', 'operator': 'virtual7'},
+{'country': 'england', 'operator': 'virtual34'},
 {'country': 'senegal', 'operator': 'virtual4'},
-{'country': 'tanzania', 'operator': 'virtual21'},
-{'country': 'senegal', 'operator': 'virtual4'},
-{'country': 'tanzania', 'operator': 'virtual21'},
-{'country': 'egypt', 'operator': 'virtual21'},
+{'country': 'canada', 'operator': 'virtual12'},
+{'country': 'congo', 'operator': 'virtual4'},
     ]
 
 def buy_number(country=None):
@@ -48,7 +50,7 @@ def buy_number(country=None):
 
     number = requests.get(f'https://{DOMAIN}/v1/user/buy/activation/' + current_country + '/' + current_operator + '/' + product, headers=headers)
     if number.text ==  'no free phones' and len(country_dict) != country:
-        logging.info('Нет доступных номеров %s', number.text)
+        logging.info(number.text)
         country+=1
         # main.Facebook().wrote_csv(status='Не было номеров', country_number=current_country, operator_number=current_operator)
         if len(country_dict) == country:
@@ -121,45 +123,45 @@ def finish_orfer(id):
 
 
 
-# def get_all_price():
-#     """Получение списка стран с ценой"""
-#     product = 'facebook'
+def get_all_price():
+    """Получение списка стран с ценой"""
+    product = 'facebook'
 
-#     headers = {
-#         'Accept': 'application/json',
-#     }
+    headers = {
+        'Accept': 'application/json',
+    }
 
-#     params = (
-#         ('product', product),
-#     )
-
-
-
-#     response = requests.get('https://5sim.net/v1/guest/prices', headers=headers, params=params)
-#     response = response.json()
-#     get_value_country(response['facebook'])
+    params = (
+        ('product', product),
+    )
 
 
-# def get_value_country(json, rate=None):
-#     """Получение выгодной и качественной страны"""
-#     country_emp = ''
-#     operator_emp = ''
-#     count_emp = 0 
-#     for country, operator_list in json.items():
-#         for operator, price_and_count_list in operator_list.items():
-#             if price_and_count_list['count'] > 1:
-#                 current_cost = price_and_count_list['cost']
-#                 if current_cost < 10:
-#                     cost = current_cost
-#                     country_emp = country
-#                     operator_emp = operator
-#                     count_emp = price_and_count_list['count']
-#                     result = {
-#                         'country' : country_emp,
-#                         'operator' : operator_emp,
-#                         'cost' : cost,
-#                         'count' : count_emp,
-#                     }
-#                     print(result)
 
-# get_all_price()
+    response = requests.get('https://5sim.net/v1/guest/prices', headers=headers, params=params)
+    response = response.json()
+    get_value_country(response['facebook'])
+
+
+def get_value_country(json, rate=None):
+    """Получение выгодной и качественной страны"""
+    country_emp = ''
+    operator_emp = ''
+    count_emp = 0 
+    for country, operator_list in json.items():
+        for operator, price_and_count_list in operator_list.items():
+            if price_and_count_list['count'] > 1:
+                current_cost = price_and_count_list['cost']
+                if current_cost < 10:
+                    cost = current_cost
+                    country_emp = country
+                    operator_emp = operator
+                    count_emp = price_and_count_list['count']
+                    result = {
+                        'country' : country_emp,
+                        'operator' : operator_emp,
+                        'cost' : cost,
+                        'count' : count_emp,
+                    }
+                    print(result)
+
+get_all_price()

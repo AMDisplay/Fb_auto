@@ -1,9 +1,9 @@
 
-
+filename = 'proxy\\test_proxy.txt'
 
 def get_proxy(num_proxy):
     """Получение прокси для профиля"""
-    with open('proxy_list.txt', 'r') as f:
+    with open(filename, 'r') as f:
         nums = f.read().splitlines()
     num = nums[num_proxy]
     return num.split("@")
