@@ -1,31 +1,26 @@
 
-import json
 import os
-# a = 'имя'
-# b = 'фамилия'
-# c = 1
-# d = 'sms'
-# qwe = {
-#             "a" : a,
-#             "b" : b,
-#             'c':  c,
-#             'd' : d 
-#             }
-# filename = 'csv\For_analysis.json'
+
+filename = 'csv\email.txt'
+new_filename = 'csv\\new_email.txt'
 
 
-# if os.stat(filename).st_size == 0:
-#     with open(filename, "w") as file:
-#         json.dump([qwe], file, indent=4)
-# else:
-#     with open(filename) as fp:
-#         listObj = json.loads(fp.read())
-#         listObj.append(qwe)
-#     with open(filename, 'w') as json_file:
-#         json.dump(listObj, json_file, 
-#                             indent=4,  
-#                             separators=(',',': '))
+def qwe():
+    if os.stat(filename).st_size == 0:
+        print('email text end')
+    else:
+        with open(filename) as fp:
+            email = fp.readline()
 
-# with open (filename, 'r') as file_read:
-#     data = json.loads(file_read.read())
-#     print(len(data))
+
+    with open(filename) as infile, open(new_filename, "w",) as outfile:
+        for line in infile:
+            if email not in line:
+                outfile.write(line)
+    os.remove(filename)
+    os.rename(new_filename, filename)
+    return email
+
+
+email = qwe()
+email = email.split(":")

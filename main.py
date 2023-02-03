@@ -12,19 +12,21 @@ import os
 
 import requests
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.options import Options, ChromiumOptions
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.actions.action_builder import ActionBuilder
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import WebDriverException
+from selenium.webdriver.common.keys import Keys
+
 
 import curve
 import settings.list_of_settings as list_of_settings
 from api_sms import api_5sim, sms_activate
 from proxy.get_proxy import get_proxy
 
-# 680 при 10/10 стате и при 25 рублях надо продавать
+# 680 пїЅпїЅпїЅ 10/10 пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ 25 пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
 API_KEY = "302949221d20300738e52ce0046a2b48"
 URL = "http://local.adspower.com:50325"
@@ -35,11 +37,17 @@ sms_list = ['activate', '5sim']
 
 therad_list = []
 
+EMAIL_TXT = 'csv\email.txt'
+NEW_EMAIL_TXT = 'csv\\new_email.txt'
+
+
+
+
 
 
 class Facebook(threading.Thread):
 
-    def __init__(self, country = None, number_proxy= None, sms= None, count_run = None, options = None) -> None:
+    def __init__(self, country = None, number_proxy= None, sms= None, count_run = None) -> None:
         threading.Thread.__init__(self)
         self.country = country
         self.number_proxy = number_proxy
@@ -47,10 +55,10 @@ class Facebook(threading.Thread):
         self.count_run = count_run
         self.event = threading.Event()
         self.sms = sms
-        self.options = options
+        self.options = Options()
 
     def run(self):
-        """Основная логика работы"""
+        """пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ"""
         logging.info('Start thread %s', threading.current_thread().name)
         try:
             try:
@@ -58,7 +66,7 @@ class Facebook(threading.Thread):
                 if status_api['code'] != 0:
                     print(status_api)
             except Exception:
-                print("Проблема подключения к апи")
+                print("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ")
                 sys.exit()
             current_proxy = get_proxy(self.number_proxy)
             new_profile = self.create_profile(current_proxy)
@@ -66,14 +74,14 @@ class Facebook(threading.Thread):
             data = self.click_on_registraion(driver ,new_profile)
             self.add_fields_in_reg_and_buy_number(data, new_profile["response"], payload=new_profile['payload'])
         except WebDriverException:
-            logging.critical('Лог из веба %s', new_profile)
+            logging.critical('пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ %s', new_profile)
             self.delete_account(new_profile=new_profile)
         except KeyError:
-            logging.critical('Лог из ключа %s', new_profile)
+            logging.critical('пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ %s', new_profile)
             self.delete_account(new_profile=new_profile)
 
     def move_coordinate_calculation(self, points, action):
-        coord = points.tolist()  # Преобразование многомерного (N массива np) в список питон
+        coord = points.tolist()  # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (N пїЅпїЅпїЅпїЅпїЅпїЅпїЅ np) пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         for point in coord:
             point_x = point[0]
             point_y = point[1]
@@ -94,7 +102,8 @@ class Facebook(threading.Thread):
         country_number=None,
         operator_number=None,
         manager_id=None,
-        eeab_token=None
+        eeab_token=None,
+        email=None
     ):
         filename = 'csv\For_analysis.json'
         time = datetime.datetime.now().strftime('%d-%m-%Y %H:%M')
@@ -118,10 +127,12 @@ class Facebook(threading.Thread):
                                     indent=4,  
                                     separators=(',',': '))
             
-        if cookies is not None:  # Только успешные на продажу, все норм
+        if cookies is not None:  # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
             payload = payload['fingerprint_config']['ua']
+            # email = email[0]
+            # email_pass = email[1]
             with open('csv\For_sale.txt', "a") as file:
-                lines = [phone, password, manager_id, eeab_token, cookies, payload]
+                lines = [phone, password,manager_id, eeab_token, cookies, payload]
                 file.writelines("%s\t" % line for line in lines)
                 file.write('\n')
 
@@ -137,11 +148,11 @@ class Facebook(threading.Thread):
         self.delete_account(new_profile=new_profile)
 
     def create_profile(self,proxy):
-        """Создает профиль"""
+        """пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ"""
         self.lock.acquire()
         logging.info('Create profile')
         url = URL + "/api/v1/user/create"
-        payload = { #№
+        payload = { #пїЅ
             "name": "Fb",
             "group_id": "1836292",
             "domain_name": "google.com",
@@ -163,7 +174,7 @@ class Facebook(threading.Thread):
                 "longitude": "180",
                 "latitude": "90",
                 "webrtc": "proxy",
-                "do_not_track": "true", # Отслеживание действий на сайте
+                "do_not_track": "true", # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
             },
             "user_proxy_config": {
                 "proxy_soft": "other", # other or no_proxy
@@ -230,7 +241,7 @@ class Facebook(threading.Thread):
         logging.info('Deleting profile')
         self.lock.acquire()
         #  [Thread-5]: 02:38:24: [j4wclp4] is being used by [DIsplay1997@yandex.ru] mailbox users and cannot be deleted
-        # Профиль удален {'data': {}, 'msg': 'wrong user_id or wrong user_ids', 'code': 9108}
+        # пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ {'data': {}, 'msg': 'wrong user_id or wrong user_ids', 'code': 9108}
 
         response = requests.request("POST", url, headers=headers, json=payload).json()
         n=0
@@ -252,14 +263,14 @@ class Facebook(threading.Thread):
         logging.info('Thread %s end', threading.current_thread().name)
 
     # def change_profile_name(self,profile_id,driver):
-        # logging.info('Успешная регистрация')
-        # logging.info('Закрытие профиля')
+        # logging.info('пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ')
+        # logging.info('пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ')
         # self.lock.acquire()
         # requests.get(URL + '/api/v1/browser/stop?user_id=' + profile_id).json()
         # self.event.wait(timeout=1)
         
 
-        # logging.info('Меняю имя профиля')
+        # logging.info('пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ')
         # url = URL + "/api/v1/user/update"
 
         # payload = {
@@ -275,18 +286,17 @@ class Facebook(threading.Thread):
         # print(response.text)
 
     def start_profile(self,url, new_profile):
-        """Запускает только что созданный профиль"""
+        """пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ"""
         logging.info('Start profile')
         self.lock.acquire()
         self.event.wait(3)
-        profile_id = new_profile['data']['id'] #№
+        profile_id = new_profile['data']['id'] #пїЅ
         logging.info(f'ID profile {profile_id}')
         open_profile = requests.get(url + '/api/v1/browser/start?user_id=' + profile_id).json()
         driver = open_profile['data']['webdriver']
-        options = self.options
-        # options.page_load_strategy = 'eager' # тетс
-        options.add_experimental_option("debuggerAddress", open_profile["data"]["ws"]["selenium"])
-        driver = webdriver.Chrome(service=Service(driver), options=options)
+        self.options.add_argument("--disable-notifications")
+        self.options.add_experimental_option("debuggerAddress", open_profile["data"]["ws"]["selenium"])
+        driver = webdriver.Chrome(service=Service(driver), options=self.options)
         driver.maximize_window()
         list_win = driver.window_handles
         driver.switch_to.window(list_win[1])
@@ -307,12 +317,12 @@ class Facebook(threading.Thread):
         logging.info('Check on cookie')
         if len(driver.find_elements(By.XPATH, "//button[@value='Allow essential and optional cookies']")) > 0:
             logging.info('Accept cookie')
-            cookie_button = wait.until(lambda x: x.find_elements(By.XPATH, "//button[@value='Allow essential and optional cookies']"))
-            size_window = driver.get_window_size() # Размер окна #№
+            cookie_button = wait.until(lambda x: x.find_element(By.XPATH, "//button[@value='Allow essential and optional cookies']"))
+            size_window = driver.get_window_size() # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ #пїЅ
             loc = cookie_button.location
             height_window = size_window['height']/2
             width_window = size_window['width']/2
-            points = curve.pointer(first_x = width_window, first_y = height_window, last_coord=loc) # координаты движения курсора
+            points = curve.pointer(first_x = width_window, first_y = height_window, last_coord=loc) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             last_coord = self.move_coordinate_calculation(points, action)
         if len(driver.find_elements(By.XPATH, "//div[@class='icon icon-generic']")) > 0:
             driver.refresh()
@@ -326,12 +336,12 @@ class Facebook(threading.Thread):
             self.delete_account(new_profile=new_profile)
         else:
             self.event.wait(5)
-            size_window = driver.get_window_size() # Размер окна #№
+            size_window = driver.get_window_size() # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ #пїЅ
             logging.info(f'Size window {size_window}')
             loc = clickable.location
             height_window = size_window['height']/2
             width_window = size_window['width']/2
-            points = curve.pointer(first_x = width_window, first_y = height_window, last_coord=loc) # координаты движения курсора
+            points = curve.pointer(first_x = width_window, first_y = height_window, last_coord=loc) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             last_coord = self.move_coordinate_calculation(points, action)
             while driver.current_url.find('reg') < 0:
                 self.event.wait(5)
@@ -350,7 +360,7 @@ class Facebook(threading.Thread):
     def add_fields_in_reg_and_buy_number(self, data, new_profile, payload):
         name = random.choice(list_of_settings.name) 
         surename = random.choice(list_of_settings.surename) 
-        wait = WebDriverWait(data["driver"], 30)
+        wait = WebDriverWait(data["driver"], 40)
         action = data['action']
         list_of_month = ['July', 'Feb', 'Mart', 'Apr' 'Jun', 'Jul', 'May', 'Au', 'Sep', 'Oct', 'Nov', 'Dec']
 
@@ -363,9 +373,9 @@ class Facebook(threading.Thread):
             if lang.text != "What's your name?":
                 logging.info('Change lang')
                 eng = wait.until(lambda x: x.find_element(By.PARTIAL_LINK_TEXT, "Eng"))
-                loc_eng = eng.location # коорды
-                points = curve.pointer(first_x = data['last_coord'][0], first_y = data['last_coord'][1], last_coord=loc_eng) # расчет передвижения
-                last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+                loc_eng = eng.location # пїЅпїЅпїЅпїЅпїЅпїЅ
+                points = curve.pointer(first_x = data['last_coord'][0], first_y = data['last_coord'][1], last_coord=loc_eng) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                last_coord = self.move_coordinate_calculation(points, data["action"]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
 
         logging.info('Name')
@@ -374,9 +384,9 @@ class Facebook(threading.Thread):
         except:
             self.delete_account(new_profile=new_profile)
         else:
-            loc_elem_name = elem_name.location # коорды
-            points = curve.pointer(first_x = data['last_coord'][0], first_y = data['last_coord'][1], last_coord=loc_elem_name) # расчет передвижения
-            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            loc_elem_name = elem_name.location # пїЅпїЅпїЅпїЅпїЅпїЅ
+            points = curve.pointer(first_x = data['last_coord'][0], first_y = data['last_coord'][1], last_coord=loc_elem_name) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             self.write_text_input(action, name)
 
         logging.info('Surename')
@@ -386,8 +396,8 @@ class Facebook(threading.Thread):
             self.delete_account(new_profile=new_profile)
         else:
             loc_second_name = elem_second_name.location
-            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_second_name) # расчет передвижения
-            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_second_name) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             self.write_text_input(action, surename)
 
         logging.info('Accept NS')
@@ -396,9 +406,9 @@ class Facebook(threading.Thread):
         except:
             self.delete_account(new_profile=new_profile)
         else:
-            loc_but = but.location # коорды
-            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # расчет передвижения
-            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            loc_but = but.location # пїЅпїЅпїЅпїЅпїЅпїЅ
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
         logging.info('Mounth birthday')
         try:
@@ -407,7 +417,7 @@ class Facebook(threading.Thread):
             self.delete_account(new_profile=new_profile)
         else:
             loc_elem_birthday_month = select_elem_birthday_month.location
-            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_birthday_month) # расчет передвижения
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_birthday_month) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             last_coord = self.move_coordinate_calculation(points, data["action"])
             self.write_text_input(action, text=random.choice(list_of_month))
 
@@ -418,7 +428,7 @@ class Facebook(threading.Thread):
             self.delete_account(new_profile=new_profile)
         else:
             loc_elem_birthday_day = select_elem_birthday_day.location
-            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_birthday_day) # расчет передвижения
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_birthday_day) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             last_coord = self.move_coordinate_calculation(points, data["action"])
             self.write_text_input(action, text=random.randrange(0, 26))
 
@@ -429,7 +439,7 @@ class Facebook(threading.Thread):
             self.delete_account(new_profile=new_profile)
         else:
             loc_select_elem_birthday_year = select_elem_birthday_year.location
-            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_select_elem_birthday_year) # расчет передвижения
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_select_elem_birthday_year) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             last_coord = self.move_coordinate_calculation(points, data["action"])
             self.write_text_input(action, text=random.randrange(1990, 2002))
 
@@ -439,9 +449,9 @@ class Facebook(threading.Thread):
         except:
             self.delete_account(new_profile=new_profile)
         else:
-            loc_but = but.location # коорды
-            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # расчет передвижения
-            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            loc_but = but.location # пїЅпїЅпїЅпїЅпїЅпїЅ
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
         logging.info('Put phone') # Please enter a valid phone number.
         try:
@@ -449,13 +459,13 @@ class Facebook(threading.Thread):
         except:
             self.delete_account(new_profile=new_profile)
         else:
-            loc_elem_mail = elem_mail.location # коорды
-            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_mail) # расчет передвижения
-            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            loc_elem_mail = elem_mail.location # пїЅпїЅпїЅпїЅпїЅпїЅ
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_mail) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
         if self.sms == 'activate':
             logging.info('Waiting phone sms_activate')
-            response = sms_activate.get_number(country=self.country) #№
+            response = sms_activate.get_number(country=self.country) #пїЅ
             logging.info(f'Responce phone {response}')
             country_number = response['countryCode']
             operator_number = response['countryCode']
@@ -465,7 +475,7 @@ class Facebook(threading.Thread):
             self.write_text_input(action, text=phone)
         else:
             logging.info('Waiting phone 5sim')
-            response = api_5sim.buy_number(country=self.country) #№ 
+            response = api_5sim.buy_number(country=self.country) #пїЅ 
             country_number = response['country']
             operator_number = response['operator']
             id_number = response.get('id')
@@ -480,9 +490,9 @@ class Facebook(threading.Thread):
         except:
             self.delete_account(new_profile=new_profile)
         else:
-            loc_but = but.location # коорды
-            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # расчет передвижения
-            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            loc_but = but.location # пїЅпїЅпїЅпїЅпїЅпїЅ
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             time.sleep(random.randrange(2,3))
 
         logging.info('Add sex')
@@ -491,9 +501,9 @@ class Facebook(threading.Thread):
         except:
             self.delete_account(new_profile=new_profile)
         else:
-            loc_select_elem_sex_woman = select_elem_sex_woman.location # коорды
-            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_select_elem_sex_woman) # расчет передвижения
-            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            loc_select_elem_sex_woman = select_elem_sex_woman.location # пїЅпїЅпїЅпїЅпїЅпїЅ
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_select_elem_sex_woman) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
         logging.info('Accept sex')
         try:
@@ -501,9 +511,9 @@ class Facebook(threading.Thread):
         except:
             self.delete_account(new_profile=new_profile)
         else:
-            loc_but = but.location # коорды
-            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # расчет передвижения
-            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            loc_but = but.location # пїЅпїЅпїЅпїЅпїЅпїЅ
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             time.sleep(random.randrange(2,3))
 
         logging.info('Generate password')
@@ -512,9 +522,9 @@ class Facebook(threading.Thread):
         except:
             self.delete_account(new_profile=new_profile)
         else:
-            loc_elem_password = elem_password.location # коорды
-            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_password) # расчет передвижения
-            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            loc_elem_password = elem_password.location # пїЅпїЅпїЅпїЅпїЅпїЅ
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_password) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             password = self.generaited_password()
             self.event.wait(timeout=1)
             self.write_text_input(action, text=password)
@@ -525,73 +535,73 @@ class Facebook(threading.Thread):
         except:
             self.delete_account(new_profile=new_profile)
         else:
-            loc_elem_confirm = but.location # коорды
-            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_confirm) # расчет передвижения
-            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            loc_elem_confirm = but.location # пїЅпїЅпїЅпїЅпїЅпїЅ
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_confirm) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             
         self.event.wait(timeout=35)
 
         if data['driver'].current_url.find("action_dialog") > 0:
             logging.info('Acc exist')
             but = wait.until(lambda x: x.find_element(By.XPATH, "//button[@value='Create New Account']"))
-            loc_but = but.location # коорды
-            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # расчет передвижения
-            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            loc_but = but.location # пїЅпїЅпїЅпїЅпїЅпїЅ
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             while len(data['driver'].find_elements(By.XPATH, "//div[@class='icon icon-generic']")) > 0:
                 logging.info('Error connect after action-dialog')
                 data['driver'].back()
                 but = wait.until(lambda x: x.find_element(By.XPATH, "//button[@value='Create New Account']"))
-                loc_but = but.location # коорды
-                points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # расчет передвижения
-                last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+                loc_but = but.location # пїЅпїЅпїЅпїЅпїЅпїЅ
+                points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                last_coord = self.move_coordinate_calculation(points, data["action"]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 self.event.wait(10)
             if len(data["driver"].find_elements(By.XPATH, "//input[@type='number']")) > 0:
                 logging.info("Accept reg after without now now")
             try:
-                logging.info('Try find Not now in check')
-                elem_confirm = wait.until(lambda x: x.find_element(By.PARTIAL_LINK_TEXT, "Not now"))
-                try:
-                    logging.info('Finding field for password sms incide check')
-                    wait.until(lambda x: x.find_element(By.XPATH, "//input[@type='number']"))
-                except:
-                    logging.info('Check download in action-dialog')
-                    self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='Чекпоинт загрузи внутри action-dialog', payload=payload , country_number=country_number, operator_number=operator_number)
-                else:
-                    logging.info('Reg success, accept sms incide action-dialog')
-                    self.accept_number_code(data, id_number, password, phone, new_profile, last_coord, country_number, operator_number, payload)
+                logging.info('Try find OK in check')
+                elem_confirm = wait.until(lambda x: x.find_element(By.XPATH, "//button[@type='submit']"))
+                # try:
+                #     logging.info('Finding field for password sms incide check')
+                #     wait.until(lambda x: x.find_element(By.XPATH, "//input[@type='number']"))
+                # except:
+                #     logging.info('Check download in action-dialog')
+                #     self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ action-dialog', payload=payload , country_number=country_number, operator_number=operator_number)
+                # else:
+                #     logging.info('Reg success, accept sms incide action-dialog')
+                #     self.accept_number_code(data, id_number, password, phone, new_profile, last_coord, country_number, operator_number, payload)
             except:
                 logging.info('Not find right button')
-                self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='Ошибка в Now now', payload=payload , country_number=country_number, operator_number=operator_number)
+                self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ Now now', payload=payload , country_number=country_number, operator_number=operator_number)
             else:
                 logging.info('Reg success incide check, accepy sms')
-                loc_elem_confirm = elem_confirm.location # коорды
-                points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_confirm) # расчет передвижения
-                last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижени
+                loc_elem_confirm = elem_confirm.location # пїЅпїЅпїЅпїЅпїЅпїЅ
+                points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_confirm) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                last_coord = self.move_coordinate_calculation(points, data["action"]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 self.accept_number_code(data, id_number, password, phone, new_profile, payload, last_coord, country_number,operator_number)
 
         elif data['driver'].current_url.find("error") > 0:
             logging.info('error download')
-            self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='error загрузка', payload=payload , country_number=country_number, operator_number=operator_number)
+            self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='error пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ', payload=payload , country_number=country_number, operator_number=operator_number)
 
         elif data['driver'].current_url.find("checkpoint") > 0:
             logging.info('checkpoint')
-            self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='Chekpoint внутhи action', payload=payload , country_number=country_number, operator_number=operator_number)
+            self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='Chekpoint пїЅпїЅпїЅпїЅhпїЅ action', payload=payload , country_number=country_number, operator_number=operator_number)
         else:
             if len(data["driver"].find_elements(By.PARTIAL_LINK_TEXT, ('Please enter a valid phone number'))) > 0:
                 logging.info('Not valid phone')
-                self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='Не валидный номер', payload=payload , country_number=country_number, operator_number=operator_number)
+                self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ', payload=payload , country_number=country_number, operator_number=operator_number)
             if len(data["driver"].find_elements(By.XPATH, "//input[@type='number']")) > 0:
                 logging.info("reg accept withour not now")
                 self.accept_number_code(data, id_number, password, phone, new_profile, payload, last_coord, country_number,operator_number)
             if data['driver'].current_url.find("save") > 0:
                 logging.info('reg accept, add sms')
-                elem_confirm = wait.until(lambda x: x.find_element(By.PARTIAL_LINK_TEXT, "Not now"))
-                loc_elem_confirm = elem_confirm.location # коорды
-                points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_confirm) # расчет передвижения
-                last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижени
+                elem_confirm = wait.until(lambda x: x.find_element(By.XPATH, "//button[@type='submit']"))
+                loc_elem_confirm = elem_confirm.location # пїЅпїЅпїЅпїЅпїЅпїЅ
+                points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_confirm) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                last_coord = self.move_coordinate_calculation(points, data["action"]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 self.accept_number_code(data, id_number, password, phone, new_profile, payload, last_coord, country_number,operator_number)
             else:
-                self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='Что-то не так в not now', payload=payload , country_number=country_number, operator_number=operator_number)
+                self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅ not now', payload=payload , country_number=country_number, operator_number=operator_number)
 
     def accept_number_code(
         self,
@@ -626,11 +636,11 @@ class Facebook(threading.Thread):
             code_form = wait.until(lambda x: x.find_element(By.XPATH, "//input[@type='number']"))
         except:
             logging.info("Can't add sms")
-            self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='Не смог вбить смс', payload=payload , country_number=country_number, operator_number=operator_number)
+            self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ', payload=payload , country_number=country_number, operator_number=operator_number)
         else:
-            loc_code_form = code_form.location # коорды
-            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_code_form) # расчет передвижения
-            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+            loc_code_form = code_form.location # пїЅпїЅпїЅпїЅпїЅпїЅ
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_code_form) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             self.write_text_input(action=data['action'], text=code_sms)
         self.event.wait(3)
         logging.info('Check on valid sms')
@@ -642,18 +652,18 @@ class Facebook(threading.Thread):
                 logging.info("Sms not valid")
                 self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='Sms ne prishla', payload=payload , country_number=country_number, operator_number=operator_number)
             else:
-                loc_elem_didnt_code = elem_didnt_code.location # коорды
-                points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_didnt_code) # расчет передвижения
-                last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+                loc_elem_didnt_code = elem_didnt_code.location # пїЅпїЅпїЅпїЅпїЅпїЅ
+                points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_didnt_code) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                last_coord = self.move_coordinate_calculation(points, data["action"]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             try:  
                 elem_send_sms_code_again = wait.until(lambda x: x.find_element(By.PARTIAL_LINK_TEXT, ("Send Code Again")))
             except:
                 logging.info("Problem with send sms")
-                self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='Проблема с отправкой смс', payload=payload , country_number=country_number, operator_number=operator_number)
+                self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ', payload=payload , country_number=country_number, operator_number=operator_number)
             else:
-                loc_elem_send_sms_code_again = elem_send_sms_code_again.location # коорды
-                points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_send_sms_code_again) # расчет передвижения
-                last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижение
+                loc_elem_send_sms_code_again = elem_send_sms_code_again.location # пїЅпїЅпїЅпїЅпїЅпїЅ
+                points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_send_sms_code_again) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                last_coord = self.move_coordinate_calculation(points, data["action"]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 logging.info('Repeat add sms')
                 if self.sms == 'activate':
                     code_sms = sms_activate.set_status(id=id_number)
@@ -664,18 +674,25 @@ class Facebook(threading.Thread):
                 logging.info('Repeat adding sms')
                 if len(driver.find_elements(By.PARTIAL_LINK_TEXT, ('Check your SMS for a message with your code and try again.'))) != 0:
                     logging.info("Problem with retry send sms")
-                    self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='Проблема с повторной отправкой', payload=payload , country_number=country_number, operator_number=operator_number)
+                    self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ', payload=payload , country_number=country_number, operator_number=operator_number)
                 self.write_text_input(action=data['action'], text=code_sms)
                 self.event.wait(3)
         logging.info('Sms valid')
         try:
             code_confirm_button = wait.until(lambda x: x.find_element(By.PARTIAL_LINK_TEXT, "Confirm"))
         except:
-            self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='Проблема с нажатием кнопки', payload=payload , country_number=country_number, operator_number=operator_number)
+            self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ', payload=payload , country_number=country_number, operator_number=operator_number)
         else:
-            loc_code_confirm_button = code_confirm_button.location # коорды
-            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_code_confirm_button) # расчет передвижения
-            last_coord = self.move_coordinate_calculation(points, data["action"]) # передвижениt
+            loc_code_confirm_button = code_confirm_button.location # пїЅпїЅпїЅпїЅпїЅпїЅ
+            points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_code_confirm_button) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            last_coord = self.move_coordinate_calculation(points, data["action"]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        # self.lock.acquire()
+        # email = self.get_email() # пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ [0] - email [1] = pass
+        # self.lock.release()
+        # self.send_code_on_email(driver=driver, action = data["action"], email=email, last_coord=last_coord, password=password) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+        # email_code = self.get_code_email(driver=driver, email=email)
+        # self.confirm_email_in_fb(driver=driver, action=data['action'], email_code=email_code)
+        # self.get_two_fa(driver=driver, action=data['action'], last_coord=last_coord)
         self.options.page_load_strategy = 'eager'
         manager_id = self.find_account_manager_id(driver=driver)
         eeab_token = self.find_eeab_token(driver=driver)
@@ -688,16 +705,153 @@ class Facebook(threading.Thread):
         logging.info("Succes reg")
         self.delete_account(new_profile=new_profile)
 
+    def get_email(self):
+        logging.info('Get email from txt')
+        if os.stat(EMAIL_TXT).st_size == 0:
+            print('email text end')
+        else:
+            with open(EMAIL_TXT) as fp:
+                email = fp.readline()
+
+
+        with open(EMAIL_TXT) as infile, open(NEW_EMAIL_TXT, "w",) as outfile:
+            for line in infile:
+                if email not in line:
+                    outfile.write(line)
+        os.remove(EMAIL_TXT)
+        os.rename(NEW_EMAIL_TXT, EMAIL_TXT)
+        email = email.split(":")
+        print(email)
+        return email
+
+    def send_code_on_email(self, driver, email, action, last_coord, password):
+        wait = WebDriverWait(driver, 20)
+        logging.info('Send code on email')
+        self.event.wait(5)
+        while driver.current_url.find('settings') < 0:
+            driver.get('https://www.facebook.com/settings?tab=account&section=email')
+            logging.info('Retry email ')
+            self.event.wait(5)
+        self.event.wait(10)
+        click = driver.find_element(By.XPATH, "//*[text()='Settings']")
+        lick_loc = click.location
+        points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=lick_loc) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        self.move_coordinate_calculation(points, action)
+        frame = wait.until(lambda x: x.find_element(By.TAG_NAME, "iframe"))
+        driver.switch_to.frame(frame)
+        tab = wait.until(lambda x: x.find_element(By.PARTIAL_LINK_TEXT, "Download Your Information"))
+        tab.send_keys(Keys.TAB)
+        add_email = wait.until(lambda x: x.find_element(By.PARTIAL_LINK_TEXT, "+ Add another email or mobile number"))
+        add_email.send_keys(Keys.ENTER)
+        self.event.wait(2)
+        send_email = wait.until(lambda x: x.find_element(By.XPATH, "//input[@name='new_email']"))
+        send_email.click()
+        self.write_text_input(action, f'{email[0]}')
+        self.event.wait(2)
+        send_email.send_keys(Keys.ENTER)
+        self.event.wait(3)
+        if len(driver.find_elements(By.XPATH, "//input[@type='password'][@id='ajax_password']")) > 0:
+            ajax_pass = driver.find_element(By.XPATH, "//input[@type='password'][@id='ajax_password']")
+            self.write_text_input(action, password)
+            ajax_pass.send_keys(Keys.TAB)
+            self.event.wait(1)
+            ajax_pass.send_keys(Keys.TAB)
+            self.event.wait(1)
+            ajax_pass.send_keys(Keys.TAB)
+            self.event.wait(1)
+            ajax_pass.send_keys(Keys.ENTER)
+
+    def get_code_email(self, driver, email):
+        logging.info('Get code from email')
+        wait = WebDriverWait(driver, 20)
+        email = email[0]
+        ps = email[1]
+        driver.switch_to.new_window()
+        driver.get('https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1675278328&rver=7.0.6737.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f0%2f%3fstate%3d1%26redirectTo%3daHR0cHM6Ly9vdXRsb29rLmxpdmUuY29tL21haWwvMC8%26RpsCsrfState%3d6cecb439-8cd2-6cd5-64d1-bcaba09f90e8&id=292841&aadredir=1&whr=outlook.com&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=90015')
+        send_email = wait.until(lambda x: x.find_element(By.XPATH, "//input[@type='email']"))
+        send_email.send_keys(f'{email}')
+        send_email.send_keys(Keys.ENTER)
+        self.event.wait(10)
+        send_password = wait.until(lambda x: x.find_element(By.XPATH, "//input[@type='password']"))
+        send_password.send_keys(f'{ps}')
+        send_password.send_keys(Keys.ENTER)
+        self.event.wait(10)
+        driver.get('https://outlook.live.com/mail/0/')
+        email_pismo = wait.until(lambda x: x.find_element(By.XPATH, "//div[@tabindex='0'][@aria-selected='false'][@role='option']"))
+        email_pismo.click()
+        self.event.wait(5)
+        code = wait.until(lambda x: x.find_element(By.XPATH, '//span[@class="x_mb_text"]'))
+        text_code = code[4].text
+        code = text_code[-6:-1]
+        return code
+
+    def confirm_email_in_fb(self, driver, action, email_code):
+        logging.info('Adding code in FB')
+        wait =  WebDriverWait(driver, 20)
+        list_win = driver.window_handles
+        driver.switch_to.window(list_win[0])
+        frame = wait.until(lambda x: x.find_element(By.TAG_NAME, "iframe"))
+        driver.switch_to.frame(frame)
+        but = wait.until(lambda x: x.find_element(By.XPATH, '//a[@role="button"][@rel="dialog"]'))
+        self.event.wait(2)
+        but[0].click()
+        code_input = wait.until(lambda x: x.find_element(By.XPATH, '//input[@id="code"]'))
+        self.write_text_input(action, f'{email_code}')
+        code_input.send_keys(Keys.ENTER)
+
+    def get_two_fa(self, driver, action, last_coord):
+        wait = WebDriverWait(driver, 20)
+        while driver.current_url.find('2fac') < 0:
+            driver.get('https://www.facebook.com/security/2fac/setup/intro/')
+            logging.info('Retry 2fa')
+            self.event.wait(5)
+        click = wait.until(lambda x: x.find_element(By.XPATH, "//*[text()='Help protect your account']"))
+        lick_loc = click.location
+        points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=lick_loc) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        last_coord = self.move_coordinate_calculation(points, action)
+        button = wait.until(lambda x: x.find_element(By.XPATH, "//a[@role='button'][@rel = 'dialog-post']"))
+        lick_loc = button.location
+        points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=lick_loc) # пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        self.move_coordinate_calculation(points, action)
+        self.event.wait(5)
+        auth = wait.until(lambda x: x.find_element(By.XPATH, "//span[@style='font-family: Arial, sans-serif; font-size: 14px; line-height: 18px; letter-spacing: normal; font-weight: bold; overflow-wrap: normal; text-align: center; color: rgb(28, 30, 33);']"))
+        auth_text = auth.text
+        button = wait.until(lambda x: x.find_element(By.XPATH, "//button[@rel='post'][@type='button']"))
+        self.event.wait(2)
+        button.click()
+        driver.switch_to.new_window()
+        driver.get('https://2fa.live/')
+        list_win = driver.window_handles
+        self.event.wait(2)
+        area_for_auth = wait.until(lambda x: x.find_element(By.XPATH, "//textarea[@class='form-control']"))
+        area_for_auth.send_keys(auth_text)
+        self.event.wait(2)
+        submit = wait.until(lambda x: x.find_element(By.XPATH, "//a[@id='submit']"))
+        submit.click()
+        fa_area = wait.until(lambda x: x.find_element(By.XPATH, "//textarea[@id='output']"))
+        self.event.wait(2)
+        not_filter_2fa = fa_area.get_property('value')
+        fa2 = not_filter_2fa[-6:]
+        driver.switch_to.window(list_win[0])
+        list_input = wait.until(lambda x: x.find_element(By.TAG_NAME, ('input')))
+        self.event.wait(2)
+        list_input = list_input[-6:]
+        n=0
+        for index in list_input:
+            index.send_keys(fa2[n])
+            n+=1
+
     def find_account_manager_id(self, driver):
         logging.info('Get manager_id')
+        self.event.wait(5)
         while driver.current_url.find('manage') < 0:
-            driver.get('https://www.facebook.com/adsmanager/manage/')
+            driver.get('https://www.facebook.com/adsmanager/manage/campaigns')
             logging.info('Retry get adsmanager')
             self.event.wait(5)
         while driver.current_url.find('act') < 0:
             logging.info('Refresh page with manager_id')
             driver.refresh()
-            self.event.wait(30) # Оптимально 30
+            self.event.wait(30) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 30
         if driver.current_url.find("nav_source") > 0:
             current_url = driver.current_url
             idx_1 = current_url.find('act')+4
@@ -729,7 +883,7 @@ class Facebook(threading.Thread):
             time.sleep(random.uniform(0.2,0.4))
 
     def get_status_api(self, url):
-        """Проверка АПИ на статус"""
+        """пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ"""
         return requests.get(url + "/status").json()
 
     def generaited_password(self):
@@ -741,19 +895,19 @@ class Facebook(threading.Thread):
             n+=1
         return password
 
-def add_new_thread(country, number_proxy, sms, options):
-    therad_list.append({'thread': None, 'country': country, 'number_proxy': number_proxy, 'sms': sms, "options":options})
+def add_new_thread(country, number_proxy, sms):
+    therad_list.append({'thread': None, 'country': country, 'number_proxy': number_proxy, 'sms': sms})
 	
 def start_thread():
     logging.info("Start thread")
     for thread in therad_list:
         if thread['thread'] is None:
-            thread['thread'] = Facebook(country=thread['country'], number_proxy=thread['number_proxy'], sms=thread['sms'], options=thread['options'])
+            thread['thread'] = Facebook(country=thread['country'], number_proxy=thread['number_proxy'], sms=thread['sms'])
             thread['thread'].start()
             time.sleep(2)
         else:
             if thread['thread'].is_alive() is False:
-                thread['thread'] = Facebook(country=thread['country'], number_proxy=thread['number_proxy'], sms=thread['sms'],  options=thread['options'])
+                thread['thread'] = Facebook(country=thread['country'], number_proxy=thread['number_proxy'], sms=thread['sms'])
                 thread['thread'].start()
                 time.sleep(2)	
                 
@@ -766,15 +920,16 @@ if __name__ == '__main__':
                         datefmt="%H:%M:%S", )
 
     logging.info("Start main thread")
-    add_new_thread(country=0, number_proxy=0, sms=sms_list[1], options=Options())
-    add_new_thread(country=1, number_proxy=1, sms=sms_list[1], options=Options()) # Ахуенная прокси
-    add_new_thread(country=2, number_proxy=2, sms=sms_list[1], options=Options())
-    add_new_thread(country=3, number_proxy=3, sms=sms_list[1],  options=Options()) # Ахуенная прокси
-    add_new_thread(country=4, number_proxy=4, sms=sms_list[1],  options=Options())
+    add_new_thread(country=0, number_proxy=0, sms=sms_list[1])
+    add_new_thread(country=1, number_proxy=1, sms=sms_list[1]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+    add_new_thread(country=2, number_proxy=2, sms=sms_list[1])
+    add_new_thread(country=3, number_proxy=3, sms=sms_list[1]) # пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+    add_new_thread(country=4, number_proxy=4, sms=sms_list[1])
+    add_new_thread(country=5, number_proxy=5, sms=sms_list[1])
     start_thread()
-    n = 0
+    n = 10
     while n != 0:
-        time.sleep(450) # 420 для одной успешной реги если 5 потоков то за каждый поток надо добавлять по 10 сек (5 потоков это 40 прибавочных сек т.к. 1 не учитывается)
+        time.sleep(420) # 420 пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ 5 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ 10 пїЅпїЅпїЅ (5 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ 40 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅ.пїЅ. 1 пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
         if threading.active_count() - 1 < len(therad_list):
             start_thread()
             n-=1

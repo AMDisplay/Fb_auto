@@ -12,7 +12,7 @@ filename = 'csv\Ready_analysis.jaon'
 # 5 172.96.166.126':
 # 32   '64.74.163.147':
 
-
+success = []
 with open("csv\Ready_analysis.json") as r_file:
     country = {}
     file_reader = json.loads(r_file.read())
@@ -39,6 +39,7 @@ with open("csv\Ready_analysis.json") as r_file:
         # print(acc)
         if acc['status'] == "Success":
             # print(acc)
+            success.append(acc)
             if acc['country_number'] == 'canada':
                 operatorcanada.append(acc['operator_number'])
                 country[acc['country_number']] = operatorcanada
@@ -78,6 +79,7 @@ with open("csv\Ready_analysis.json") as r_file:
     #     print(value[0])
     #     print(len(value[1]))
     print(country)
+    print('Сумма успешных %s', len(success))
     # print(a) 
     # print(b)
     # print(c)
