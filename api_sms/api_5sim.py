@@ -27,34 +27,29 @@ DOMAIN = "5sim.net"
 
 
 # {'country': 'cambodia', 'operator': 'virtual21', 'cost': 3, 'count': 4}
-# {'country': 'cambodia', 'operator': 'virtual23', 'cost': 5, 'count': 1000}
+# {'country': 'cambodia', 'operator': 'virtual23', 'cost': 5, 'count': 1000} Запасной вариант
 # {'country': 'canada', 'operator': 'virtual12', 'cost': 5.6, 'count': 145180} 5/66 окуп при 1/28
-# {'country': 'canada', 'operator': 'virtual8', 'cost': 5, 'count': 1442} 31/40 80%+ проход
+# {'country': 'canada', 'operator': 'virtual8', 'cost': 5, 'count': 1442} 34/40 85%+ проход имба
 # {'country': 'china', 'operator': 'virtual23', 'cost': 4.3, 'count': 1000} Нет номеров даже при 1000 написанных
 # {'country': 'egypt', 'operator': 'virtual21', 'cost': 5, 'count': 190}
 # {'country': 'gambia', 'operator': 'virtual21', 'cost': 5, 'count': 14}
-# {'country': 'india', 'operator': 'virtual21', 'cost': 4, 'count': 5552}
+# {'country': 'india', 'operator': 'virtual21', 'cost': 4, 'count': 5552} Параша все на чек падает 0/12 12 - чеков
 # {'country': 'indonesia', 'operator': 'virtual21', 'cost': 5.4, 'count': 109}
 # {'country': 'kyrgyzstan', 'operator': 'virtual21', 'cost': 1, 'count': 4}
 # {'country': 'mauritius', 'operator': 'virtual21', 'cost': 3, 'count': 15}
-# {'country': 'nicaragua', 'operator': 'virtual23', 'cost': 3.8, 'count': 1000}
-# {'country': 'russia', 'operator': 'beeline', 'cost': 4, 'count': 131}
-# {'country': 'russia', 'operator': 'megafon', 'cost': 4, 'count': 1281}
-# {'country': 'russia', 'operator': 'mts', 'cost': 4, 'count': 1201}
-# {'country': 'russia', 'operator': 'rostelecom', 'cost': 4, 'count': 44}
-# {'country': 'russia', 'operator': 'tele2', 'cost': 4, 'count': 1119}
+# {'country': 'nicaragua', 'operator': 'virtual23', 'cost': 3.8, 'count': 1000} Тоже наебалово с кол-вом номеров. 1/10 прошелю 8/10 на чеке
 # {'country': 'zimbabwe', 'operator': 'virtual21', 'cost': 3, 'count': 8}
 
 
 country_dict =[
-{'country': 'canada', 'operator': 'virtual8'},
-{'country': 'canada', 'operator': 'virtual8'},
-{'country': 'canada', 'operator': 'virtual8'},
-{'country': 'canada', 'operator': 'virtual8'},
-{'country': 'canada', 'operator': 'virtual8'},
-{'country': 'canada', 'operator': 'virtual8'},
-{'country': 'canada', 'operator': 'virtual8'},
-{'country': 'congo', 'operator': 'virtual4'},
+{'country': 'zimbabwe', 'operator': 'virtual21'},
+{'country': 'zimbabwe', 'operator': 'virtual21'},
+{'country': 'zimbabwe', 'operator': 'virtual21'},
+{'country': 'zimbabwe', 'operator': 'virtual21'},
+{'country': 'zimbabwe', 'operator': 'virtual21'},
+{'country': 'zimbabwe', 'operator': 'virtual21'},
+{'country': 'mauritius', 'operator': 'virtual21'},
+{'country': 'nicaragua', 'operator': 'virtual23'},
 {'country': 'egypt', 'operator': 'virtual21'}
     ]
 

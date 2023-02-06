@@ -1,26 +1,18 @@
 
-import os
+class A():
+    def __init__(self, size, max_n) -> None:
+        self.size = size,
+        self.max_n = max_n
 
-filename = 'csv\email.txt'
-new_filename = 'csv\\new_email.txt'
+    def push_back(self,x):
+        try:
+            self.size == self.max_n
+            print('ne ok')
+        except:
+            raise Exception('error')
+        self.__queue[self.__tail] = x
+        self.__tail = (self.__tail + 1) % self.__max_n
+        self.size += 1 
+        print('OK')
 
-
-def qwe():
-    if os.stat(filename).st_size == 0:
-        print('email text end')
-    else:
-        with open(filename) as fp:
-            email = fp.readline()
-
-
-    with open(filename) as infile, open(new_filename, "w",) as outfile:
-        for line in infile:
-            if email not in line:
-                outfile.write(line)
-    os.remove(filename)
-    os.rename(new_filename, filename)
-    return email
-
-
-email = qwe()
-email = email.split(":")
+A(size=1,max_n=2)

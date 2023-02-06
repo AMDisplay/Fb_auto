@@ -1,0 +1,10 @@
+import requests
+from pyfacebook import GraphAPI, FacebookApi
+
+TOKEN = 'EAAKOdxAk7XUBAHT6I5C5NLpLHY4WBeQrd7S8UD8UwQbAHSPOie9nbfcvztcA2kuUOjrBDcBDzh1BlZB22UydRnoiaaXlIIvdlkTmMMnwUj1ulrvLbAEJvI4xCWOBNmt6HcVYEH9vadXF6uOCdT6ZB343WA0p16pOWqo3EvS5Astz9TcNdbuUxfhSmwxtmZBjcKiC6AT5eFhxJUaL5gAgYHRZANge8nP6E5wsMyPC8q6HWsEGdsUS6o2EAqhKEiAZD'
+APP_TOKEN = '719591976529269|-iq8uPsq36NvkzNo7iPUAeaPABc'
+data = 'access_token=EAAKOdxAk7XUBAHT6I5C5NLpLHY4WBeQrd7S8UD8UwQbAHSPOie9nbfcvztcA2kuUOjrBDcBDzh1BlZB22UydRnoiaaXlIIvdlkTmMMnwUj1ulrvLbAEJvI4xCWOBNmt6HcVYEH9vadXF6uOCdT6ZB343WA0p16pOWqo3EvS5Astz9TcNdbuUxfhSmwxtmZBjcKiC6AT5eFhxJUaL5gAgYHRZANge8nP6E5wsMyPC8q6HWsEGdsUS6o2EAqhKEiAZD'
+URL = 'https://graph.facebook.com/'
+USER_ID = "100089711424851"
+a=requests.get('https://graph.facebook.com/v16.0/100089711424851/', data=data).json()
+print(a)

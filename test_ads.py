@@ -10,12 +10,14 @@ from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.keys import Keys
 import curve
+import random
+import logging
 
 
 URL = "http://local.adspower.com:50325"
 ads_id = "302949221d20300738e52ce0046a2b48"
 # http://local.adspower.net:50325 Script can go to Profile Management-> click Settings-> click Cache folder-> local_api file to obtain API address
-open_url = URL + '/api/v1/browser/start?user_id=' + "j4ya2j2"
+open_url = URL + '/api/v1/browser/start?user_id=' + "j50j7a0"
 # close_url = "http://local.adspower.net:50325/api/v1/browser/stop?user_id=" + ads_id
 
 
@@ -65,6 +67,19 @@ wait = WebDriverWait(driver, 30)
 
 # # "//span[.='Next']"
 
+def find_inscribed_rectangle(larger_rectangle, inscribed_rectangle):
+    (x1, y1), (x2, y2) = larger_rectangle
+    x_mid = (x1 + x2) / 2
+    y_mid = (y1 + y2) / 2
+
+    width_inscribed, height_inscribed = inscribed_rectangle
+    x1_inscribed = x_mid - width_inscribed / 2
+    y1_inscribed = y_mid - height_inscribed / 2
+    x2_inscribed = x_mid + width_inscribed / 2
+    y2_inscribed = y_mid + height_inscribed / 2
+
+    return [(x1_inscribed, y1_inscribed), (x2_inscribed, y2_inscribed)]
+
 def move_coordinate_calculation(points, action):
         coord = points.tolist()  # Преобразование многомерного (N массива np) в список питон
         for point in coord:
@@ -78,36 +93,13 @@ def move_coordinate_calculation(points, action):
         time.sleep(5)
         return coord[-1]
 
-driver.get('https://www.facebook.com/')
-time.sleep(5)
-profile = driver.find_element(By.XPATH, "/html/body/div[1]/div/div[1]/div/div[2]/div[3]/div[1]/span/div/div[1]")
-# for node in profile:
-#     print(node.get_attribute('aria-label'))
-locationprofile = profile.location
-points = curve.pointer(first_x = 900, first_y = 400 , last_coord=locationprofile) # расчет передвижения
-last_coord = move_coordinate_calculation(points, action)
-time.sleep(2)
-setting_privicy = driver.find_element(By.XPATH, "/html/body/div[1]/div/div[1]/div/div[2]/div[3]/div[2]/div/div/div[1]/div[1]/div/div/div/div/div/div/div/div/div[1]/div/div/div[1]/div[2]/div/div[1]/div/div[1]/div[2]/div[1]")
-location_setting_privicy = setting_privicy.location
-points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1] , last_coord=location_setting_privicy) # расчет передвижения
-last_coord = move_coordinate_calculation(points, action)
-time.sleep(2)
-setting = driver.find_element(By.XPATH, "/html/body/div[1]/div/div[1]/div/div[2]/div[3]/div[2]/div/div/div[1]/div[1]/div/div/div/div/div/div/div/div/div[2]/div/div[2]/div/div[1]/a/div[1]/div[2]/div/div/div/div/span")
-location_setting = setting.location
-points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=location_setting) # расчет передвижения
-last_coord = move_coordinate_calculation(points, action)
-frame = driver.find_element(By.TAG_NAME, "iframe")
-driver.switch_to.frame(frame)
-add_email = driver.find_element(By.XPATH, ('/html/body/div[1]/div[1]/div[1]/div/div[2]/div[2]/div[2]/div/ul/li[3]/a/h3'))
-locationa_add_email = add_email.location
-print(add_email.size)
-print(locationa_add_email) # {'x': 24, 'y': 201}  1140 300
-points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=locationa_add_email) # расчет передвижения
-last_coord = move_coordinate_calculation(points, action)
-ajax = driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[1]/div/div[2]/div[2]/div[2]/div/ul/li[3]/div/div/div/div[2]/div[1]/div/div/a')
-location_ajax = ajax.location
-points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=location_ajax) # расчет передвижения
-last_coord = move_coordinate_calculation(points, action)
+def write_text_input( action, text):
+    text = str(text) 
+    for letter in text:
+        action.key_action.send_keys(letter)
+        action.perform()
+        time.sleep(random.uniform(0.2,0.4))
+
 
 # # вызор здрд
 # # driver.get('https://business.facebook.com/overview/')
@@ -164,103 +156,26 @@ last_coord = move_coordinate_calculation(points, action)
 # # points = curve.pointer(first_x = 400, first_y = 500 , last_coord=cont_loc) # расчет передвижения
 # # last_coord = move_coordinate_calculation(points, action)
 
-# def get_two_fa():
-#     # Подключение 2fa
-#     driver.get('https://www.facebook.com/security/2fac/setup/intro/')
-    # click = driver.find_element(By.XPATH, "//*[text()='Help protect your account']")
-    # lick_loc = click.location
-    # points = curve.pointer(first_x = 400, first_y = 120 , last_coord=lick_loc) # расчет передвижения
-    # last_coord = move_coordinate_calculation(points, action)
-#     button = driver.find_element(By.XPATH, "//a[@role='button'][@rel = 'dialog-post']")
-#     button.click()
-#     time.sleep(5)
-#     auth = driver.find_element(By.XPATH, "//span[@style='font-family: Arial, sans-serif; font-size: 14px; line-height: 18px; letter-spacing: normal; font-weight: bold; overflow-wrap: normal; text-align: center; color: rgb(28, 30, 33);']")
-#     auth_text = auth.text
-#     button = driver.find_element(By.XPATH, "//button[@rel='post'][@type='button']")
-#     time.sleep(2)
-#     button.click()
-#     driver.switch_to.new_window()
-#     driver.get('https://2fa.live/')
-#     list_win = driver.window_handles
-#     time.sleep(2)
-#     area_for_auth = driver.find_element(By.XPATH, "//textarea[@class='form-control']")
-#     area_for_auth.send_keys(auth_text)
-#     time.sleep(1)
-#     submit = driver.find_element(By.XPATH, "//a[@id='submit']")
-#     submit.click()
-#     fa_area = driver.find_element(By.XPATH, "//textarea[@id='output']")
-#     time.sleep(2)
-#     not_filter_2fa = fa_area.get_property('value')
-#     fa2 = not_filter_2fa[-6:]
-#     driver.switch_to.window(list_win[0])
-#     list_input = driver.find_elements(By.TAG_NAME, ('input'))
-#     time.sleep(2)
-#     list_input = list_input[-6:]
-#     n=0
-#     for index in list_input:
-#         index.send_keys(fa2[n])
-#         n+=1
 
-
-# driver.get('https://www.facebook.com/settings?tab=account&section=email')
-# time.sleep(5)
-# click = driver.find_element(By.XPATH, "//*[text()='Settings']")
-# lick_loc = click.location
-# points = curve.pointer(first_x = 400, first_y = 120 , last_coord=lick_loc) # расчет передвижения
-# last_coord = move_coordinate_calculation(points, action)
-# frame = driver.find_element(By.TAG_NAME, "iframe")
-# driver.switch_to.frame(frame)
-# tab = driver.find_element(By.PARTIAL_LINK_TEXT, "Download Your Information")
-# tab.send_keys(Keys.TAB)
-# qwe = driver.find_element(By.PARTIAL_LINK_TEXT, "+ Add another email or mobile number")
-# qwe.send_keys(Keys.ENTER)
-# time.sleep(2)
-# send_email = driver.find_element(By.XPATH, "//input[@name='new_email']")
-# send_email.send_keys('nbrian7qom@outlook.com')
-# time.sleep(10)
-# send_email.send_keys(Keys.ENTER)
-# time.sleep(10)
-# if len(driver.find_elements(By.XPATH, "//input[@type='password'][@id='ajax_password']")) > 0:
-#     ajax_pass = driver.find_element(By.XPATH, "//input[@type='password'][@id='ajax_password']")
-#     ajax_pass.send_keys('sdfsdf')
-#     time.sleep(5)
-#     ajax_pass.send_keys(Keys.TAB)
-#     ajax_pass.send_keys(Keys.TAB)
-#     ajax_pass.send_keys(Keys.TAB)
-#     ajax_pass.send_keys(Keys.ENTER)
-
-# Пароль из емаил
-# driver.switch_to.new_window()
-# driver.get('https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1675278328&rver=7.0.6737.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f0%2f%3fstate%3d1%26redirectTo%3daHR0cHM6Ly9vdXRsb29rLmxpdmUuY29tL21haWwvMC8%26RpsCsrfState%3d6cecb439-8cd2-6cd5-64d1-bcaba09f90e8&id=292841&aadredir=1&whr=outlook.com&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=90015')
-# send_email = driver.find_element(By.XPATH, "//input[@type='email']")
-# email = 'cloverwirick1l5@outlook.com'
-# ps = 'qOknxvh1'
-# send_email.send_keys(f'{email}')
-# send_email.send_keys(Keys.ENTER)
-# time.sleep(5)
-# send_password = driver.find_element(By.XPATH, "//input[@type='password']")
-# send_password.send_keys(f'{ps}')
-# send_password.send_keys(Keys.ENTER)
-# time.sleep(5)
-# driver.get('https://outlook.live.com/mail/0/')
-# time.sleep(10)
-# email_pismo = driver.find_element(By.XPATH, "//div[@tabindex='0'][@aria-selected='false'][@role='option']")
-# email_pismo.click()
-# time.sleep(5)
-# code = driver.find_elements(By.XPATH, '//span[@class="x_mb_text"]')
-# text_code = code[4].text
-# code = text_code[-6:-1]
-
-# def confirm_email_in_fb():
-#     # Вбивание кода из емаил
-#     list_win = driver.window_handles
-#     driver.switch_to.window(list_win[0])
-#     frame = driver.find_element(By.TAG_NAME, "iframe")
-#     driver.switch_to.frame(frame)
-#     but = driver.find_elements(By.XPATH, '//a[@role="button"][@rel="dialog"]')
-#     but[0].click()
-#     time.sleep(3)
-#     code_input = driver.find_element(By.XPATH, '//input[@id="code"]')
-#     code_input.send_keys('234234')
-#     code_input.send_keys(Keys.ENTER)
+# мб для чекера почты
+# sign_in = driver.find_element(By.XPATH, "//a[@data-task= 'signin']")
+# sign_in.click()
+# if len(driver.find_elements(By.XPATH, "//a[@id='iShowSkip']")) > 0:
+#     skip = wait.until(lambda x: x.find_element(By.XPATH, "//a[@id='iShowSkip']"))
+#     skip.click()
+# if len(driver.find_elements(By.XPATH, "//a[@id='iShowSkip']")) > 0:
+#     skip = wait.until(lambda x: x.find_element(By.XPATH, "//a[@id='iShowSkip']"))
+#     skip.click()
+# skip = wait.until(lambda x: x.find_element(By.XPATH, "//input[@id='idBtn_Back']"))
+# skip.click()
+# qwe = driver.find_element(By.XPATH, "//a[@id='iCancel']")
+# qwe.click()
+# time.sleep(7)
+# profile = driver.find_element(By.XPATH, "//button[contains(@title, 'Account manager')]")
+# profile.click()
+# time.sleep(1)
+# profile_out_button = driver.find_element(By.XPATH, "//a[@id='mectrl_body_signOut']")
+# profile_out_button.click()
+# time.sleep(1)
+# driver.get('https://outlook.live.com/owa/') #wilcoxsnickole75@outlook.com:kK5g9I19iF
 
