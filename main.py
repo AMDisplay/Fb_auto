@@ -28,10 +28,10 @@ from proxy.get_proxy import get_proxy
 
 # 680 ��� 10/10 ����� � ��� 25 ������ ���� ���������
 
-API_KEY = "302949221d20300738e52ce0046a2b48"
+API_KEY = ""
 URL = "http://local.adspower.com:50325"
-USER_ID = "h98ot4"
-GROUP_ID = "1836292"
+USER_ID = ""
+GROUP_ID = ""
 
 sms_list = ['activate', '5sim']
 
