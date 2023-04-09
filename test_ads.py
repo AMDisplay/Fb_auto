@@ -14,15 +14,14 @@ import random
 import logging
 
 
-URL = "http://local.adspower.com:50325"
-ads_id = "302949221d20300738e52ce0046a2b48"
-# http://local.adspower.net:50325 Script can go to Profile Management-> click Settings-> click Cache folder-> local_api file to obtain API address
-open_url = URL + '/api/v1/browser/start?user_id=' + "j50j7a0"
+URL = ""
+ads_id = ""
+open_url = URL + '"
 # close_url = "http://local.adspower.net:50325/api/v1/browser/stop?user_id=" + ads_id
 
 
-# # login = "+255772049150"
-# # password  = 'DcHgUKVLaw'
+# # login = ""
+# # password  = ''
 # # url = URL + "/api/v1/user/create"
 # # payload = payload = { #№
 # #             "name": "Fb",
