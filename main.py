@@ -29,11 +29,11 @@ from proxy.get_proxy import get_proxy
 # 680 ��� 10/10 ����� � ��� 25 ������ ���� ���������
 
 API_KEY = ""
-URL = "http://local.adspower.com:50325"
+URL = ""
 USER_ID = ""
 GROUP_ID = ""
 
-sms_list = ['activate', '5sim']
+sms_list = [] # list for api services
 
 therad_list = []
 
@@ -243,8 +243,7 @@ class Facebook(threading.Thread):
         }
         logging.info('Deleting profile')
         self.lock.acquire()
-        #  [Thread-5]: 02:38:24: [j4wclp4] is being used by [DIsplay1997@yandex.ru] mailbox users and cannot be deleted
-        # ������� ������ {'data': {}, 'msg': 'wrong user_id or wrong user_ids', 'code': 9108}
+
 
         response = requests.request("POST", url, headers=headers, json=payload).json()
         n=0
@@ -265,28 +264,6 @@ class Facebook(threading.Thread):
         logging.info("profile deleted %s", response)
         logging.info('Thread %s end', threading.current_thread().name)
 
-    # def change_profile_name(self,profile_id,driver):
-        # logging.info('�������� �����������')
-        # logging.info('�������� �������')
-        # self.lock.acquire()
-        # requests.get(URL + '/api/v1/browser/stop?user_id=' + profile_id).json()
-        # self.event.wait(timeout=1)
-        
-
-        # logging.info('����� ��� �������')
-        # url = URL + "/api/v1/user/update"
-
-        # payload = {
-        # "user_id": f"{profile_id}",
-        # "name": "Success",
-        # }
-
-        # headers = {
-        #     'Content-Type': 'application/json'
-        # }
-        # response = requests.request("POST", url, headers=headers, json=payload)
-        # self.lock.release()
-        # print(response.text)
 
     def start_profile(self,url, new_profile):
         """Start profile"""
@@ -320,11 +297,11 @@ class Facebook(threading.Thread):
         if len(driver.find_elements(By.XPATH, "//button[@value='Allow essential and optional cookies']")) > 0:
             logging.info('Accept cookie')
             cookie_button = wait.until(lambda x: x.find_element(By.XPATH, "//button[@value='Allow essential and optional cookies']"))
-            size_window = driver.get_window_size() # ������ ���� #�
+            size_window = driver.get_window_size() 
             loc = cookie_button.location
             height_window = size_window['height']/2
             width_window = size_window['width']/2
-            points = curve.pointer(first_x = width_window, first_y = height_window, last_coord=loc) # ���������� �������� �������
+            points = curve.pointer(first_x = width_window, first_y = height_window, last_coord=loc) 
             last_coord = self.move_coordinate_calculation(points, action)
         if len(driver.find_elements(By.XPATH, "//div[@class='icon icon-generic']")) > 0:
             driver.refresh()
@@ -338,12 +315,12 @@ class Facebook(threading.Thread):
             self.delete_account(new_profile=new_profile)
         else:
             self.event.wait(5)
-            size_window = driver.get_window_size() # ������ ���� #�
+            size_window = driver.get_window_size()
             logging.info(f'Size window {size_window}')
             loc = clickable.location
             height_window = size_window['height']/2
             width_window = size_window['width']/2
-            points = curve.pointer(first_x = width_window, first_y = height_window, last_coord=loc) # ���������� �������� �������
+            points = curve.pointer(first_x = width_window, first_y = height_window, last_coord=loc) 
             last_coord = self.move_coordinate_calculation(points, action)
             while driver.current_url.find('reg') < 0:
                 self.event.wait(5)
@@ -375,9 +352,9 @@ class Facebook(threading.Thread):
             if lang.text != "What's your name?":
                 logging.info('Change lang')
                 eng = wait.until(lambda x: x.find_element(By.PARTIAL_LINK_TEXT, "Eng"))
-                loc_eng = eng.location # ������
+                loc_eng = eng.location
                 points = curve.pointer(first_x = data['last_coord'][0], first_y = data['last_coord'][1], last_coord=loc_eng) 
-                last_coord = self.move_coordinate_calculation(points, data["action"]) # ������������
+                last_coord = self.move_coordinate_calculation(points, data["action"])
 
 
         logging.info('Name')
@@ -386,9 +363,9 @@ class Facebook(threading.Thread):
         except:
             self.delete_account(new_profile=new_profile)
         else:
-            loc_elem_name = elem_name.location # ������
+            loc_elem_name = elem_name.location 
             points = curve.pointer(first_x = data['last_coord'][0], first_y = data['last_coord'][1], last_coord=loc_elem_name) 
-            last_coord = self.move_coordinate_calculation(points, data["action"]) # ������������
+            last_coord = self.move_coordinate_calculation(points, data["action"])
             self.write_text_input(action, name)
 
         logging.info('Surename')
@@ -399,7 +376,7 @@ class Facebook(threading.Thread):
         else:
             loc_second_name = elem_second_name.location
             points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_second_name) 
-            last_coord = self.move_coordinate_calculation(points, data["action"]) # ������������
+            last_coord = self.move_coordinate_calculation(points, data["action"]) 
             self.write_text_input(action, surename)
 
         logging.info('Accept NS')
@@ -408,9 +385,9 @@ class Facebook(threading.Thread):
         except:
             self.delete_account(new_profile=new_profile)
         else:
-            loc_but = but.location # ������
+            loc_but = but.location 
             points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) 
-            last_coord = self.move_coordinate_calculation(points, data["action"]) # ������������
+            last_coord = self.move_coordinate_calculation(points, data["action"])
 
         logging.info('Mounth birthday')
         try:
@@ -451,9 +428,9 @@ class Facebook(threading.Thread):
         except:
             self.delete_account(new_profile=new_profile)
         else:
-            loc_but = but.location # ������
+            loc_but = but.location 
             points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_but) 
-            last_coord = self.move_coordinate_calculation(points, data["action"]) # ������������
+            last_coord = self.move_coordinate_calculation(points, data["action"]) 
 
         logging.info('Put phone') # Please enter a valid phone number.
         try:
@@ -461,9 +438,9 @@ class Facebook(threading.Thread):
         except:
             self.delete_account(new_profile=new_profile)
         else:
-            loc_elem_mail = elem_mail.location # ������
+            loc_elem_mail = elem_mail.location 
             points = curve.pointer(first_x = last_coord[0], first_y = last_coord[1], last_coord=loc_elem_mail) 
-            last_coord = self.move_coordinate_calculation(points, data["action"]) # ������������
+            last_coord = self.move_coordinate_calculation(points, data["action"]) 
 
         if self.sms == 'activate':
             logging.info('Waiting phone sms_activate')
@@ -563,15 +540,7 @@ class Facebook(threading.Thread):
             try:
                 logging.info('Try find OK in check')
                 elem_confirm = wait.until(lambda x: x.find_element(By.XPATH, "//button[@type='submit']"))
-                # try:
-                #     logging.info('Finding field for password sms incide check')
-                #     wait.until(lambda x: x.find_element(By.XPATH, "//input[@type='number']"))
-                # except:
-                #     logging.info('Check download in action-dialog')
-                #     self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='�������� ������� ������ action-dialog', payload=payload , country_number=country_number, operator_number=operator_number)
-                # else:
-                #     logging.info('Reg success, accept sms incide action-dialog')
-                #     self.accept_number_code(data, id_number, password, phone, new_profile, last_coord, country_number, operator_number, payload)
+
             except:
                 logging.info('Not find right button')
                 self.chech_checkpoint(id_number=id_number, new_profile=new_profile, phone=phone, status='������ � Now now', payload=payload , country_number=country_number, operator_number=operator_number)
@@ -1034,7 +1003,7 @@ if __name__ == '__main__':
     start_thread()
     n = 0
     while n != 0:
-        time.sleep(420) # 420 ��� ����� �������� ���� ���� 5 ������� �� �� ������ ����� ���� ��������� �� 10 ��� (5 ������� ��� 40 ����������� ��� �.�. 1 �� �����������)
+        time.sleep(420) 
         if threading.active_count() - 1 < len(therad_list):
             start_thread()
             n-=1
